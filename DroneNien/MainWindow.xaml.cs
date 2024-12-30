@@ -18,6 +18,7 @@ namespace DroneNien
     /// </summary>
     public partial class MainWindow : Window
     {
+        private MAVLink mavlink = new MAVLink();
         private Process pythonProcess;
         private Process unrealProcess;
         private bool isDroneConnected = false;

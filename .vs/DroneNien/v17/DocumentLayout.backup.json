@@ -3,20 +3,20 @@
   "WorkspaceRootPath": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\drone_control.py||{8B382828-6202-11D1-8870-0000F87579D2}",
-      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\drone_control.py||{8B382828-6202-11D1-8870-0000F87579D2}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|d:\\onedrive\\onedrive - nien.edu.vn\\learning\\self_learning\\workspace\\dronepath\\dronenien\\drone_control.py||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\drone_control.py||{8B382828-6202-11D1-8870-0000F87579D2}"
     }
   ],
   "DocumentGroupContainers": [
@@ -26,7 +26,7 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 4,
+          "SelectedChildIndex": 3,
           "Children": [
             {
               "$type": "Bookmark",
@@ -34,7 +34,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 1,
               "Title": "Styles.xaml",
               "DocumentMoniker": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\DroneNien\\Styles.xaml",
               "RelativeDocumentMoniker": "DroneNien\\Styles.xaml",
@@ -46,7 +46,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "drone_control.py",
               "DocumentMoniker": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\DroneNien\\drone_control.py",
               "RelativeDocumentMoniker": "DroneNien\\drone_control.py",
@@ -54,12 +54,11 @@
               "RelativeToolTip": "DroneNien\\drone_control.py",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.002457|",
-              "WhenOpened": "2024-12-29T13:56:05.95Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T13:56:05.95Z"
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 0,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\DroneNien\\MainWindow.xaml",
               "RelativeDocumentMoniker": "DroneNien\\MainWindow.xaml",
@@ -71,16 +70,15 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "MainWindow.xaml.cs",
               "DocumentMoniker": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\DroneNien\\MainWindow.xaml.cs",
               "RelativeDocumentMoniker": "DroneNien\\MainWindow.xaml.cs",
               "ToolTip": "D:\\OneDrive\\OneDrive - nien.edu.vn\\Learning\\Self_Learning\\Workspace\\DronePath\\DroneNien\\MainWindow.xaml.cs",
               "RelativeToolTip": "DroneNien\\MainWindow.xaml.cs",
-              "ViewState": "AgIAAJoAAAAAAAAAAADwv8AAAAAZAAAAAAAAAA==",
+              "ViewState": "AgIAABMAAAAAAAAAAAAkwBwAAAAmAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-12-29T13:50:55.224Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-12-29T13:50:55.224Z"
             }
           ]
         }
