@@ -18,3 +18,25 @@ C:\Users\NienNguyen\source\repos\DroneNien\DroneNien\obj\Debug\net8.0-windows\re
 C:\Users\NienNguyen\source\repos\DroneNien\DroneNien\obj\Debug\net8.0-windows\DroneNien.pdb
 C:\Users\NienNguyen\source\repos\DroneNien\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
 C:\Users\NienNguyen\source\repos\DroneNien\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\App.g.cs
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.cache
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.lref
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.dll
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\refint\DroneNien.dll
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.pdb
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.exe
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.deps.json
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.runtimeconfig.json
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.dll
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.pdb
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\Styles.baml
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.baml
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.g.resources
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.GeneratedMSBuildEditorConfig.editorconfig
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfoInputs.cache
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfo.cs
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.CoreCompileInputs.cache
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.sourcelink.json
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
+D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll

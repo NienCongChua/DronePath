@@ -6,6 +6,13 @@
         xmlns:local="clr-namespace:DroneNien"
         mc:Ignorable="d"
         Title="Drone Control System" Height="477" Width="800">
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="Styles.xaml"/>
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
