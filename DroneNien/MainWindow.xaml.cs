@@ -26,7 +26,7 @@ namespace DroneNien
         public MainWindow()
         {
             InitializeComponent();
-            InitializePythonBackend();
+            // InitializePythonBackend();
         }
 
         private void InitializePythonBackend()
@@ -190,7 +190,12 @@ namespace DroneNien
 
         private void btnStopSim_Click(object sender, RoutedEventArgs e)
         {
+            this.Close();
+        }
 
+        void Display(object sender, RoutedEventArgs e)
+        {
+            
         }
     }
 }

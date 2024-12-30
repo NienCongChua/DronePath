@@ -42,7 +42,7 @@
             <GroupBox Header="Simulation" Margin="0,0,0,10">
                 <StackPanel Margin="5">
                     <Button x:Name="btnStartSim" Content="Start Simulation" Margin="0,5" Click="btnStartSim_Click"/>
-                    <Button x:Name="btnStopSim" Content="Stop Simulation" Margin="0,5" Click="btnStopSim_Click"/>
+                    <Button x:Name="btnStopSim" Content="Exit Simulation" Margin="0,5" Click="btnStopSim_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
@@ -56,7 +56,7 @@
 
             <!-- QGroundControl Map View -->
             <Border Grid.Row="0" BorderBrush="Gray" BorderThickness="1" Margin="10">
-                <WebBrowser x:Name="webBrowserMap"/>
+                <WebBrowser x:Name="webBrowserMap"></WebBrowser>
             </Border>
 
             <!-- Status and Telemetry -->
