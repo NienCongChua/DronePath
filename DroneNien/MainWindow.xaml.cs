@@ -10,6 +10,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Shapes;
+using Python.Runtime;
+using System.Printing;
 
 namespace DroneNien
 {
@@ -27,7 +29,7 @@ namespace DroneNien
         public MainWindow()
         {
             InitializeComponent();
-            // InitializePythonBackend();
+            InitializePythonBackend();
         }
 
         private void InitializePythonBackend()
@@ -191,7 +193,21 @@ namespace DroneNien
 
         private void btnStopSim_Click(object sender, RoutedEventArgs e)
         {
-            this.Close();
+            // Set the path to the Anaconda environment's python executable
+            string condaEnvPath = @"C:\Users\NienNguyen\.conda\envs\ScienceResearch\python.exe";
+
+            // Initialize Python.NET with the Anaconda environment
+            Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", condaEnvPath);
+            PythonEngine.Initialize();
+
+            // Import the hello module
+            using (Py.GIL())
+            {
+                dynamic hello = Py.Import("hello");
+                string result = hello.HelloWorld();
+                MessageBox.Show(result);
+            }
+            // this.Close();
         }
 
         void Display(object sender, RoutedEventArgs e)
