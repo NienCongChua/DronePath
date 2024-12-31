@@ -10,8 +10,9 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.IO;
 using System.Windows.Shapes;
-using Python.Runtime;
-using System.Printing;
+using System; //Bổ sung
+using Python.Runtime; //Bổ sung
+using Microsoft.Win32;
 
 namespace DroneNien
 {
@@ -29,7 +30,7 @@ namespace DroneNien
         public MainWindow()
         {
             InitializeComponent();
-            InitializePythonBackend();
+            // InitializePythonBackend();
         }
 
         private void InitializePythonBackend()
@@ -47,6 +48,7 @@ namespace DroneNien
                     RedirectStandardError = true,
                     CreateNoWindow = true
                 }
+                
             };
         }
 
@@ -60,6 +62,7 @@ namespace DroneNien
                     isDroneConnected = true;
                     txtStatus.Text = "Connected";
                     btnConnect.Content = "Disconnect";
+                    MessageBox.Show("Dauuuu");
                 }
                 catch (Exception ex)
                 {
@@ -120,18 +123,71 @@ namespace DroneNien
 
         private void btnStartSim_Click(object sender, RoutedEventArgs e)
         {
-            if (!isSimulationRunning)
+            try
             {
-                // Start Unreal Engine simulation
-                StartUnrealSimulation();
-                isSimulationRunning = true;
-                btnStartSim.Content = "Stop Simulation";
+                OpenFileDialog openFileDialog = new OpenFileDialog();
+                openFileDialog.Filter = "Python Files (*.py)|*.py"; 
+                if (openFileDialog.ShowDialog() != true)
+                {
+                    return;
+                }
+                string pythonFilePath = openFileDialog.FileName;
+
+                ProcessStartInfo start = new ProcessStartInfo();
+                start.FileName = "python.exe"; // Hoặc python3, hoặc đường dẫn đầy đủ nếu cần
+                start.Arguments = pythonFilePath;
+
+                // 4. Redirect output và error
+                start.UseShellExecute = false;
+                start.RedirectStandardOutput = true;
+                start.RedirectStandardError = true;
+                start.CreateNoWindow = true; // Optional: Ẩn cửa sổ console
+
+
+                // 5. Khởi chạy process và đọc output/error
+                StringBuilder outputBuilder = new StringBuilder();
+                StringBuilder errorBuilder = new StringBuilder();
+
+                using (Process process = Process.Start(start))
+                {
+                    using (StreamReader outputReader = process.StandardOutput)
+                    {
+                        string line;
+                        while ((line = outputReader.ReadLine()) != null)
+                        {
+                            outputBuilder.AppendLine(line);
+                        }
+                    }
+
+                    using (StreamReader errorReader = process.StandardError)
+                    {
+                        string line;
+                        while ((line = errorReader.ReadLine()) != null)
+                        {
+                            errorBuilder.AppendLine(line);
+                        }
+                    }
+
+                    process.WaitForExit();
+                }
+
+                // 6. Hiển thị output hoặc error
+                string output = outputBuilder.ToString();
+                string error = errorBuilder.ToString();
+
+                if (!string.IsNullOrEmpty(error))
+                {
+                    MessageBox.Show("Lỗi Python:\n" + error, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
+                }
+                else
+                {
+                    MessageBox.Show("Kết quả:\n" + output, "Kết quả", MessageBoxButton.OK, MessageBoxImage.Information);
+                }
+
             }
-            else
+            catch (Exception ex)
             {
-                StopUnrealSimulation();
-                isSimulationRunning = false;
-                btnStartSim.Content = "Start Simulation";
+                MessageBox.Show("Đã xảy ra lỗi:\n" + ex.Message, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
             }
         }
 
@@ -193,21 +249,7 @@ namespace DroneNien
 
         private void btnStopSim_Click(object sender, RoutedEventArgs e)
         {
-            // Set the path to the Anaconda environment's python executable
-            string condaEnvPath = @"C:\Users\NienNguyen\.conda\envs\ScienceResearch\python.exe";
-
-            // Initialize Python.NET with the Anaconda environment
-            Environment.SetEnvironmentVariable("PYTHONNET_PYDLL", condaEnvPath);
-            PythonEngine.Initialize();
-
-            // Import the hello module
-            using (Py.GIL())
-            {
-                dynamic hello = Py.Import("hello");
-                string result = hello.HelloWorld();
-                MessageBox.Show(result);
-            }
-            // this.Close();
+            this.Close();
         }
 
         void Display(object sender, RoutedEventArgs e)

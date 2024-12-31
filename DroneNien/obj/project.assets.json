@@ -2,6 +2,117 @@
   "version": 3,
   "targets": {
     "net8.0-windows7.0": {
+      "Asv.Cfg/3.0.0-rc.1": {
+        "type": "package",
+        "dependencies": {
+          "Asv.Common": "3.0.0-rc.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.Reactive": "6.0.0",
+          "ZLogger": "2.5.5"
+        },
+        "compile": {
+          "lib/net8.0/Asv.Cfg.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Asv.Cfg.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Asv.Common/3.0.0-rc.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "6.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Asv.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Asv.Common.dll": {
+            "related": ".xml"
+          }
+        },
+        "resource": {
+          "lib/net8.0/ru/Asv.Common.resources.dll": {
+            "locale": "ru"
+          }
+        }
+      },
+      "Asv.IO/3.0.0-rc.1": {
+        "type": "package",
+        "dependencies": {
+          "Asv.Common": "3.0.0-rc.1",
+          "Newtonsoft.Json": "13.0.3",
+          "System.IO.Ports": "8.0.0",
+          "System.Reactive": "6.0.0",
+          "ZLogger": "2.5.5"
+        },
+        "compile": {
+          "lib/net8.0/Asv.IO.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Asv.IO.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Asv.Mavlink/3.10.5": {
+        "type": "package",
+        "dependencies": {
+          "Asv.Cfg": "3.0.0-dev.4",
+          "Asv.Common": "3.0.0-dev.4",
+          "Asv.IO": "3.0.0-dev.4",
+          "DynamicData": "8.4.1",
+          "Geodesy": "4.1.0",
+          "ZLogger": "2.5.5"
+        },
+        "compile": {
+          "lib/net8.0/Asv.Mavlink.dll": {}
+        },
+        "runtime": {
+          "lib/net8.0/Asv.Mavlink.dll": {}
+        },
+        "resource": {
+          "lib/net8.0/ru/Asv.Mavlink.resources.dll": {
+            "locale": "ru"
+          }
+        }
+      },
+      "DynamicData/8.4.1": {
+        "type": "package",
+        "dependencies": {
+          "System.Reactive": "6.0.0"
+        },
+        "compile": {
+          "lib/net8.0/DynamicData.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/DynamicData.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "Geodesy/4.1.0": {
+        "type": "package",
+        "compile": {
+          "lib/net5.0/Geodesy.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net5.0/Geodesy.dll": {
+            "related": ".xml"
+          }
+        }
+      },
       "Google.Protobuf/3.21.9": {
         "type": "package",
         "compile": {
@@ -109,21 +220,116 @@
           "lib/netcoreapp2.0/_._": {}
         }
       },
-      "Microsoft.Extensions.Logging.Abstractions/3.0.3": {
+      "Microsoft.Extensions.DependencyInjection/8.0.0": {
         "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
         "compile": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll": {
             "related": ".xml"
           }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
         }
       },
-      "Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64/8.0.11": {
-        "type": "package"
+      "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection": "8.0.0",
+          "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets": {}
+        }
+      },
+      "Microsoft.Extensions.Options/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
+          "Microsoft.Extensions.Primitives": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Options.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/Microsoft.Extensions.Options.targets": {}
+        }
+      },
+      "Microsoft.Extensions.Primitives/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Microsoft.Extensions.Primitives.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
       },
       "Microsoft.NETCore.Platforms/1.1.0": {
         "type": "package",
@@ -143,33 +349,18 @@
           "lib/netstandard1.0/_._": {}
         }
       },
-      "Newtonsoft.Json/12.0.3": {
+      "Newtonsoft.Json/13.0.3": {
         "type": "package",
         "compile": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/netstandard2.0/Newtonsoft.Json.dll": {
+          "lib/net6.0/Newtonsoft.Json.dll": {
             "related": ".xml"
           }
         }
-      },
-      "PacketDotNet/1.4.7": {
-        "type": "package",
-        "dependencies": {
-          "System.Runtime.CompilerServices.Unsafe": "6.0.0"
-        },
-        "compile": {
-          "lib/netstandard2.1/PacketDotNet.dll": {}
-        },
-        "runtime": {
-          "lib/netstandard2.1/PacketDotNet.dll": {}
-        }
-      },
-      "Python.Runtime/2.7.9": {
-        "type": "package"
       },
       "pythonnet/3.0.5": {
         "type": "package",
@@ -188,6 +379,61 @@
           }
         }
       },
+      "runtime.linux-arm.runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-arm"
+          }
+        }
+      },
+      "runtime.linux-arm64.runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-arm64"
+          }
+        }
+      },
+      "runtime.linux-x64.runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so": {
+            "assetType": "native",
+            "rid": "linux-x64"
+          }
+        }
+      },
+      "runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "runtime.linux-arm.runtime.native.System.IO.Ports": "8.0.0",
+          "runtime.linux-arm64.runtime.native.System.IO.Ports": "8.0.0",
+          "runtime.linux-x64.runtime.native.System.IO.Ports": "8.0.0",
+          "runtime.osx-arm64.runtime.native.System.IO.Ports": "8.0.0",
+          "runtime.osx-x64.runtime.native.System.IO.Ports": "8.0.0"
+        }
+      },
+      "runtime.osx-arm64.runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib": {
+            "assetType": "native",
+            "rid": "osx-arm64"
+          }
+        }
+      },
+      "runtime.osx-x64.runtime.native.System.IO.Ports/8.0.0": {
+        "type": "package",
+        "runtimeTargets": {
+          "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib": {
+            "assetType": "native",
+            "rid": "osx-x64"
+          }
+        }
+      },
       "System.IO/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -203,6 +449,51 @@
           }
         }
       },
+      "System.IO.Hashing/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Hashing.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
+      "System.IO.Ports/8.0.0": {
+        "type": "package",
+        "dependencies": {
+          "runtime.native.System.IO.Ports": "8.0.0"
+        },
+        "compile": {
+          "lib/net8.0/System.IO.Ports.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.IO.Ports.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        },
+        "runtimeTargets": {
+          "runtimes/unix/lib/net8.0/System.IO.Ports.dll": {
+            "assetType": "runtime",
+            "rid": "unix"
+          },
+          "runtimes/win/lib/net8.0/System.IO.Ports.dll": {
+            "assetType": "runtime",
+            "rid": "win"
+          }
+        }
+      },
       "System.Memory/4.5.3": {
         "type": "package",
         "compile": {
@@ -212,50 +503,20 @@
           "lib/netcoreapp2.1/_._": {}
         }
       },
-      "System.Net.Primitives/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
-          "System.Runtime": "4.3.0",
-          "System.Runtime.Handles": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Net.Primitives.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Net.Sockets/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
-          "System.IO": "4.3.0",
-          "System.Net.Primitives": "4.3.0",
-          "System.Runtime": "4.3.0",
-          "System.Threading.Tasks": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Net.Sockets.dll": {
-            "related": ".xml"
-          }
-        }
-      },
-      "System.Reactive/5.0.0": {
+      "System.Reactive/6.0.0": {
         "type": "package",
         "compile": {
-          "lib/net5.0/System.Reactive.dll": {
+          "lib/net6.0/System.Reactive.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net5.0/System.Reactive.dll": {
+          "lib/net6.0/System.Reactive.dll": {
             "related": ".xml"
           }
         },
         "build": {
-          "buildTransitive/net5.0/_._": {}
+          "buildTransitive/net6.0/_._": {}
         }
       },
       "System.Reflection/4.3.0": {
@@ -332,31 +593,15 @@
           }
         }
       },
-      "System.Runtime.CompilerServices.Unsafe/6.0.0": {
+      "System.Runtime.CompilerServices.Unsafe/4.7.0": {
         "type": "package",
         "compile": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
+          "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         },
         "runtime": {
-          "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll": {
-            "related": ".xml"
-          }
-        },
-        "build": {
-          "buildTransitive/netcoreapp3.1/_._": {}
-        }
-      },
-      "System.Runtime.Handles/4.3.0": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.NETCore.Platforms": "1.1.0",
-          "Microsoft.NETCore.Targets": "1.1.0",
-          "System.Runtime": "4.3.0"
-        },
-        "compile": {
-          "ref/netstandard1.3/System.Runtime.Handles.dll": {
+          "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll": {
             "related": ".xml"
           }
         }
@@ -374,6 +619,22 @@
           }
         }
       },
+      "System.Threading.Channels/8.0.0": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/System.Threading.Channels.dll": {
+            "related": ".xml"
+          }
+        },
+        "build": {
+          "buildTransitive/net6.0/_._": {}
+        }
+      },
       "System.Threading.Tasks/4.3.0": {
         "type": "package",
         "dependencies": {
@@ -386,10 +647,143 @@
             "related": ".xml"
           }
         }
+      },
+      "Utf8StringInterpolation/1.3.1": {
+        "type": "package",
+        "compile": {
+          "lib/net8.0/Utf8StringInterpolation.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/Utf8StringInterpolation.dll": {
+            "related": ".xml"
+          }
+        }
+      },
+      "ZLogger/2.5.5": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.Extensions.Logging": "8.0.0",
+          "System.IO.Hashing": "8.0.0",
+          "System.Threading.Channels": "8.0.0",
+          "Utf8StringInterpolation": "1.3.1"
+        },
+        "compile": {
+          "lib/net8.0/ZLogger.dll": {
+            "related": ".xml"
+          }
+        },
+        "runtime": {
+          "lib/net8.0/ZLogger.dll": {
+            "related": ".xml"
+          }
+        }
       }
     }
   },
   "libraries": {
+    "Asv.Cfg/3.0.0-rc.1": {
+      "sha512": "LZmJwnlfTnYrhnkTtxW+s49EZvA+ITT0NaCvdr899+Ymmww/58ouXtCyURFaMG9OOJjs1s8nUyBNKPl0NtpoLQ==",
+      "type": "package",
+      "path": "asv.cfg/3.0.0-rc.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "asv-cfg-128.png",
+        "asv.cfg.3.0.0-rc.1.nupkg.sha512",
+        "asv.cfg.nuspec",
+        "lib/net8.0/Asv.Cfg.dll",
+        "lib/net8.0/Asv.Cfg.xml"
+      ]
+    },
+    "Asv.Common/3.0.0-rc.1": {
+      "sha512": "pQQKf57gwLvXnANzwBSxSbwEg3U51wRZy+fSQypgYHVX9cL1TB8zRXh5sULJ100dLnr9RVdYI7Cy3M+Weg55WA==",
+      "type": "package",
+      "path": "asv.common/3.0.0-rc.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "asv-common-128.png",
+        "asv.common.3.0.0-rc.1.nupkg.sha512",
+        "asv.common.nuspec",
+        "lib/net8.0/Asv.Common.dll",
+        "lib/net8.0/Asv.Common.xml",
+        "lib/net8.0/ru/Asv.Common.resources.dll"
+      ]
+    },
+    "Asv.IO/3.0.0-rc.1": {
+      "sha512": "PdeG49eX/dbVzi7qaUTSJQR2vSSUEQ1pLER7eWqUZY/KTSPC9hf5Yxy8xwo7Oozd7aC+Rpry4D37CaB8wMtlTg==",
+      "type": "package",
+      "path": "asv.io/3.0.0-rc.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "asv-io-128.png",
+        "asv.io.3.0.0-rc.1.nupkg.sha512",
+        "asv.io.nuspec",
+        "lib/net8.0/Asv.IO.dll",
+        "lib/net8.0/Asv.IO.xml"
+      ]
+    },
+    "Asv.Mavlink/3.10.5": {
+      "sha512": "HlkfLWKm2pPi0HUbo3G2CQF0KzeWrrZY9fkK8+nq+tHPyO0TwGdAtuRS7vYGPLOs17uQaIMn/jdQQQHj9q1FzQ==",
+      "type": "package",
+      "path": "asv.mavlink/3.10.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE",
+        "README.md",
+        "asv-mavlink-128.png",
+        "asv.mavlink.3.10.5.nupkg.sha512",
+        "asv.mavlink.nuspec",
+        "lib/net8.0/Asv.Mavlink.dll",
+        "lib/net8.0/ru/Asv.Mavlink.resources.dll"
+      ]
+    },
+    "DynamicData/8.4.1": {
+      "sha512": "Mn1+fU/jqxgONEJq8KLQPGWEi7g/hUVTbjZyn4QM0sWWDAVOHPO9WjXWORSykwdfg/6S3GM15qsfz+2EvO+QAQ==",
+      "type": "package",
+      "path": "dynamicdata/8.4.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "LICENSE/LICENSE",
+        "README.md",
+        "dynamicdata.8.4.1.nupkg.sha512",
+        "dynamicdata.nuspec",
+        "lib/net462/DynamicData.dll",
+        "lib/net462/DynamicData.xml",
+        "lib/net6.0/DynamicData.dll",
+        "lib/net6.0/DynamicData.xml",
+        "lib/net7.0/DynamicData.dll",
+        "lib/net7.0/DynamicData.xml",
+        "lib/net8.0/DynamicData.dll",
+        "lib/net8.0/DynamicData.xml",
+        "lib/netstandard2.0/DynamicData.dll",
+        "lib/netstandard2.0/DynamicData.xml",
+        "logo.png"
+      ]
+    },
+    "Geodesy/4.1.0": {
+      "sha512": "E7c8B/ij6rVZbt5Hly2DzCm4n9TNc8PhjY8+5LBx99w9cRDWbl/V5UJKc8ySt451cWPcEeVZ4xvBPj30s4Ma5A==",
+      "type": "package",
+      "path": "geodesy/4.1.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "geodesy.4.1.0.nupkg.sha512",
+        "geodesy.nuspec",
+        "lib/net45/Geodesy.dll",
+        "lib/net45/Geodesy.xml",
+        "lib/net5.0/Geodesy.dll",
+        "lib/net5.0/Geodesy.xml",
+        "lib/netstandard2.0/Geodesy.dll",
+        "lib/netstandard2.0/Geodesy.xml"
+      ]
+    },
     "Google.Protobuf/3.21.9": {
       "sha512": "OTpFujTgkmqMLbg3KT7F/iuKi1rg6s5FCS2M9XcVLDn40zL8wgXm37CY/F6MeOEXKjdcnXGCN/h7oyMkVydVsg==",
       "type": "package",
@@ -581,1006 +975,250 @@
         "version.txt"
       ]
     },
-    "Microsoft.Extensions.Logging.Abstractions/3.0.3": {
-      "sha512": "m2Jyi/MEn043WMI1I6J1ALuCThktZ93rd7eqzYeLmMcA0bdZC+TBVl0LuEbEWM01dWeeBjOoagjNwQTzOi2r6A==",
+    "Microsoft.Extensions.DependencyInjection/8.0.0": {
+      "sha512": "V8S3bsm50ig6JSyrbcJJ8bW2b9QLGouz+G1miK3UTaOWmMtFwNNNzUf4AleyDWUmTrWMLNnFSLEQtxmxgNQnNQ==",
       "type": "package",
-      "path": "microsoft.extensions.logging.abstractions/3.0.3",
+      "path": "microsoft.extensions.dependencyinjection/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
-        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
-        "microsoft.extensions.logging.abstractions.3.0.3.nupkg.sha512",
-        "microsoft.extensions.logging.abstractions.nuspec"
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.xml",
+        "microsoft.extensions.dependencyinjection.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
-    "Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64/8.0.11": {
-      "sha512": "an5tvdB6wkDE7EWwIyz7nIQ9McYH2QBv/hbC42XdmIGUwgvks+6qpsdtSOkKuazHuziwYGZKieUJtKcU/oKJOg==",
+    "Microsoft.Extensions.DependencyInjection.Abstractions/8.0.0": {
+      "sha512": "cjWrLkJXK0rs4zofsK4bSdg+jhDLTaxrkXu4gS6Y7MAlCvRyNNgwY/lJi5RDlQOnSZweHqoyvgvbdvQsRIW+hg==",
       "type": "package",
-      "path": "microsoft.net.runtime.emscripten.3.1.34.python.win-x64/8.0.11",
-      "hasTools": true,
+      "path": "microsoft.extensions.dependencyinjection.abstractions/8.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "Icon.png",
-        "LICENSE",
-        "Sdk/Sdk.props",
-        "microsoft.net.runtime.emscripten.3.1.34.python.win-x64.8.0.11.nupkg.sha512",
-        "microsoft.net.runtime.emscripten.3.1.34.python.win-x64.nuspec",
-        "tools/.emsdk_version",
-        "tools/DLLs/_asyncio.pyd",
-        "tools/DLLs/_bz2.pyd",
-        "tools/DLLs/_ctypes.pyd",
-        "tools/DLLs/_decimal.pyd",
-        "tools/DLLs/_elementtree.pyd",
-        "tools/DLLs/_hashlib.pyd",
-        "tools/DLLs/_lzma.pyd",
-        "tools/DLLs/_msi.pyd",
-        "tools/DLLs/_multiprocessing.pyd",
-        "tools/DLLs/_overlapped.pyd",
-        "tools/DLLs/_queue.pyd",
-        "tools/DLLs/_socket.pyd",
-        "tools/DLLs/_sqlite3.pyd",
-        "tools/DLLs/_ssl.pyd",
-        "tools/DLLs/_uuid.pyd",
-        "tools/DLLs/_zoneinfo.pyd",
-        "tools/DLLs/libcrypto-1_1.dll",
-        "tools/DLLs/libffi-7.dll",
-        "tools/DLLs/libssl-1_1.dll",
-        "tools/DLLs/pyexpat.pyd",
-        "tools/DLLs/python.cat",
-        "tools/DLLs/select.pyd",
-        "tools/DLLs/sqlite3.dll",
-        "tools/DLLs/unicodedata.pyd",
-        "tools/DLLs/winsound.pyd",
-        "tools/LICENSE.txt",
-        "tools/Lib/__future__.py",
-        "tools/Lib/__phello__.foo.py",
-        "tools/Lib/__pycache__/_bootlocale.cpython-39.pyc",
-        "tools/Lib/__pycache__/_collections_abc.cpython-39.pyc",
-        "tools/Lib/__pycache__/_compression.cpython-39.pyc",
-        "tools/Lib/__pycache__/_sitebuiltins.cpython-39.pyc",
-        "tools/Lib/__pycache__/_weakrefset.cpython-39.pyc",
-        "tools/Lib/__pycache__/abc.cpython-39.pyc",
-        "tools/Lib/__pycache__/bz2.cpython-39.pyc",
-        "tools/Lib/__pycache__/codecs.cpython-39.pyc",
-        "tools/Lib/__pycache__/copyreg.cpython-39.pyc",
-        "tools/Lib/__pycache__/enum.cpython-39.pyc",
-        "tools/Lib/__pycache__/fnmatch.cpython-39.pyc",
-        "tools/Lib/__pycache__/functools.cpython-39.pyc",
-        "tools/Lib/__pycache__/genericpath.cpython-39.pyc",
-        "tools/Lib/__pycache__/heapq.cpython-39.pyc",
-        "tools/Lib/__pycache__/io.cpython-39.pyc",
-        "tools/Lib/__pycache__/keyword.cpython-39.pyc",
-        "tools/Lib/__pycache__/lzma.cpython-39.pyc",
-        "tools/Lib/__pycache__/ntpath.cpython-39.pyc",
-        "tools/Lib/__pycache__/operator.cpython-39.pyc",
-        "tools/Lib/__pycache__/os.cpython-39.pyc",
-        "tools/Lib/__pycache__/posixpath.cpython-39.pyc",
-        "tools/Lib/__pycache__/re.cpython-39.pyc",
-        "tools/Lib/__pycache__/reprlib.cpython-39.pyc",
-        "tools/Lib/__pycache__/shutil.cpython-39.pyc",
-        "tools/Lib/__pycache__/site.cpython-39.pyc",
-        "tools/Lib/__pycache__/sre_compile.cpython-39.pyc",
-        "tools/Lib/__pycache__/sre_constants.cpython-39.pyc",
-        "tools/Lib/__pycache__/sre_parse.cpython-39.pyc",
-        "tools/Lib/__pycache__/stat.cpython-39.pyc",
-        "tools/Lib/__pycache__/threading.cpython-39.pyc",
-        "tools/Lib/__pycache__/types.cpython-39.pyc",
-        "tools/Lib/_aix_support.py",
-        "tools/Lib/_bootlocale.py",
-        "tools/Lib/_bootsubprocess.py",
-        "tools/Lib/_collections_abc.py",
-        "tools/Lib/_compat_pickle.py",
-        "tools/Lib/_compression.py",
-        "tools/Lib/_markupbase.py",
-        "tools/Lib/_osx_support.py",
-        "tools/Lib/_py_abc.py",
-        "tools/Lib/_pydecimal.py",
-        "tools/Lib/_pyio.py",
-        "tools/Lib/_sitebuiltins.py",
-        "tools/Lib/_strptime.py",
-        "tools/Lib/_threading_local.py",
-        "tools/Lib/_weakrefset.py",
-        "tools/Lib/abc.py",
-        "tools/Lib/aifc.py",
-        "tools/Lib/antigravity.py",
-        "tools/Lib/argparse.py",
-        "tools/Lib/ast.py",
-        "tools/Lib/asynchat.py",
-        "tools/Lib/asyncio/__init__.py",
-        "tools/Lib/asyncio/__main__.py",
-        "tools/Lib/asyncio/base_events.py",
-        "tools/Lib/asyncio/base_futures.py",
-        "tools/Lib/asyncio/base_subprocess.py",
-        "tools/Lib/asyncio/base_tasks.py",
-        "tools/Lib/asyncio/constants.py",
-        "tools/Lib/asyncio/coroutines.py",
-        "tools/Lib/asyncio/events.py",
-        "tools/Lib/asyncio/exceptions.py",
-        "tools/Lib/asyncio/format_helpers.py",
-        "tools/Lib/asyncio/futures.py",
-        "tools/Lib/asyncio/locks.py",
-        "tools/Lib/asyncio/log.py",
-        "tools/Lib/asyncio/proactor_events.py",
-        "tools/Lib/asyncio/protocols.py",
-        "tools/Lib/asyncio/queues.py",
-        "tools/Lib/asyncio/runners.py",
-        "tools/Lib/asyncio/selector_events.py",
-        "tools/Lib/asyncio/sslproto.py",
-        "tools/Lib/asyncio/staggered.py",
-        "tools/Lib/asyncio/streams.py",
-        "tools/Lib/asyncio/subprocess.py",
-        "tools/Lib/asyncio/tasks.py",
-        "tools/Lib/asyncio/threads.py",
-        "tools/Lib/asyncio/transports.py",
-        "tools/Lib/asyncio/trsock.py",
-        "tools/Lib/asyncio/unix_events.py",
-        "tools/Lib/asyncio/windows_events.py",
-        "tools/Lib/asyncio/windows_utils.py",
-        "tools/Lib/asyncore.py",
-        "tools/Lib/base64.py",
-        "tools/Lib/bdb.py",
-        "tools/Lib/binhex.py",
-        "tools/Lib/bisect.py",
-        "tools/Lib/bz2.py",
-        "tools/Lib/cProfile.py",
-        "tools/Lib/calendar.py",
-        "tools/Lib/cgi.py",
-        "tools/Lib/cgitb.py",
-        "tools/Lib/chunk.py",
-        "tools/Lib/cmd.py",
-        "tools/Lib/code.py",
-        "tools/Lib/codecs.py",
-        "tools/Lib/codeop.py",
-        "tools/Lib/collections/__init__.py",
-        "tools/Lib/collections/__pycache__/__init__.cpython-39.pyc",
-        "tools/Lib/collections/abc.py",
-        "tools/Lib/colorsys.py",
-        "tools/Lib/compileall.py",
-        "tools/Lib/concurrent/__init__.py",
-        "tools/Lib/concurrent/futures/__init__.py",
-        "tools/Lib/concurrent/futures/_base.py",
-        "tools/Lib/concurrent/futures/process.py",
-        "tools/Lib/concurrent/futures/thread.py",
-        "tools/Lib/configparser.py",
-        "tools/Lib/contextlib.py",
-        "tools/Lib/contextvars.py",
-        "tools/Lib/copy.py",
-        "tools/Lib/copyreg.py",
-        "tools/Lib/crypt.py",
-        "tools/Lib/csv.py",
-        "tools/Lib/ctypes/__init__.py",
-        "tools/Lib/ctypes/_aix.py",
-        "tools/Lib/ctypes/_endian.py",
-        "tools/Lib/ctypes/macholib/README.ctypes",
-        "tools/Lib/ctypes/macholib/__init__.py",
-        "tools/Lib/ctypes/macholib/dyld.py",
-        "tools/Lib/ctypes/macholib/dylib.py",
-        "tools/Lib/ctypes/macholib/fetch_macholib",
-        "tools/Lib/ctypes/macholib/fetch_macholib.bat",
-        "tools/Lib/ctypes/macholib/framework.py",
-        "tools/Lib/ctypes/util.py",
-        "tools/Lib/ctypes/wintypes.py",
-        "tools/Lib/curses/__init__.py",
-        "tools/Lib/curses/ascii.py",
-        "tools/Lib/curses/has_key.py",
-        "tools/Lib/curses/panel.py",
-        "tools/Lib/curses/textpad.py",
-        "tools/Lib/dataclasses.py",
-        "tools/Lib/datetime.py",
-        "tools/Lib/dbm/__init__.py",
-        "tools/Lib/dbm/dumb.py",
-        "tools/Lib/dbm/gnu.py",
-        "tools/Lib/dbm/ndbm.py",
-        "tools/Lib/decimal.py",
-        "tools/Lib/difflib.py",
-        "tools/Lib/dis.py",
-        "tools/Lib/distutils/README",
-        "tools/Lib/distutils/__init__.py",
-        "tools/Lib/distutils/_msvccompiler.py",
-        "tools/Lib/distutils/archive_util.py",
-        "tools/Lib/distutils/bcppcompiler.py",
-        "tools/Lib/distutils/ccompiler.py",
-        "tools/Lib/distutils/cmd.py",
-        "tools/Lib/distutils/command/__init__.py",
-        "tools/Lib/distutils/command/bdist.py",
-        "tools/Lib/distutils/command/bdist_dumb.py",
-        "tools/Lib/distutils/command/bdist_msi.py",
-        "tools/Lib/distutils/command/bdist_rpm.py",
-        "tools/Lib/distutils/command/bdist_wininst.py",
-        "tools/Lib/distutils/command/build.py",
-        "tools/Lib/distutils/command/build_clib.py",
-        "tools/Lib/distutils/command/build_ext.py",
-        "tools/Lib/distutils/command/build_py.py",
-        "tools/Lib/distutils/command/build_scripts.py",
-        "tools/Lib/distutils/command/check.py",
-        "tools/Lib/distutils/command/clean.py",
-        "tools/Lib/distutils/command/command_template",
-        "tools/Lib/distutils/command/config.py",
-        "tools/Lib/distutils/command/install.py",
-        "tools/Lib/distutils/command/install_data.py",
-        "tools/Lib/distutils/command/install_egg_info.py",
-        "tools/Lib/distutils/command/install_headers.py",
-        "tools/Lib/distutils/command/install_lib.py",
-        "tools/Lib/distutils/command/install_scripts.py",
-        "tools/Lib/distutils/command/register.py",
-        "tools/Lib/distutils/command/sdist.py",
-        "tools/Lib/distutils/command/upload.py",
-        "tools/Lib/distutils/config.py",
-        "tools/Lib/distutils/core.py",
-        "tools/Lib/distutils/cygwinccompiler.py",
-        "tools/Lib/distutils/debug.py",
-        "tools/Lib/distutils/dep_util.py",
-        "tools/Lib/distutils/dir_util.py",
-        "tools/Lib/distutils/dist.py",
-        "tools/Lib/distutils/errors.py",
-        "tools/Lib/distutils/extension.py",
-        "tools/Lib/distutils/fancy_getopt.py",
-        "tools/Lib/distutils/file_util.py",
-        "tools/Lib/distutils/filelist.py",
-        "tools/Lib/distutils/log.py",
-        "tools/Lib/distutils/msvc9compiler.py",
-        "tools/Lib/distutils/msvccompiler.py",
-        "tools/Lib/distutils/spawn.py",
-        "tools/Lib/distutils/sysconfig.py",
-        "tools/Lib/distutils/text_file.py",
-        "tools/Lib/distutils/unixccompiler.py",
-        "tools/Lib/distutils/util.py",
-        "tools/Lib/distutils/version.py",
-        "tools/Lib/distutils/versionpredicate.py",
-        "tools/Lib/doctest.py",
-        "tools/Lib/email/__init__.py",
-        "tools/Lib/email/_encoded_words.py",
-        "tools/Lib/email/_header_value_parser.py",
-        "tools/Lib/email/_parseaddr.py",
-        "tools/Lib/email/_policybase.py",
-        "tools/Lib/email/architecture.rst",
-        "tools/Lib/email/base64mime.py",
-        "tools/Lib/email/charset.py",
-        "tools/Lib/email/contentmanager.py",
-        "tools/Lib/email/encoders.py",
-        "tools/Lib/email/errors.py",
-        "tools/Lib/email/feedparser.py",
-        "tools/Lib/email/generator.py",
-        "tools/Lib/email/header.py",
-        "tools/Lib/email/headerregistry.py",
-        "tools/Lib/email/iterators.py",
-        "tools/Lib/email/message.py",
-        "tools/Lib/email/mime/__init__.py",
-        "tools/Lib/email/mime/application.py",
-        "tools/Lib/email/mime/audio.py",
-        "tools/Lib/email/mime/base.py",
-        "tools/Lib/email/mime/image.py",
-        "tools/Lib/email/mime/message.py",
-        "tools/Lib/email/mime/multipart.py",
-        "tools/Lib/email/mime/nonmultipart.py",
-        "tools/Lib/email/mime/text.py",
-        "tools/Lib/email/parser.py",
-        "tools/Lib/email/policy.py",
-        "tools/Lib/email/quoprimime.py",
-        "tools/Lib/email/utils.py",
-        "tools/Lib/encodings/__init__.py",
-        "tools/Lib/encodings/__pycache__/__init__.cpython-39.pyc",
-        "tools/Lib/encodings/__pycache__/aliases.cpython-39.pyc",
-        "tools/Lib/encodings/__pycache__/cp1252.cpython-39.pyc",
-        "tools/Lib/encodings/__pycache__/latin_1.cpython-39.pyc",
-        "tools/Lib/encodings/__pycache__/utf_8.cpython-39.pyc",
-        "tools/Lib/encodings/aliases.py",
-        "tools/Lib/encodings/ascii.py",
-        "tools/Lib/encodings/base64_codec.py",
-        "tools/Lib/encodings/big5.py",
-        "tools/Lib/encodings/big5hkscs.py",
-        "tools/Lib/encodings/bz2_codec.py",
-        "tools/Lib/encodings/charmap.py",
-        "tools/Lib/encodings/cp037.py",
-        "tools/Lib/encodings/cp1006.py",
-        "tools/Lib/encodings/cp1026.py",
-        "tools/Lib/encodings/cp1125.py",
-        "tools/Lib/encodings/cp1140.py",
-        "tools/Lib/encodings/cp1250.py",
-        "tools/Lib/encodings/cp1251.py",
-        "tools/Lib/encodings/cp1252.py",
-        "tools/Lib/encodings/cp1253.py",
-        "tools/Lib/encodings/cp1254.py",
-        "tools/Lib/encodings/cp1255.py",
-        "tools/Lib/encodings/cp1256.py",
-        "tools/Lib/encodings/cp1257.py",
-        "tools/Lib/encodings/cp1258.py",
-        "tools/Lib/encodings/cp273.py",
-        "tools/Lib/encodings/cp424.py",
-        "tools/Lib/encodings/cp437.py",
-        "tools/Lib/encodings/cp500.py",
-        "tools/Lib/encodings/cp720.py",
-        "tools/Lib/encodings/cp737.py",
-        "tools/Lib/encodings/cp775.py",
-        "tools/Lib/encodings/cp850.py",
-        "tools/Lib/encodings/cp852.py",
-        "tools/Lib/encodings/cp855.py",
-        "tools/Lib/encodings/cp856.py",
-        "tools/Lib/encodings/cp857.py",
-        "tools/Lib/encodings/cp858.py",
-        "tools/Lib/encodings/cp860.py",
-        "tools/Lib/encodings/cp861.py",
-        "tools/Lib/encodings/cp862.py",
-        "tools/Lib/encodings/cp863.py",
-        "tools/Lib/encodings/cp864.py",
-        "tools/Lib/encodings/cp865.py",
-        "tools/Lib/encodings/cp866.py",
-        "tools/Lib/encodings/cp869.py",
-        "tools/Lib/encodings/cp874.py",
-        "tools/Lib/encodings/cp875.py",
-        "tools/Lib/encodings/cp932.py",
-        "tools/Lib/encodings/cp949.py",
-        "tools/Lib/encodings/cp950.py",
-        "tools/Lib/encodings/euc_jis_2004.py",
-        "tools/Lib/encodings/euc_jisx0213.py",
-        "tools/Lib/encodings/euc_jp.py",
-        "tools/Lib/encodings/euc_kr.py",
-        "tools/Lib/encodings/gb18030.py",
-        "tools/Lib/encodings/gb2312.py",
-        "tools/Lib/encodings/gbk.py",
-        "tools/Lib/encodings/hex_codec.py",
-        "tools/Lib/encodings/hp_roman8.py",
-        "tools/Lib/encodings/hz.py",
-        "tools/Lib/encodings/idna.py",
-        "tools/Lib/encodings/iso2022_jp.py",
-        "tools/Lib/encodings/iso2022_jp_1.py",
-        "tools/Lib/encodings/iso2022_jp_2.py",
-        "tools/Lib/encodings/iso2022_jp_2004.py",
-        "tools/Lib/encodings/iso2022_jp_3.py",
-        "tools/Lib/encodings/iso2022_jp_ext.py",
-        "tools/Lib/encodings/iso2022_kr.py",
-        "tools/Lib/encodings/iso8859_1.py",
-        "tools/Lib/encodings/iso8859_10.py",
-        "tools/Lib/encodings/iso8859_11.py",
-        "tools/Lib/encodings/iso8859_13.py",
-        "tools/Lib/encodings/iso8859_14.py",
-        "tools/Lib/encodings/iso8859_15.py",
-        "tools/Lib/encodings/iso8859_16.py",
-        "tools/Lib/encodings/iso8859_2.py",
-        "tools/Lib/encodings/iso8859_3.py",
-        "tools/Lib/encodings/iso8859_4.py",
-        "tools/Lib/encodings/iso8859_5.py",
-        "tools/Lib/encodings/iso8859_6.py",
-        "tools/Lib/encodings/iso8859_7.py",
-        "tools/Lib/encodings/iso8859_8.py",
-        "tools/Lib/encodings/iso8859_9.py",
-        "tools/Lib/encodings/johab.py",
-        "tools/Lib/encodings/koi8_r.py",
-        "tools/Lib/encodings/koi8_t.py",
-        "tools/Lib/encodings/koi8_u.py",
-        "tools/Lib/encodings/kz1048.py",
-        "tools/Lib/encodings/latin_1.py",
-        "tools/Lib/encodings/mac_arabic.py",
-        "tools/Lib/encodings/mac_croatian.py",
-        "tools/Lib/encodings/mac_cyrillic.py",
-        "tools/Lib/encodings/mac_farsi.py",
-        "tools/Lib/encodings/mac_greek.py",
-        "tools/Lib/encodings/mac_iceland.py",
-        "tools/Lib/encodings/mac_latin2.py",
-        "tools/Lib/encodings/mac_roman.py",
-        "tools/Lib/encodings/mac_romanian.py",
-        "tools/Lib/encodings/mac_turkish.py",
-        "tools/Lib/encodings/mbcs.py",
-        "tools/Lib/encodings/oem.py",
-        "tools/Lib/encodings/palmos.py",
-        "tools/Lib/encodings/ptcp154.py",
-        "tools/Lib/encodings/punycode.py",
-        "tools/Lib/encodings/quopri_codec.py",
-        "tools/Lib/encodings/raw_unicode_escape.py",
-        "tools/Lib/encodings/rot_13.py",
-        "tools/Lib/encodings/shift_jis.py",
-        "tools/Lib/encodings/shift_jis_2004.py",
-        "tools/Lib/encodings/shift_jisx0213.py",
-        "tools/Lib/encodings/tis_620.py",
-        "tools/Lib/encodings/undefined.py",
-        "tools/Lib/encodings/unicode_escape.py",
-        "tools/Lib/encodings/utf_16.py",
-        "tools/Lib/encodings/utf_16_be.py",
-        "tools/Lib/encodings/utf_16_le.py",
-        "tools/Lib/encodings/utf_32.py",
-        "tools/Lib/encodings/utf_32_be.py",
-        "tools/Lib/encodings/utf_32_le.py",
-        "tools/Lib/encodings/utf_7.py",
-        "tools/Lib/encodings/utf_8.py",
-        "tools/Lib/encodings/utf_8_sig.py",
-        "tools/Lib/encodings/uu_codec.py",
-        "tools/Lib/encodings/zlib_codec.py",
-        "tools/Lib/enum.py",
-        "tools/Lib/filecmp.py",
-        "tools/Lib/fileinput.py",
-        "tools/Lib/fnmatch.py",
-        "tools/Lib/formatter.py",
-        "tools/Lib/fractions.py",
-        "tools/Lib/ftplib.py",
-        "tools/Lib/functools.py",
-        "tools/Lib/genericpath.py",
-        "tools/Lib/getopt.py",
-        "tools/Lib/getpass.py",
-        "tools/Lib/gettext.py",
-        "tools/Lib/glob.py",
-        "tools/Lib/graphlib.py",
-        "tools/Lib/gzip.py",
-        "tools/Lib/hashlib.py",
-        "tools/Lib/heapq.py",
-        "tools/Lib/hmac.py",
-        "tools/Lib/html/__init__.py",
-        "tools/Lib/html/entities.py",
-        "tools/Lib/html/parser.py",
-        "tools/Lib/http/__init__.py",
-        "tools/Lib/http/client.py",
-        "tools/Lib/http/cookiejar.py",
-        "tools/Lib/http/cookies.py",
-        "tools/Lib/http/server.py",
-        "tools/Lib/imaplib.py",
-        "tools/Lib/imghdr.py",
-        "tools/Lib/imp.py",
-        "tools/Lib/importlib/__init__.py",
-        "tools/Lib/importlib/_bootstrap.py",
-        "tools/Lib/importlib/_bootstrap_external.py",
-        "tools/Lib/importlib/_common.py",
-        "tools/Lib/importlib/abc.py",
-        "tools/Lib/importlib/machinery.py",
-        "tools/Lib/importlib/metadata.py",
-        "tools/Lib/importlib/resources.py",
-        "tools/Lib/importlib/util.py",
-        "tools/Lib/inspect.py",
-        "tools/Lib/io.py",
-        "tools/Lib/ipaddress.py",
-        "tools/Lib/json/__init__.py",
-        "tools/Lib/json/__pycache__/__init__.cpython-39.pyc",
-        "tools/Lib/json/__pycache__/decoder.cpython-39.pyc",
-        "tools/Lib/json/__pycache__/encoder.cpython-39.pyc",
-        "tools/Lib/json/__pycache__/scanner.cpython-39.pyc",
-        "tools/Lib/json/decoder.py",
-        "tools/Lib/json/encoder.py",
-        "tools/Lib/json/scanner.py",
-        "tools/Lib/json/tool.py",
-        "tools/Lib/keyword.py",
-        "tools/Lib/lib2to3/Grammar.txt",
-        "tools/Lib/lib2to3/PatternGrammar.txt",
-        "tools/Lib/lib2to3/__init__.py",
-        "tools/Lib/lib2to3/__main__.py",
-        "tools/Lib/lib2to3/btm_matcher.py",
-        "tools/Lib/lib2to3/btm_utils.py",
-        "tools/Lib/lib2to3/fixer_base.py",
-        "tools/Lib/lib2to3/fixer_util.py",
-        "tools/Lib/lib2to3/fixes/__init__.py",
-        "tools/Lib/lib2to3/fixes/fix_apply.py",
-        "tools/Lib/lib2to3/fixes/fix_asserts.py",
-        "tools/Lib/lib2to3/fixes/fix_basestring.py",
-        "tools/Lib/lib2to3/fixes/fix_buffer.py",
-        "tools/Lib/lib2to3/fixes/fix_dict.py",
-        "tools/Lib/lib2to3/fixes/fix_except.py",
-        "tools/Lib/lib2to3/fixes/fix_exec.py",
-        "tools/Lib/lib2to3/fixes/fix_execfile.py",
-        "tools/Lib/lib2to3/fixes/fix_exitfunc.py",
-        "tools/Lib/lib2to3/fixes/fix_filter.py",
-        "tools/Lib/lib2to3/fixes/fix_funcattrs.py",
-        "tools/Lib/lib2to3/fixes/fix_future.py",
-        "tools/Lib/lib2to3/fixes/fix_getcwdu.py",
-        "tools/Lib/lib2to3/fixes/fix_has_key.py",
-        "tools/Lib/lib2to3/fixes/fix_idioms.py",
-        "tools/Lib/lib2to3/fixes/fix_import.py",
-        "tools/Lib/lib2to3/fixes/fix_imports.py",
-        "tools/Lib/lib2to3/fixes/fix_imports2.py",
-        "tools/Lib/lib2to3/fixes/fix_input.py",
-        "tools/Lib/lib2to3/fixes/fix_intern.py",
-        "tools/Lib/lib2to3/fixes/fix_isinstance.py",
-        "tools/Lib/lib2to3/fixes/fix_itertools.py",
-        "tools/Lib/lib2to3/fixes/fix_itertools_imports.py",
-        "tools/Lib/lib2to3/fixes/fix_long.py",
-        "tools/Lib/lib2to3/fixes/fix_map.py",
-        "tools/Lib/lib2to3/fixes/fix_metaclass.py",
-        "tools/Lib/lib2to3/fixes/fix_methodattrs.py",
-        "tools/Lib/lib2to3/fixes/fix_ne.py",
-        "tools/Lib/lib2to3/fixes/fix_next.py",
-        "tools/Lib/lib2to3/fixes/fix_nonzero.py",
-        "tools/Lib/lib2to3/fixes/fix_numliterals.py",
-        "tools/Lib/lib2to3/fixes/fix_operator.py",
-        "tools/Lib/lib2to3/fixes/fix_paren.py",
-        "tools/Lib/lib2to3/fixes/fix_print.py",
-        "tools/Lib/lib2to3/fixes/fix_raise.py",
-        "tools/Lib/lib2to3/fixes/fix_raw_input.py",
-        "tools/Lib/lib2to3/fixes/fix_reduce.py",
-        "tools/Lib/lib2to3/fixes/fix_reload.py",
-        "tools/Lib/lib2to3/fixes/fix_renames.py",
-        "tools/Lib/lib2to3/fixes/fix_repr.py",
-        "tools/Lib/lib2to3/fixes/fix_set_literal.py",
-        "tools/Lib/lib2to3/fixes/fix_standarderror.py",
-        "tools/Lib/lib2to3/fixes/fix_sys_exc.py",
-        "tools/Lib/lib2to3/fixes/fix_throw.py",
-        "tools/Lib/lib2to3/fixes/fix_tuple_params.py",
-        "tools/Lib/lib2to3/fixes/fix_types.py",
-        "tools/Lib/lib2to3/fixes/fix_unicode.py",
-        "tools/Lib/lib2to3/fixes/fix_urllib.py",
-        "tools/Lib/lib2to3/fixes/fix_ws_comma.py",
-        "tools/Lib/lib2to3/fixes/fix_xrange.py",
-        "tools/Lib/lib2to3/fixes/fix_xreadlines.py",
-        "tools/Lib/lib2to3/fixes/fix_zip.py",
-        "tools/Lib/lib2to3/main.py",
-        "tools/Lib/lib2to3/patcomp.py",
-        "tools/Lib/lib2to3/pgen2/__init__.py",
-        "tools/Lib/lib2to3/pgen2/conv.py",
-        "tools/Lib/lib2to3/pgen2/driver.py",
-        "tools/Lib/lib2to3/pgen2/grammar.py",
-        "tools/Lib/lib2to3/pgen2/literals.py",
-        "tools/Lib/lib2to3/pgen2/parse.py",
-        "tools/Lib/lib2to3/pgen2/pgen.py",
-        "tools/Lib/lib2to3/pgen2/token.py",
-        "tools/Lib/lib2to3/pgen2/tokenize.py",
-        "tools/Lib/lib2to3/pygram.py",
-        "tools/Lib/lib2to3/pytree.py",
-        "tools/Lib/lib2to3/refactor.py",
-        "tools/Lib/linecache.py",
-        "tools/Lib/locale.py",
-        "tools/Lib/logging/__init__.py",
-        "tools/Lib/logging/config.py",
-        "tools/Lib/logging/handlers.py",
-        "tools/Lib/lzma.py",
-        "tools/Lib/mailbox.py",
-        "tools/Lib/mailcap.py",
-        "tools/Lib/mimetypes.py",
-        "tools/Lib/modulefinder.py",
-        "tools/Lib/msilib/__init__.py",
-        "tools/Lib/msilib/schema.py",
-        "tools/Lib/msilib/sequence.py",
-        "tools/Lib/msilib/text.py",
-        "tools/Lib/multiprocessing/__init__.py",
-        "tools/Lib/multiprocessing/connection.py",
-        "tools/Lib/multiprocessing/context.py",
-        "tools/Lib/multiprocessing/dummy/__init__.py",
-        "tools/Lib/multiprocessing/dummy/connection.py",
-        "tools/Lib/multiprocessing/forkserver.py",
-        "tools/Lib/multiprocessing/heap.py",
-        "tools/Lib/multiprocessing/managers.py",
-        "tools/Lib/multiprocessing/pool.py",
-        "tools/Lib/multiprocessing/popen_fork.py",
-        "tools/Lib/multiprocessing/popen_forkserver.py",
-        "tools/Lib/multiprocessing/popen_spawn_posix.py",
-        "tools/Lib/multiprocessing/popen_spawn_win32.py",
-        "tools/Lib/multiprocessing/process.py",
-        "tools/Lib/multiprocessing/queues.py",
-        "tools/Lib/multiprocessing/reduction.py",
-        "tools/Lib/multiprocessing/resource_sharer.py",
-        "tools/Lib/multiprocessing/resource_tracker.py",
-        "tools/Lib/multiprocessing/shared_memory.py",
-        "tools/Lib/multiprocessing/sharedctypes.py",
-        "tools/Lib/multiprocessing/spawn.py",
-        "tools/Lib/multiprocessing/synchronize.py",
-        "tools/Lib/multiprocessing/util.py",
-        "tools/Lib/netrc.py",
-        "tools/Lib/nntplib.py",
-        "tools/Lib/ntpath.py",
-        "tools/Lib/nturl2path.py",
-        "tools/Lib/numbers.py",
-        "tools/Lib/opcode.py",
-        "tools/Lib/operator.py",
-        "tools/Lib/optparse.py",
-        "tools/Lib/os.py",
-        "tools/Lib/pathlib.py",
-        "tools/Lib/pdb.py",
-        "tools/Lib/pickle.py",
-        "tools/Lib/pickletools.py",
-        "tools/Lib/pipes.py",
-        "tools/Lib/pkgutil.py",
-        "tools/Lib/platform.py",
-        "tools/Lib/plistlib.py",
-        "tools/Lib/poplib.py",
-        "tools/Lib/posixpath.py",
-        "tools/Lib/pprint.py",
-        "tools/Lib/profile.py",
-        "tools/Lib/pstats.py",
-        "tools/Lib/pty.py",
-        "tools/Lib/py_compile.py",
-        "tools/Lib/pyclbr.py",
-        "tools/Lib/pydoc.py",
-        "tools/Lib/pydoc_data/__init__.py",
-        "tools/Lib/pydoc_data/_pydoc.css",
-        "tools/Lib/pydoc_data/topics.py",
-        "tools/Lib/queue.py",
-        "tools/Lib/quopri.py",
-        "tools/Lib/random.py",
-        "tools/Lib/re.py",
-        "tools/Lib/reprlib.py",
-        "tools/Lib/rlcompleter.py",
-        "tools/Lib/runpy.py",
-        "tools/Lib/sched.py",
-        "tools/Lib/secrets.py",
-        "tools/Lib/selectors.py",
-        "tools/Lib/shelve.py",
-        "tools/Lib/shlex.py",
-        "tools/Lib/shutil.py",
-        "tools/Lib/signal.py",
-        "tools/Lib/site-packages/README.txt",
-        "tools/Lib/site.py",
-        "tools/Lib/smtpd.py",
-        "tools/Lib/smtplib.py",
-        "tools/Lib/sndhdr.py",
-        "tools/Lib/socket.py",
-        "tools/Lib/socketserver.py",
-        "tools/Lib/sqlite3/__init__.py",
-        "tools/Lib/sqlite3/dbapi2.py",
-        "tools/Lib/sqlite3/dump.py",
-        "tools/Lib/sre_compile.py",
-        "tools/Lib/sre_constants.py",
-        "tools/Lib/sre_parse.py",
-        "tools/Lib/ssl.py",
-        "tools/Lib/stat.py",
-        "tools/Lib/statistics.py",
-        "tools/Lib/string.py",
-        "tools/Lib/stringprep.py",
-        "tools/Lib/struct.py",
-        "tools/Lib/subprocess.py",
-        "tools/Lib/sunau.py",
-        "tools/Lib/symbol.py",
-        "tools/Lib/symtable.py",
-        "tools/Lib/sysconfig.py",
-        "tools/Lib/tabnanny.py",
-        "tools/Lib/tarfile.py",
-        "tools/Lib/telnetlib.py",
-        "tools/Lib/tempfile.py",
-        "tools/Lib/textwrap.py",
-        "tools/Lib/this.py",
-        "tools/Lib/threading.py",
-        "tools/Lib/timeit.py",
-        "tools/Lib/token.py",
-        "tools/Lib/tokenize.py",
-        "tools/Lib/trace.py",
-        "tools/Lib/traceback.py",
-        "tools/Lib/tracemalloc.py",
-        "tools/Lib/tty.py",
-        "tools/Lib/types.py",
-        "tools/Lib/typing.py",
-        "tools/Lib/unittest/__init__.py",
-        "tools/Lib/unittest/__main__.py",
-        "tools/Lib/unittest/_log.py",
-        "tools/Lib/unittest/async_case.py",
-        "tools/Lib/unittest/case.py",
-        "tools/Lib/unittest/loader.py",
-        "tools/Lib/unittest/main.py",
-        "tools/Lib/unittest/mock.py",
-        "tools/Lib/unittest/result.py",
-        "tools/Lib/unittest/runner.py",
-        "tools/Lib/unittest/signals.py",
-        "tools/Lib/unittest/suite.py",
-        "tools/Lib/unittest/util.py",
-        "tools/Lib/urllib/__init__.py",
-        "tools/Lib/urllib/error.py",
-        "tools/Lib/urllib/parse.py",
-        "tools/Lib/urllib/request.py",
-        "tools/Lib/urllib/response.py",
-        "tools/Lib/urllib/robotparser.py",
-        "tools/Lib/uu.py",
-        "tools/Lib/uuid.py",
-        "tools/Lib/warnings.py",
-        "tools/Lib/wave.py",
-        "tools/Lib/weakref.py",
-        "tools/Lib/webbrowser.py",
-        "tools/Lib/wsgiref/__init__.py",
-        "tools/Lib/wsgiref/handlers.py",
-        "tools/Lib/wsgiref/headers.py",
-        "tools/Lib/wsgiref/simple_server.py",
-        "tools/Lib/wsgiref/util.py",
-        "tools/Lib/wsgiref/validate.py",
-        "tools/Lib/xdrlib.py",
-        "tools/Lib/xml/__init__.py",
-        "tools/Lib/xml/dom/NodeFilter.py",
-        "tools/Lib/xml/dom/__init__.py",
-        "tools/Lib/xml/dom/domreg.py",
-        "tools/Lib/xml/dom/expatbuilder.py",
-        "tools/Lib/xml/dom/minicompat.py",
-        "tools/Lib/xml/dom/minidom.py",
-        "tools/Lib/xml/dom/pulldom.py",
-        "tools/Lib/xml/dom/xmlbuilder.py",
-        "tools/Lib/xml/etree/ElementInclude.py",
-        "tools/Lib/xml/etree/ElementPath.py",
-        "tools/Lib/xml/etree/ElementTree.py",
-        "tools/Lib/xml/etree/__init__.py",
-        "tools/Lib/xml/etree/cElementTree.py",
-        "tools/Lib/xml/parsers/__init__.py",
-        "tools/Lib/xml/parsers/expat.py",
-        "tools/Lib/xml/sax/__init__.py",
-        "tools/Lib/xml/sax/_exceptions.py",
-        "tools/Lib/xml/sax/expatreader.py",
-        "tools/Lib/xml/sax/handler.py",
-        "tools/Lib/xml/sax/saxutils.py",
-        "tools/Lib/xml/sax/xmlreader.py",
-        "tools/Lib/xmlrpc/__init__.py",
-        "tools/Lib/xmlrpc/client.py",
-        "tools/Lib/xmlrpc/server.py",
-        "tools/Lib/zipapp.py",
-        "tools/Lib/zipfile.py",
-        "tools/Lib/zipimport.py",
-        "tools/Lib/zoneinfo/__init__.py",
-        "tools/Lib/zoneinfo/_common.py",
-        "tools/Lib/zoneinfo/_tzpath.py",
-        "tools/Lib/zoneinfo/_zoneinfo.py",
-        "tools/Tools/demo/beer.py",
-        "tools/Tools/demo/eiffel.py",
-        "tools/Tools/demo/hanoi.py",
-        "tools/Tools/demo/life.py",
-        "tools/Tools/demo/markov.py",
-        "tools/Tools/demo/mcast.py",
-        "tools/Tools/demo/queens.py",
-        "tools/Tools/demo/redemo.py",
-        "tools/Tools/demo/rpython.py",
-        "tools/Tools/demo/rpythond.py",
-        "tools/Tools/demo/sortvisu.py",
-        "tools/Tools/demo/spreadsheet.py",
-        "tools/Tools/demo/vector.py",
-        "tools/Tools/i18n/makelocalealias.py",
-        "tools/Tools/i18n/msgfmt.py",
-        "tools/Tools/i18n/pygettext.py",
-        "tools/Tools/pynche/ChipViewer.py",
-        "tools/Tools/pynche/ColorDB.py",
-        "tools/Tools/pynche/DetailsViewer.py",
-        "tools/Tools/pynche/ListViewer.py",
-        "tools/Tools/pynche/Main.py",
-        "tools/Tools/pynche/PyncheWidget.py",
-        "tools/Tools/pynche/StripViewer.py",
-        "tools/Tools/pynche/Switchboard.py",
-        "tools/Tools/pynche/TextViewer.py",
-        "tools/Tools/pynche/TypeinViewer.py",
-        "tools/Tools/pynche/__init__.py",
-        "tools/Tools/pynche/html40colors.txt",
-        "tools/Tools/pynche/namedcolors.txt",
-        "tools/Tools/pynche/pyColorChooser.py",
-        "tools/Tools/pynche/pynche.pyw",
-        "tools/Tools/pynche/webcolors.txt",
-        "tools/Tools/pynche/websafe.txt",
-        "tools/Tools/scripts/abitype.py",
-        "tools/Tools/scripts/analyze_dxp.py",
-        "tools/Tools/scripts/byext.py",
-        "tools/Tools/scripts/byteyears.py",
-        "tools/Tools/scripts/checkpip.py",
-        "tools/Tools/scripts/cleanfuture.py",
-        "tools/Tools/scripts/combinerefs.py",
-        "tools/Tools/scripts/copytime.py",
-        "tools/Tools/scripts/crlf.py",
-        "tools/Tools/scripts/db2pickle.py",
-        "tools/Tools/scripts/diff.py",
-        "tools/Tools/scripts/dutree.py",
-        "tools/Tools/scripts/eptags.py",
-        "tools/Tools/scripts/find-uname.py",
-        "tools/Tools/scripts/find_recursionlimit.py",
-        "tools/Tools/scripts/finddiv.py",
-        "tools/Tools/scripts/findlinksto.py",
-        "tools/Tools/scripts/findnocoding.py",
-        "tools/Tools/scripts/fixcid.py",
-        "tools/Tools/scripts/fixdiv.py",
-        "tools/Tools/scripts/fixheader.py",
-        "tools/Tools/scripts/fixnotice.py",
-        "tools/Tools/scripts/fixps.py",
-        "tools/Tools/scripts/generate_opcode_h.py",
-        "tools/Tools/scripts/generate_symbol_py.py",
-        "tools/Tools/scripts/generate_token.py",
-        "tools/Tools/scripts/get-remote-certificate.py",
-        "tools/Tools/scripts/google.py",
-        "tools/Tools/scripts/gprof2html.py",
-        "tools/Tools/scripts/highlight.py",
-        "tools/Tools/scripts/ifdef.py",
-        "tools/Tools/scripts/import_diagnostics.py",
-        "tools/Tools/scripts/lfcr.py",
-        "tools/Tools/scripts/linktree.py",
-        "tools/Tools/scripts/lll.py",
-        "tools/Tools/scripts/mailerdaemon.py",
-        "tools/Tools/scripts/make_ctype.py",
-        "tools/Tools/scripts/md5sum.py",
-        "tools/Tools/scripts/mkreal.py",
-        "tools/Tools/scripts/ndiff.py",
-        "tools/Tools/scripts/nm2def.py",
-        "tools/Tools/scripts/objgraph.py",
-        "tools/Tools/scripts/parse_html5_entities.py",
-        "tools/Tools/scripts/parseentities.py",
-        "tools/Tools/scripts/patchcheck.py",
-        "tools/Tools/scripts/pathfix.py",
-        "tools/Tools/scripts/pdeps.py",
-        "tools/Tools/scripts/pep384_macrocheck.py",
-        "tools/Tools/scripts/pickle2db.py",
-        "tools/Tools/scripts/pindent.py",
-        "tools/Tools/scripts/ptags.py",
-        "tools/Tools/scripts/pysource.py",
-        "tools/Tools/scripts/reindent-rst.py",
-        "tools/Tools/scripts/reindent.py",
-        "tools/Tools/scripts/rgrep.py",
-        "tools/Tools/scripts/run_tests.py",
-        "tools/Tools/scripts/serve.py",
-        "tools/Tools/scripts/smelly.py",
-        "tools/Tools/scripts/suff.py",
-        "tools/Tools/scripts/texi2html.py",
-        "tools/Tools/scripts/untabify.py",
-        "tools/Tools/scripts/update_file.py",
-        "tools/Tools/scripts/var_access_benchmark.py",
-        "tools/Tools/scripts/which.py",
-        "tools/Tools/scripts/win_add2path.py",
-        "tools/include/Python-ast.h",
-        "tools/include/Python.h",
-        "tools/include/abstract.h",
-        "tools/include/asdl.h",
-        "tools/include/ast.h",
-        "tools/include/bitset.h",
-        "tools/include/bltinmodule.h",
-        "tools/include/boolobject.h",
-        "tools/include/bytearrayobject.h",
-        "tools/include/bytesobject.h",
-        "tools/include/cellobject.h",
-        "tools/include/ceval.h",
-        "tools/include/classobject.h",
-        "tools/include/code.h",
-        "tools/include/codecs.h",
-        "tools/include/compile.h",
-        "tools/include/complexobject.h",
-        "tools/include/context.h",
-        "tools/include/cpython/abstract.h",
-        "tools/include/cpython/bytearrayobject.h",
-        "tools/include/cpython/bytesobject.h",
-        "tools/include/cpython/ceval.h",
-        "tools/include/cpython/code.h",
-        "tools/include/cpython/dictobject.h",
-        "tools/include/cpython/fileobject.h",
-        "tools/include/cpython/fileutils.h",
-        "tools/include/cpython/frameobject.h",
-        "tools/include/cpython/import.h",
-        "tools/include/cpython/initconfig.h",
-        "tools/include/cpython/interpreteridobject.h",
-        "tools/include/cpython/listobject.h",
-        "tools/include/cpython/methodobject.h",
-        "tools/include/cpython/object.h",
-        "tools/include/cpython/objimpl.h",
-        "tools/include/cpython/pyerrors.h",
-        "tools/include/cpython/pylifecycle.h",
-        "tools/include/cpython/pymem.h",
-        "tools/include/cpython/pystate.h",
-        "tools/include/cpython/sysmodule.h",
-        "tools/include/cpython/traceback.h",
-        "tools/include/cpython/tupleobject.h",
-        "tools/include/cpython/unicodeobject.h",
-        "tools/include/datetime.h",
-        "tools/include/descrobject.h",
-        "tools/include/dictobject.h",
-        "tools/include/dynamic_annotations.h",
-        "tools/include/enumobject.h",
-        "tools/include/errcode.h",
-        "tools/include/eval.h",
-        "tools/include/exports.h",
-        "tools/include/fileobject.h",
-        "tools/include/fileutils.h",
-        "tools/include/floatobject.h",
-        "tools/include/frameobject.h",
-        "tools/include/funcobject.h",
-        "tools/include/genericaliasobject.h",
-        "tools/include/genobject.h",
-        "tools/include/graminit.h",
-        "tools/include/grammar.h",
-        "tools/include/import.h",
-        "tools/include/internal/pegen_interface.h",
-        "tools/include/internal/pycore_abstract.h",
-        "tools/include/internal/pycore_accu.h",
-        "tools/include/internal/pycore_atomic.h",
-        "tools/include/internal/pycore_bytes_methods.h",
-        "tools/include/internal/pycore_byteswap.h",
-        "tools/include/internal/pycore_call.h",
-        "tools/include/internal/pycore_ceval.h",
-        "tools/include/internal/pycore_code.h",
-        "tools/include/internal/pycore_condvar.h",
-        "tools/include/internal/pycore_context.h",
-        "tools/include/internal/pycore_dtoa.h",
-        "tools/include/internal/pycore_fileutils.h",
-        "tools/include/internal/pycore_gc.h",
-        "tools/include/internal/pycore_getopt.h",
-        "tools/include/internal/pycore_gil.h",
-        "tools/include/internal/pycore_hamt.h",
-        "tools/include/internal/pycore_hashtable.h",
-        "tools/include/internal/pycore_import.h",
-        "tools/include/internal/pycore_initconfig.h",
-        "tools/include/internal/pycore_interp.h",
-        "tools/include/internal/pycore_object.h",
-        "tools/include/internal/pycore_pathconfig.h",
-        "tools/include/internal/pycore_pyerrors.h",
-        "tools/include/internal/pycore_pyhash.h",
-        "tools/include/internal/pycore_pylifecycle.h",
-        "tools/include/internal/pycore_pymem.h",
-        "tools/include/internal/pycore_pystate.h",
-        "tools/include/internal/pycore_runtime.h",
-        "tools/include/internal/pycore_sysmodule.h",
-        "tools/include/internal/pycore_traceback.h",
-        "tools/include/internal/pycore_tupleobject.h",
-        "tools/include/internal/pycore_warnings.h",
-        "tools/include/interpreteridobject.h",
-        "tools/include/intrcheck.h",
-        "tools/include/iterobject.h",
-        "tools/include/listobject.h",
-        "tools/include/longintrepr.h",
-        "tools/include/longobject.h",
-        "tools/include/marshal.h",
-        "tools/include/memoryobject.h",
-        "tools/include/methodobject.h",
-        "tools/include/modsupport.h",
-        "tools/include/moduleobject.h",
-        "tools/include/namespaceobject.h",
-        "tools/include/node.h",
-        "tools/include/object.h",
-        "tools/include/objimpl.h",
-        "tools/include/odictobject.h",
-        "tools/include/opcode.h",
-        "tools/include/osdefs.h",
-        "tools/include/osmodule.h",
-        "tools/include/parsetok.h",
-        "tools/include/patchlevel.h",
-        "tools/include/picklebufobject.h",
-        "tools/include/py_curses.h",
-        "tools/include/pyarena.h",
-        "tools/include/pycapsule.h",
-        "tools/include/pyconfig.h",
-        "tools/include/pyctype.h",
-        "tools/include/pydebug.h",
-        "tools/include/pydtrace.h",
-        "tools/include/pyerrors.h",
-        "tools/include/pyexpat.h",
-        "tools/include/pyfpe.h",
-        "tools/include/pyframe.h",
-        "tools/include/pyhash.h",
-        "tools/include/pylifecycle.h",
-        "tools/include/pymacconfig.h",
-        "tools/include/pymacro.h",
-        "tools/include/pymath.h",
-        "tools/include/pymem.h",
-        "tools/include/pyport.h",
-        "tools/include/pystate.h",
-        "tools/include/pystrcmp.h",
-        "tools/include/pystrhex.h",
-        "tools/include/pystrtod.h",
-        "tools/include/pythonrun.h",
-        "tools/include/pythread.h",
-        "tools/include/pytime.h",
-        "tools/include/rangeobject.h",
-        "tools/include/setobject.h",
-        "tools/include/sliceobject.h",
-        "tools/include/structmember.h",
-        "tools/include/structseq.h",
-        "tools/include/symtable.h",
-        "tools/include/sysmodule.h",
-        "tools/include/token.h",
-        "tools/include/traceback.h",
-        "tools/include/tracemalloc.h",
-        "tools/include/tupleobject.h",
-        "tools/include/typeslots.h",
-        "tools/include/ucnhash.h",
-        "tools/include/unicodeobject.h",
-        "tools/include/warnings.h",
-        "tools/include/weakrefobject.h",
-        "tools/libs/_asyncio.lib",
-        "tools/libs/_bz2.lib",
-        "tools/libs/_ctypes.lib",
-        "tools/libs/_decimal.lib",
-        "tools/libs/_elementtree.lib",
-        "tools/libs/_hashlib.lib",
-        "tools/libs/_lzma.lib",
-        "tools/libs/_msi.lib",
-        "tools/libs/_multiprocessing.lib",
-        "tools/libs/_overlapped.lib",
-        "tools/libs/_queue.lib",
-        "tools/libs/_socket.lib",
-        "tools/libs/_sqlite3.lib",
-        "tools/libs/_ssl.lib",
-        "tools/libs/_uuid.lib",
-        "tools/libs/_zoneinfo.lib",
-        "tools/libs/pyexpat.lib",
-        "tools/libs/python3.lib",
-        "tools/libs/python39.lib",
-        "tools/libs/select.lib",
-        "tools/libs/sqlite3.lib",
-        "tools/libs/unicodedata.lib",
-        "tools/libs/winsound.lib",
-        "tools/python.exe",
-        "tools/python3.dll",
-        "tools/python39.dll",
-        "tools/pythonw.exe",
-        "tools/vcruntime140.dll",
-        "tools/vcruntime140_1.dll"
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.DependencyInjection.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.DependencyInjection.Abstractions.xml",
+        "microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.dependencyinjection.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging/8.0.0": {
+      "sha512": "tvRkov9tAJ3xP51LCv3FJ2zINmv1P8Hi8lhhtcKGqM+ImiTCC84uOPEI4z8Cdq2C3o9e+Aa0Gw0rmrsJD77W+w==",
+      "type": "package",
+      "path": "microsoft.extensions.logging/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Logging.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.targets",
+        "lib/net462/Microsoft.Extensions.Logging.dll",
+        "lib/net462/Microsoft.Extensions.Logging.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.xml",
+        "lib/net7.0/Microsoft.Extensions.Logging.dll",
+        "lib/net7.0/Microsoft.Extensions.Logging.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Logging.xml",
+        "microsoft.extensions.logging.8.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Logging.Abstractions/8.0.0": {
+      "sha512": "arDBqTgFCyS0EvRV7O3MZturChstm50OJ0y9bDJvAcmEPJm0FFpFyjU/JLYyStNGGey081DvnQYlncNX5SJJGA==",
+      "type": "package",
+      "path": "microsoft.extensions.logging.abstractions/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn3.11/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn3.11/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn3.11/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.0/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.0/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Logging.Generators.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Logging.Generators.resources.dll",
+        "buildTransitive/net461/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net462/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/net6.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.targets",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net462/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net6.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net7.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/net8.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Logging.Abstractions.xml",
+        "microsoft.extensions.logging.abstractions.8.0.0.nupkg.sha512",
+        "microsoft.extensions.logging.abstractions.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Options/8.0.0": {
+      "sha512": "JOVOfqpnqlVLUzINQ2fox8evY2SKLYJ3BV8QDe/Jyp21u1T7r45x/R/5QdteURMR5r01GxeJSBBUOCOyaNXA3g==",
+      "type": "package",
+      "path": "microsoft.extensions.options/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "analyzers/dotnet/roslyn4.4/cs/Microsoft.Extensions.Options.SourceGeneration.dll",
+        "analyzers/dotnet/roslyn4.4/cs/cs/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/de/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/es/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/fr/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/it/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ja/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ko/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pl/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/pt-BR/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/ru/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/tr/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hans/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "analyzers/dotnet/roslyn4.4/cs/zh-Hant/Microsoft.Extensions.Options.SourceGeneration.resources.dll",
+        "buildTransitive/net461/Microsoft.Extensions.Options.targets",
+        "buildTransitive/net462/Microsoft.Extensions.Options.targets",
+        "buildTransitive/net6.0/Microsoft.Extensions.Options.targets",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Options.targets",
+        "buildTransitive/netstandard2.0/Microsoft.Extensions.Options.targets",
+        "lib/net462/Microsoft.Extensions.Options.dll",
+        "lib/net462/Microsoft.Extensions.Options.xml",
+        "lib/net6.0/Microsoft.Extensions.Options.dll",
+        "lib/net6.0/Microsoft.Extensions.Options.xml",
+        "lib/net7.0/Microsoft.Extensions.Options.dll",
+        "lib/net7.0/Microsoft.Extensions.Options.xml",
+        "lib/net8.0/Microsoft.Extensions.Options.dll",
+        "lib/net8.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Options.xml",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.dll",
+        "lib/netstandard2.1/Microsoft.Extensions.Options.xml",
+        "microsoft.extensions.options.8.0.0.nupkg.sha512",
+        "microsoft.extensions.options.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "Microsoft.Extensions.Primitives/8.0.0": {
+      "sha512": "bXJEZrW9ny8vjMF1JV253WeLhpEVzFo1lyaZu1vQ4ZxWUlVvknZ/+ftFgVheLubb4eZPSwwxBeqS1JkCOjxd8g==",
+      "type": "package",
+      "path": "microsoft.extensions.primitives/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/Microsoft.Extensions.Primitives.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/Microsoft.Extensions.Primitives.targets",
+        "lib/net462/Microsoft.Extensions.Primitives.dll",
+        "lib/net462/Microsoft.Extensions.Primitives.xml",
+        "lib/net6.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net6.0/Microsoft.Extensions.Primitives.xml",
+        "lib/net7.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net7.0/Microsoft.Extensions.Primitives.xml",
+        "lib/net8.0/Microsoft.Extensions.Primitives.dll",
+        "lib/net8.0/Microsoft.Extensions.Primitives.xml",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.dll",
+        "lib/netstandard2.0/Microsoft.Extensions.Primitives.xml",
+        "microsoft.extensions.primitives.8.0.0.nupkg.sha512",
+        "microsoft.extensions.primitives.nuspec",
+        "useSharedDesignerContext.txt"
       ]
     },
     "Microsoft.NETCore.Platforms/1.1.0": {
@@ -1613,14 +1251,15 @@
         "runtime.json"
       ]
     },
-    "Newtonsoft.Json/12.0.3": {
-      "sha512": "6mgjfnRB4jKMlzHSl+VD+oUc1IebOZabkbyWj2RiTgWwYPPuaK1H97G1sHqGwPlS5npiF5Q0OrxN1wni2n5QWg==",
+    "Newtonsoft.Json/13.0.3": {
+      "sha512": "HrC5BXdl00IP9zeV+0Z848QWPAoCr9P3bDEZguI+gkLcBKAOxix/tLEAAHC+UvDNPv4a2d18lOReHMOagPa+zQ==",
       "type": "package",
-      "path": "newtonsoft.json/12.0.3",
+      "path": "newtonsoft.json/13.0.3",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
         "LICENSE.md",
+        "README.md",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
         "lib/net35/Newtonsoft.Json.dll",
@@ -1629,45 +1268,17 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/net6.0/Newtonsoft.Json.dll",
+        "lib/net6.0/Newtonsoft.Json.xml",
         "lib/netstandard1.0/Newtonsoft.Json.dll",
         "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/netstandard1.3/Newtonsoft.Json.dll",
         "lib/netstandard1.3/Newtonsoft.Json.xml",
         "lib/netstandard2.0/Newtonsoft.Json.dll",
         "lib/netstandard2.0/Newtonsoft.Json.xml",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net40+sl5+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.dll",
-        "lib/portable-net45+win8+wp8+wpa81/Newtonsoft.Json.xml",
-        "newtonsoft.json.12.0.3.nupkg.sha512",
+        "newtonsoft.json.13.0.3.nupkg.sha512",
         "newtonsoft.json.nuspec",
         "packageIcon.png"
-      ]
-    },
-    "PacketDotNet/1.4.7": {
-      "sha512": "xh4MGjkDFhJfFtAr6IEwg3ocPm3TO0/AxbYeCVoh9BaVT0xeWJB1p0nwKQ9olsQiQtSqF8M0UXz97U2VnOYY0w==",
-      "type": "package",
-      "path": "packetdotnet/1.4.7",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "lib/net47/PacketDotNet.dll",
-        "lib/netstandard2.0/PacketDotNet.dll",
-        "lib/netstandard2.1/PacketDotNet.dll",
-        "packetdotnet.1.4.7.nupkg.sha512",
-        "packetdotnet.nuspec"
-      ]
-    },
-    "Python.Runtime/2.7.9": {
-      "sha512": "NBS5t9KJvBVDoAFsVOQ79Ri133Hir8O6sqcEZJufXLVvlReXvzyZKhkcO5fpWcqjj6798qrWd/tO/TXCx2Ga7g==",
-      "type": "package",
-      "path": "python.runtime/2.7.9",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "python.exe",
-        "python.runtime.2.7.9.nupkg.sha512",
-        "python.runtime.nuspec"
       ]
     },
     "pythonnet/3.0.5": {
@@ -1683,6 +1294,101 @@
         "lib/netstandard2.0/Python.Runtime.xml",
         "pythonnet.3.0.5.nupkg.sha512",
         "pythonnet.nuspec"
+      ]
+    },
+    "runtime.linux-arm.runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "gK720fg6HemDg8sXcfy+xCMZ9+hF78Gc7BmREbmkS4noqlu1BAr9qZtuWGhLzFjBfgecmdtl4+SYVwJ1VneZBQ==",
+      "type": "package",
+      "path": "runtime.linux-arm.runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-arm.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.linux-arm.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-arm/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.linux-arm64.runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "KYG6/3ojhEWbb3FwQAKgGWPHrY+HKUXXdVjJlrtyCLn3EMcNTaNcPadb2c0ndQzixZSmAxZKopXJr0nLwhOrpQ==",
+      "type": "package",
+      "path": "runtime.linux-arm64.runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.linux-arm64.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-arm64/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.linux-x64.runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "Wnw5vhA4mgGbIFoo6l9Fk3iEcwRSq49a1aKwJgXUCUtEQLCSUDjTGSxqy/oMUuOyyn7uLHsH8KgZzQ1y3lReiQ==",
+      "type": "package",
+      "path": "runtime.linux-x64.runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.linux-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.linux-x64.runtime.native.system.io.ports.nuspec",
+        "runtimes/linux-x64/native/libSystem.IO.Ports.Native.so",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "Ee7Sz5llLpTgyKIWzKI/GeuRSbFkOABgJRY00SqTY0OkTYtkB+9l5rFZfE7fxPA3c22RfytCBYkUdAkcmwMjQg==",
+      "type": "package",
+      "path": "runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.native.system.io.ports.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.osx-arm64.runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "rbUBLAaFW9oVkbsb0+XSrAo2QdhBeAyzLl5KQ6Oci9L/u626uXGKInsVJG6B9Z5EO8bmplC8tsMiaHK8wOBZ+w==",
+      "type": "package",
+      "path": "runtime.osx-arm64.runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.osx-arm64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.osx-arm64.runtime.native.system.io.ports.nuspec",
+        "runtimes/osx-arm64/native/libSystem.IO.Ports.Native.dylib",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "runtime.osx-x64.runtime.native.System.IO.Ports/8.0.0": {
+      "sha512": "IcfB4jKtM9pkzP9OpYelEcUX1MiDt0IJPBh3XYYdEISFF+6Mc+T8WWi0dr9wVh1gtcdVjubVEIBgB8BHESlGfQ==",
+      "type": "package",
+      "path": "runtime.osx-x64.runtime.native.system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "THIRD-PARTY-NOTICES.TXT",
+        "runtime.osx-x64.runtime.native.system.io.ports.8.0.0.nupkg.sha512",
+        "runtime.osx-x64.runtime.native.system.io.ports.nuspec",
+        "runtimes/osx-x64/native/libSystem.IO.Ports.Native.dylib",
+        "useSharedDesignerContext.txt"
       ]
     },
     "System.IO/4.3.0": {
@@ -1766,6 +1472,78 @@
         "system.io.nuspec"
       ]
     },
+    "System.IO.Hashing/8.0.0": {
+      "sha512": "ne1843evDugl0md7Fjzy6QjJrzsjh46ZKbhf8GwBXb5f/gw97J4bxMs0NQKifDuThh/f0bZ0e62NPl1jzTuRqA==",
+      "type": "package",
+      "path": "system.io.hashing/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Hashing.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Hashing.targets",
+        "lib/net462/System.IO.Hashing.dll",
+        "lib/net462/System.IO.Hashing.xml",
+        "lib/net6.0/System.IO.Hashing.dll",
+        "lib/net6.0/System.IO.Hashing.xml",
+        "lib/net7.0/System.IO.Hashing.dll",
+        "lib/net7.0/System.IO.Hashing.xml",
+        "lib/net8.0/System.IO.Hashing.dll",
+        "lib/net8.0/System.IO.Hashing.xml",
+        "lib/netstandard2.0/System.IO.Hashing.dll",
+        "lib/netstandard2.0/System.IO.Hashing.xml",
+        "system.io.hashing.8.0.0.nupkg.sha512",
+        "system.io.hashing.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
+    "System.IO.Ports/8.0.0": {
+      "sha512": "MaiPbx2/QXZc62gm/DrajRrGPG1lU4m08GWMoWiymPYM+ba4kfACp2PbiYpqJ4QiFGhHD00zX3RoVDTucjWe9g==",
+      "type": "package",
+      "path": "system.io.ports/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.IO.Ports.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.IO.Ports.targets",
+        "lib/net462/System.IO.Ports.dll",
+        "lib/net462/System.IO.Ports.xml",
+        "lib/net6.0/System.IO.Ports.dll",
+        "lib/net6.0/System.IO.Ports.xml",
+        "lib/net7.0/System.IO.Ports.dll",
+        "lib/net7.0/System.IO.Ports.xml",
+        "lib/net8.0/System.IO.Ports.dll",
+        "lib/net8.0/System.IO.Ports.xml",
+        "lib/netstandard2.0/System.IO.Ports.dll",
+        "lib/netstandard2.0/System.IO.Ports.xml",
+        "runtimes/unix/lib/net6.0/System.IO.Ports.dll",
+        "runtimes/unix/lib/net6.0/System.IO.Ports.xml",
+        "runtimes/unix/lib/net7.0/System.IO.Ports.dll",
+        "runtimes/unix/lib/net7.0/System.IO.Ports.xml",
+        "runtimes/unix/lib/net8.0/System.IO.Ports.dll",
+        "runtimes/unix/lib/net8.0/System.IO.Ports.xml",
+        "runtimes/win/lib/net6.0/System.IO.Ports.dll",
+        "runtimes/win/lib/net6.0/System.IO.Ports.xml",
+        "runtimes/win/lib/net7.0/System.IO.Ports.dll",
+        "runtimes/win/lib/net7.0/System.IO.Ports.xml",
+        "runtimes/win/lib/net8.0/System.IO.Ports.dll",
+        "runtimes/win/lib/net8.0/System.IO.Ports.xml",
+        "system.io.ports.8.0.0.nupkg.sha512",
+        "system.io.ports.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Memory/4.5.3": {
       "sha512": "3oDzvc/zzetpTKWMShs1AADwZjQ/36HnsufHRPcOjyRAAMLDlu2iD33MBI2opxnezcVUtXyqDXXjoFMOU9c7SA==",
       "type": "package",
@@ -1787,149 +1565,31 @@
         "version.txt"
       ]
     },
-    "System.Net.Primitives/4.3.0": {
-      "sha512": "qOu+hDwFwoZPbzPvwut2qATe3ygjeQBDQj91xlsaqGFQUI5i4ZnZb8yyQuLGpDGivEPIt8EJkd1BVzVoP31FXA==",
+    "System.Reactive/6.0.0": {
+      "sha512": "31kfaW4ZupZzPsI5PVe77VhnvFF55qgma7KZr/E0iFTs6fmdhhG8j0mgEx620iLTey1EynOkEfnyTjtNEpJzGw==",
       "type": "package",
-      "path": "system.net.primitives/4.3.0",
+      "path": "system.reactive/6.0.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net45/_._",
-        "lib/portable-net45+win8+wp8+wpa81/_._",
-        "lib/win8/_._",
-        "lib/wp80/_._",
-        "lib/wpa81/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net45/_._",
-        "ref/netcore50/System.Net.Primitives.dll",
-        "ref/netcore50/System.Net.Primitives.xml",
-        "ref/netcore50/de/System.Net.Primitives.xml",
-        "ref/netcore50/es/System.Net.Primitives.xml",
-        "ref/netcore50/fr/System.Net.Primitives.xml",
-        "ref/netcore50/it/System.Net.Primitives.xml",
-        "ref/netcore50/ja/System.Net.Primitives.xml",
-        "ref/netcore50/ko/System.Net.Primitives.xml",
-        "ref/netcore50/ru/System.Net.Primitives.xml",
-        "ref/netcore50/zh-hans/System.Net.Primitives.xml",
-        "ref/netcore50/zh-hant/System.Net.Primitives.xml",
-        "ref/netstandard1.0/System.Net.Primitives.dll",
-        "ref/netstandard1.0/System.Net.Primitives.xml",
-        "ref/netstandard1.0/de/System.Net.Primitives.xml",
-        "ref/netstandard1.0/es/System.Net.Primitives.xml",
-        "ref/netstandard1.0/fr/System.Net.Primitives.xml",
-        "ref/netstandard1.0/it/System.Net.Primitives.xml",
-        "ref/netstandard1.0/ja/System.Net.Primitives.xml",
-        "ref/netstandard1.0/ko/System.Net.Primitives.xml",
-        "ref/netstandard1.0/ru/System.Net.Primitives.xml",
-        "ref/netstandard1.0/zh-hans/System.Net.Primitives.xml",
-        "ref/netstandard1.0/zh-hant/System.Net.Primitives.xml",
-        "ref/netstandard1.1/System.Net.Primitives.dll",
-        "ref/netstandard1.1/System.Net.Primitives.xml",
-        "ref/netstandard1.1/de/System.Net.Primitives.xml",
-        "ref/netstandard1.1/es/System.Net.Primitives.xml",
-        "ref/netstandard1.1/fr/System.Net.Primitives.xml",
-        "ref/netstandard1.1/it/System.Net.Primitives.xml",
-        "ref/netstandard1.1/ja/System.Net.Primitives.xml",
-        "ref/netstandard1.1/ko/System.Net.Primitives.xml",
-        "ref/netstandard1.1/ru/System.Net.Primitives.xml",
-        "ref/netstandard1.1/zh-hans/System.Net.Primitives.xml",
-        "ref/netstandard1.1/zh-hant/System.Net.Primitives.xml",
-        "ref/netstandard1.3/System.Net.Primitives.dll",
-        "ref/netstandard1.3/System.Net.Primitives.xml",
-        "ref/netstandard1.3/de/System.Net.Primitives.xml",
-        "ref/netstandard1.3/es/System.Net.Primitives.xml",
-        "ref/netstandard1.3/fr/System.Net.Primitives.xml",
-        "ref/netstandard1.3/it/System.Net.Primitives.xml",
-        "ref/netstandard1.3/ja/System.Net.Primitives.xml",
-        "ref/netstandard1.3/ko/System.Net.Primitives.xml",
-        "ref/netstandard1.3/ru/System.Net.Primitives.xml",
-        "ref/netstandard1.3/zh-hans/System.Net.Primitives.xml",
-        "ref/netstandard1.3/zh-hant/System.Net.Primitives.xml",
-        "ref/portable-net45+win8+wp8+wpa81/_._",
-        "ref/win8/_._",
-        "ref/wp80/_._",
-        "ref/wpa81/_._",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.net.primitives.4.3.0.nupkg.sha512",
-        "system.net.primitives.nuspec"
-      ]
-    },
-    "System.Net.Sockets/4.3.0": {
-      "sha512": "m6icV6TqQOAdgt5N/9I5KNpjom/5NFtkmGseEH+AK/hny8XrytLH3+b5M8zL/Ycg3fhIocFpUMyl/wpFnVRvdw==",
-      "type": "package",
-      "path": "system.net.sockets/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/System.Net.Sockets.dll",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/System.Net.Sockets.dll",
-        "ref/netstandard1.3/System.Net.Sockets.dll",
-        "ref/netstandard1.3/System.Net.Sockets.xml",
-        "ref/netstandard1.3/de/System.Net.Sockets.xml",
-        "ref/netstandard1.3/es/System.Net.Sockets.xml",
-        "ref/netstandard1.3/fr/System.Net.Sockets.xml",
-        "ref/netstandard1.3/it/System.Net.Sockets.xml",
-        "ref/netstandard1.3/ja/System.Net.Sockets.xml",
-        "ref/netstandard1.3/ko/System.Net.Sockets.xml",
-        "ref/netstandard1.3/ru/System.Net.Sockets.xml",
-        "ref/netstandard1.3/zh-hans/System.Net.Sockets.xml",
-        "ref/netstandard1.3/zh-hant/System.Net.Sockets.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.net.sockets.4.3.0.nupkg.sha512",
-        "system.net.sockets.nuspec"
-      ]
-    },
-    "System.Reactive/5.0.0": {
-      "sha512": "erBZjkQHWL9jpasCE/0qKAryzVBJFxGHVBAvgRN1bzM0q2s1S4oYREEEL0Vb+1kA/6BKb5FjUZMp5VXmy+gzkQ==",
-      "type": "package",
-      "path": "system.reactive/5.0.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "build/net5.0/_._",
-        "build/netcoreapp3.1/System.Reactive.dll",
-        "build/netcoreapp3.1/System.Reactive.targets",
-        "build/netcoreapp3.1/System.Reactive.xml",
-        "buildTransitive/net5.0/_._",
-        "buildTransitive/netcoreapp3.1/System.Reactive.targets",
+        "build/net6.0-windows10.0.19041/_._",
+        "build/net6.0/_._",
+        "buildTransitive/net6.0-windows10.0.19041/_._",
+        "buildTransitive/net6.0/_._",
+        "icon.png",
         "lib/net472/System.Reactive.dll",
         "lib/net472/System.Reactive.xml",
-        "lib/net5.0-windows10.0.19041/System.Reactive.dll",
-        "lib/net5.0-windows10.0.19041/System.Reactive.xml",
-        "lib/net5.0/System.Reactive.dll",
-        "lib/net5.0/System.Reactive.xml",
-        "lib/netcoreapp3.1/_._",
+        "lib/net6.0-windows10.0.19041/System.Reactive.dll",
+        "lib/net6.0-windows10.0.19041/System.Reactive.xml",
+        "lib/net6.0/System.Reactive.dll",
+        "lib/net6.0/System.Reactive.xml",
         "lib/netstandard2.0/System.Reactive.dll",
         "lib/netstandard2.0/System.Reactive.xml",
-        "lib/uap10.0.16299/System.Reactive.dll",
-        "lib/uap10.0.16299/System.Reactive.pri",
-        "lib/uap10.0.16299/System.Reactive.xml",
-        "system.reactive.5.0.0.nupkg.sha512",
+        "lib/uap10.0.18362/System.Reactive.dll",
+        "lib/uap10.0.18362/System.Reactive.pri",
+        "lib/uap10.0.18362/System.Reactive.xml",
+        "readme.md",
+        "system.reactive.6.0.0.nupkg.sha512",
         "system.reactive.nuspec"
       ]
     },
@@ -2244,67 +1904,29 @@
         "system.runtime.nuspec"
       ]
     },
-    "System.Runtime.CompilerServices.Unsafe/6.0.0": {
-      "sha512": "/iUeP3tq1S0XdNNoMz5C9twLSrM/TH+qElHkXWaPvuNOt+99G75NrV0OS2EqHx5wMN7popYjpc8oTjC1y16DLg==",
+    "System.Runtime.CompilerServices.Unsafe/4.7.0": {
+      "sha512": "IpU1lcHz8/09yDr9N+Juc7SCgNUz+RohkCQI+KsWKR67XxpFr8Z6c8t1iENCXZuRuNCc4HBwme/MDHNVCwyAKg==",
       "type": "package",
-      "path": "system.runtime.compilerservices.unsafe/6.0.0",
+      "path": "system.runtime.compilerservices.unsafe/4.7.0",
       "files": [
         ".nupkg.metadata",
         ".signature.p7s",
-        "Icon.png",
         "LICENSE.TXT",
         "THIRD-PARTY-NOTICES.TXT",
-        "buildTransitive/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.targets",
-        "buildTransitive/netcoreapp3.1/_._",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net461/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/net6.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.dll",
-        "lib/netcoreapp3.1/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netcoreapp2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "lib/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
         "lib/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
-        "system.runtime.compilerservices.unsafe.6.0.0.nupkg.sha512",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard1.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.dll",
+        "ref/netstandard2.0/System.Runtime.CompilerServices.Unsafe.xml",
+        "system.runtime.compilerservices.unsafe.4.7.0.nupkg.sha512",
         "system.runtime.compilerservices.unsafe.nuspec",
-        "useSharedDesignerContext.txt"
-      ]
-    },
-    "System.Runtime.Handles/4.3.0": {
-      "sha512": "OKiSUN7DmTWeYb3l51A7EYaeNMnvxwE249YtZz7yooT4gOZhmTjIn48KgSsw2k2lYdLgTKNJw/ZIfSElwDRVgg==",
-      "type": "package",
-      "path": "system.runtime.handles/4.3.0",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "ThirdPartyNotices.txt",
-        "dotnet_library_license.txt",
-        "lib/MonoAndroid10/_._",
-        "lib/MonoTouch10/_._",
-        "lib/net46/_._",
-        "lib/xamarinios10/_._",
-        "lib/xamarinmac20/_._",
-        "lib/xamarintvos10/_._",
-        "lib/xamarinwatchos10/_._",
-        "ref/MonoAndroid10/_._",
-        "ref/MonoTouch10/_._",
-        "ref/net46/_._",
-        "ref/netstandard1.3/System.Runtime.Handles.dll",
-        "ref/netstandard1.3/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/de/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/es/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/fr/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/it/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/ja/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/ko/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/ru/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/zh-hans/System.Runtime.Handles.xml",
-        "ref/netstandard1.3/zh-hant/System.Runtime.Handles.xml",
-        "ref/xamarinios10/_._",
-        "ref/xamarinmac20/_._",
-        "ref/xamarintvos10/_._",
-        "ref/xamarinwatchos10/_._",
-        "system.runtime.handles.4.3.0.nupkg.sha512",
-        "system.runtime.handles.nuspec"
+        "useSharedDesignerContext.txt",
+        "version.txt"
       ]
     },
     "System.Text.Encoding/4.3.0": {
@@ -2375,6 +1997,38 @@
         "system.text.encoding.nuspec"
       ]
     },
+    "System.Threading.Channels/8.0.0": {
+      "sha512": "CMaFr7v+57RW7uZfZkPExsPB6ljwzhjACWW1gfU35Y56rk72B/Wu+sTqxVmGSk4SFUlPc3cjeKND0zktziyjBA==",
+      "type": "package",
+      "path": "system.threading.channels/8.0.0",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "LICENSE.TXT",
+        "PACKAGE.md",
+        "THIRD-PARTY-NOTICES.TXT",
+        "buildTransitive/net461/System.Threading.Channels.targets",
+        "buildTransitive/net462/_._",
+        "buildTransitive/net6.0/_._",
+        "buildTransitive/netcoreapp2.0/System.Threading.Channels.targets",
+        "lib/net462/System.Threading.Channels.dll",
+        "lib/net462/System.Threading.Channels.xml",
+        "lib/net6.0/System.Threading.Channels.dll",
+        "lib/net6.0/System.Threading.Channels.xml",
+        "lib/net7.0/System.Threading.Channels.dll",
+        "lib/net7.0/System.Threading.Channels.xml",
+        "lib/net8.0/System.Threading.Channels.dll",
+        "lib/net8.0/System.Threading.Channels.xml",
+        "lib/netstandard2.0/System.Threading.Channels.dll",
+        "lib/netstandard2.0/System.Threading.Channels.xml",
+        "lib/netstandard2.1/System.Threading.Channels.dll",
+        "lib/netstandard2.1/System.Threading.Channels.xml",
+        "system.threading.channels.8.0.0.nupkg.sha512",
+        "system.threading.channels.nuspec",
+        "useSharedDesignerContext.txt"
+      ]
+    },
     "System.Threading.Tasks/4.3.0": {
       "sha512": "LbSxKEdOUhVe8BezB/9uOGGppt+nZf6e1VFyw6v3DN6lqitm0OSn2uXMOdtP0M3W4iMcqcivm2J6UgqiwwnXiA==",
       "type": "package",
@@ -2442,38 +2096,76 @@
         "system.threading.tasks.4.3.0.nupkg.sha512",
         "system.threading.tasks.nuspec"
       ]
+    },
+    "Utf8StringInterpolation/1.3.1": {
+      "sha512": "VIo1LtpoFvp5LlCDkTiQsKrjX+GMA7N37OEJoqHMhCOdIeNoi8uFocnwi8h3TklSySB3U4Y1+gThB00fJTnfGA==",
+      "type": "package",
+      "path": "utf8stringinterpolation/1.3.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "lib/net6.0/Utf8StringInterpolation.dll",
+        "lib/net6.0/Utf8StringInterpolation.xml",
+        "lib/net8.0/Utf8StringInterpolation.dll",
+        "lib/net8.0/Utf8StringInterpolation.xml",
+        "lib/netstandard2.0/Utf8StringInterpolation.dll",
+        "lib/netstandard2.0/Utf8StringInterpolation.xml",
+        "lib/netstandard2.1/Utf8StringInterpolation.dll",
+        "lib/netstandard2.1/Utf8StringInterpolation.xml",
+        "utf8stringinterpolation.1.3.1.nupkg.sha512",
+        "utf8stringinterpolation.nuspec"
+      ]
+    },
+    "ZLogger/2.5.5": {
+      "sha512": "E3PXH/8+iut1DYng6sgz5JOicXgppngsUuvJRE5zFvWNMW4xmgD6aeIIK91Fd26+VbEcumN1EFBSahAuJG7dcQ==",
+      "type": "package",
+      "path": "zlogger/2.5.5",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "Icon.png",
+        "analyzers/dotnet/roslyn4.3/cs/ZLogger.Generator.dll",
+        "lib/net6.0/ZLogger.dll",
+        "lib/net6.0/ZLogger.xml",
+        "lib/net8.0/ZLogger.dll",
+        "lib/net8.0/ZLogger.xml",
+        "lib/netstandard2.0/ZLogger.dll",
+        "lib/netstandard2.0/ZLogger.xml",
+        "lib/netstandard2.1/ZLogger.dll",
+        "lib/netstandard2.1/ZLogger.xml",
+        "zlogger.2.5.5.nupkg.sha512",
+        "zlogger.nuspec"
+      ]
     }
   },
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
+      "Asv.Mavlink >= 3.10.5",
       "MAVLink >= 1.0.8",
       "MavLink4Net.Messages >= 0.4.0",
       "MavSdk.Net >= 1.1.3",
-      "Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64 >= 8.0.11",
-      "PacketDotNet >= 1.4.7",
-      "Python.Runtime >= 2.7.9",
-      "System.Net.Sockets >= 4.3.0",
       "pythonnet >= 3.0.5"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\NienNguyen\\.nuget\\packages\\": {},
+    "C:\\Users\\vannha2004\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "A:\\OneDrive - nien.edu.vn\\Learning\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
+      "projectUniqueName": "D:\\NCKH\\TaiLieu\\DronePath\\DroneNien\\DroneNien.csproj",
       "projectName": "DroneNien",
-      "projectPath": "A:\\OneDrive - nien.edu.vn\\Learning\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
-      "packagesPath": "C:\\Users\\NienNguyen\\.nuget\\packages\\",
-      "outputPath": "A:\\OneDrive - nien.edu.vn\\Learning\\ScienceResearch\\DronePath\\DroneNien\\obj\\",
+      "projectPath": "D:\\NCKH\\TaiLieu\\DronePath\\DroneNien\\DroneNien.csproj",
+      "packagesPath": "C:\\Users\\vannha2004\\.nuget\\packages\\",
+      "outputPath": "D:\\NCKH\\TaiLieu\\DronePath\\DroneNien\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\NienNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\vannha2004\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -2500,13 +2192,16 @@
         "enableAudit": "true",
         "auditLevel": "low",
         "auditMode": "direct"
-      },
-      "SdkAnalysisLevel": "9.0.100"
+      }
     },
     "frameworks": {
       "net8.0-windows7.0": {
         "targetAlias": "net8.0-windows",
         "dependencies": {
+          "Asv.Mavlink": {
+            "target": "Package",
+            "version": "[3.10.5, )"
+          },
           "MAVLink": {
             "target": "Package",
             "version": "[1.0.8, )"
@@ -2518,22 +2213,6 @@
           "MavSdk.Net": {
             "target": "Package",
             "version": "[1.1.3, )"
-          },
-          "Microsoft.NET.Runtime.Emscripten.3.1.34.Python.win-x64": {
-            "target": "Package",
-            "version": "[8.0.11, )"
-          },
-          "PacketDotNet": {
-            "target": "Package",
-            "version": "[1.4.7, )"
-          },
-          "Python.Runtime": {
-            "target": "Package",
-            "version": "[2.7.9, )"
-          },
-          "System.Net.Sockets": {
-            "target": "Package",
-            "version": "[4.3.0, )"
           },
           "pythonnet": {
             "target": "Package",
@@ -2559,8 +2238,40 @@
             "privateAssets": "none"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Asv.Mavlink 3.10.5 depends on Asv.Cfg (>= 3.0.0-dev.4) but Asv.Cfg 3.0.0-dev.4 was not found. An approximate best match of Asv.Cfg 3.0.0-rc.1 was resolved.",
+      "libraryId": "Asv.Cfg",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Asv.Mavlink 3.10.5 depends on Asv.Common (>= 3.0.0-dev.4) but Asv.Common 3.0.0-dev.4 was not found. An approximate best match of Asv.Common 3.0.0-rc.1 was resolved.",
+      "libraryId": "Asv.Common",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    },
+    {
+      "code": "NU1603",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Asv.Mavlink 3.10.5 depends on Asv.IO (>= 3.0.0-dev.4) but Asv.IO 3.0.0-dev.4 was not found. An approximate best match of Asv.IO 3.0.0-rc.1 was resolved.",
+      "libraryId": "Asv.IO",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }

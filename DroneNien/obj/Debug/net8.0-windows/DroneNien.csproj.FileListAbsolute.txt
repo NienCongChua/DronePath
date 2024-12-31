@@ -40,74 +40,62 @@ D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\Dr
 D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.sourcelink.json
 D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
 D:\OneDrive\OneDrive - nien.edu.vn\Learning\Self_Learning\Workspace\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.exe
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.deps.json
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.runtimeconfig.json
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.pdb
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Google.Protobuf.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\MAVLink.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\MavLink4Net.Messages.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\MavSdk.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\System.Reactive.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.AssemblyReference.cache
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\Styles.baml
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.g.cs
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\App.g.cs
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.cache
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.lref
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.baml
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.g.resources
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.GeneratedMSBuildEditorConfig.editorconfig
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfoInputs.cache
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfo.cs
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.CoreCompileInputs.cache
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.sourcelink.json
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.Up2Date
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\refint\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.pdb
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\Nghiên cứu khoa học\DronePath\DroneNien\bin\Debug\net8.0-windows\PacketDotNet.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.exe
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.deps.json
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.runtimeconfig.json
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.pdb
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Google.Protobuf.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\MAVLink.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\MavLink4Net.Messages.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\MavSdk.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\PacketDotNet.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\System.Reactive.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.AssemblyReference.cache
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\Styles.baml
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.g.cs
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\App.g.cs
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.cache
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.lref
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.baml
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.g.resources
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.GeneratedMSBuildEditorConfig.editorconfig
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfoInputs.cache
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfo.cs
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.CoreCompileInputs.cache
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.sourcelink.json
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.Up2Date
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\refint\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.pdb
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
-A:\OneDrive - nien.edu.vn\Learning\ScienceResearch\DronePath\DroneNien\bin\Debug\net8.0-windows\Python.Runtime.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.exe
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.deps.json
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.runtimeconfig.json
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DroneNien.pdb
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Asv.Cfg.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Asv.Common.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Asv.IO.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Asv.Mavlink.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\DynamicData.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Geodesy.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Google.Protobuf.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Core.Api.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Client.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Grpc.Net.Common.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\MAVLink.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\MavLink4Net.Messages.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\MavSdk.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.DependencyInjection.Abstractions.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Logging.Abstractions.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Options.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Microsoft.Extensions.Primitives.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Newtonsoft.Json.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\System.IO.Hashing.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\System.IO.Ports.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\System.Reactive.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Utf8StringInterpolation.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\ZLogger.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\ru\Asv.Common.resources.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\ru\Asv.Mavlink.resources.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\linux-arm\native\libSystem.IO.Ports.Native.so
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\linux-arm64\native\libSystem.IO.Ports.Native.so
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\linux-x64\native\libSystem.IO.Ports.Native.so
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\osx-arm64\native\libSystem.IO.Ports.Native.dylib
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\osx-x64\native\libSystem.IO.Ports.Native.dylib
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\unix\lib\net8.0\System.IO.Ports.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\runtimes\win\lib\net8.0\System.IO.Ports.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.AssemblyReference.cache
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\Styles.baml
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.g.cs
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\App.g.cs
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.cache
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien_MarkupCompile.lref
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\MainWindow.baml
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.g.resources
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.GeneratedMSBuildEditorConfig.editorconfig
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfoInputs.cache
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.AssemblyInfo.cs
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.CoreCompileInputs.cache
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.sourcelink.json
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.csproj.Up2Date
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\refint\DroneNien.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.pdb
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genruntimeconfig.cache
+D:\NCKH\TaiLieu\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
+D:\NCKH\TaiLieu\DronePath\DroneNien\bin\Debug\net8.0-windows\Python.Runtime.dll
