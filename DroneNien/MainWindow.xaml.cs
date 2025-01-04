@@ -1,42 +1,41 @@
-﻿using System;
-using System.Diagnostics;
-using System.IO;
-using System.Text;
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
 using System.Windows;
-using System.Windows.Media.Imaging;
-using System.Drawing;
-using System.Drawing.Imaging;
-using System.Net.WebSockets;
-using System.Linq;
-using System.Net.Sockets;
-using System.Net;
-using static MAVLink;
-using System.Runtime.InteropServices;
-using Emgu.CV;
-using Emgu.CV.CvEnum;
-using Emgu.CV.Structure;
-using System.Windows.Threading;
-using System.Windows.Controls;
-using Microsoft.Win32;
-
-// using System.Drawing.Common;
 
 namespace DroneNien
 {
     public partial class MainWindow : Window
     {
-        private bool isDroneConnected = false;
-        private ConnectAll connectAll = new ConnectAll();
-        private SendCommand sendCommand = new SendCommand();
-        private LoadPython loadPython = new LoadPython();
-        private ProcessDisplay processDisplay;
+        public DroneViewModel ViewModel { get; set; }
 
+        private bool isDroneConnected = false;
+        private ConnectAll connectAll;
+        private SendCommand sendCommand;
+        private LoadPython loadPython;
+        private ProcessDisplay processDisplay;
+        private Mission mission;
 
         public MainWindow()
         {
             InitializeComponent();
-            sendCommand.ConnectToUDPPort();
             processDisplay = new ProcessDisplay(SlideshowImage); 
+            connectAll = new ConnectAll();
+            sendCommand = new SendCommand();
+            loadPython = new LoadPython();
+            mission = new Mission();
+
+            // Kết nối tới cổng UDP 14556 của PX4-Autopilot
+            sendCommand.ConnectToUDPPort();
+
+            // Receive data from PX4-Autopilot
+            ViewModel = new DroneViewModel();
+            DataContext = ViewModel;
+            StartReceivingData();
+        }
+
+        private async void StartReceivingData()
+        {
+            await ViewModel.StartReceivingData();
         }
 
         private void btnConnect_Click(object sender, RoutedEventArgs e)
@@ -74,7 +73,14 @@ namespace DroneNien
 
         private void btnTakeoff_Click(object sender, RoutedEventArgs e)
         {
-            sendCommand._SendCommand("TAKEOFF", param7: 5); // Set height to 5 meters
+            if (isDroneConnected)
+            {
+                sendCommand.FlyToAltitude(50);
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private void btnStartSim_Click(object sender, RoutedEventArgs e)
@@ -84,17 +90,38 @@ namespace DroneNien
 
         private void btnArm_Click(object sender, RoutedEventArgs e)
         {
-            sendCommand._SendCommand("ARM");
+            if (isDroneConnected)
+            {
+                sendCommand.ArmDrone();
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private void btnLand_Click(object sender, RoutedEventArgs e)
         {
-            sendCommand._SendCommand("LAND");
+            if (isDroneConnected)
+            {
+                sendCommand.Land();
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private void btnRTL_Click(object sender, RoutedEventArgs e)
         {
-            sendCommand._SendCommand("RTL");
+            if (isDroneConnected)
+            {
+                sendCommand.ReturnToLaunch();
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private void btnStopSim_Click(object sender, RoutedEventArgs e)
@@ -104,12 +131,26 @@ namespace DroneNien
 
         private void btnLoadMission_Click(object sender, RoutedEventArgs e)
         {
-            // Implementation for loading a mission
+            if (isDroneConnected)
+            {
+                mission.LoadMission();
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private void btnStartMission_Click(object sender, RoutedEventArgs e)
         {
-            // CheckConnection();   
+            if (isDroneConnected)
+            {
+                mission.StartMission();
+            }
+            else
+            {
+                MessageBox.Show("Please connect to the drone first.");
+            }
         }
 
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)

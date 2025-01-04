@@ -8,31 +8,39 @@ namespace DroneNien
     {
         public void StartUnrealEngine()
         {
-            try
+            var process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
+            if (process == null)
             {
-                // Mở Unreal Engine Editor
-                Process.Start(new ProcessStartInfo
+                try
                 {
-                    FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                    Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                    // Thay đổi đường dẫn tùy theo máy của bạn
-                    UseShellExecute = true
-                });
+                    // Mở Unreal Engine Editor
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        // Thay đổi đường dẫn tùy theo máy của bạn
+                        UseShellExecute = true
+                    });
 
-                // Đợi Unreal Engine tải xong (thời gian chờ: 20 giây)
-                Console.WriteLine("Waiting for Unreal Engine to load...");
-                System.Threading.Thread.Sleep(5000); // Chờ 20 giây
+                    // Đợi Unreal Engine tải xong (thời gian chờ: 20 giây)
+                    Console.WriteLine("Waiting for Unreal Engine to load...");
+                    System.Threading.Thread.Sleep(5000); // Chờ 20 giây
 
-                // Gửi phím tắt Alt + P để Play
-                UnrealAutomation.TriggerPlayShortcut();
+                    // Gửi phím tắt Alt + P để Play
+                    UnrealAutomation.TriggerPlayShortcut();
 
-                // Thông báo thành công
-                MessageBox.Show("Unreal Engine started and Play mode activated!");
+                    // Thông báo thành công
+                    MessageBox.Show("Unreal Engine started and Play mode activated!");
+                }
+                catch (Exception ex)
+                {
+                    // Thông báo lỗi nếu không khởi chạy được Unreal hoặc không gửi phím tắt
+                    MessageBox.Show($"Failed to start Unreal Engine or Play mode: {ex.Message}");
+                }
             }
-            catch (Exception ex)
+            else
             {
-                // Thông báo lỗi nếu không khởi chạy được Unreal hoặc không gửi phím tắt
-                MessageBox.Show($"Failed to start Unreal Engine or Play mode: {ex.Message}");
+                MessageBox.Show("Unreal Engine is already running.");
             }
         }
 
@@ -103,7 +111,7 @@ namespace DroneNien
             try
             {
                 // Dừng Unreal Engine
-                foreach (var process in Process.GetProcessesByName("UnrealEditor"))
+                foreach (var process in Process.GetProcessesByName("UE4Editor"))
                 {
                     process.Kill();
                 }
@@ -152,11 +160,12 @@ namespace DroneNien
 
         private string? GetQGroundControlPath()
         {
-            string[] possiblePaths = {
-        @"C:\Program Files\QGroundControl\QGroundControl.exe",
-        @"C:\Program Files (x86)\QGroundControl\QGroundControl.exe",
-        @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\QGroundControl.exe"
-        };
+            string[] possiblePaths = 
+            {   
+                @"C:\Program Files\QGroundControl\QGroundControl.exe",
+                @"C:\Program Files (x86)\QGroundControl\QGroundControl.exe",
+                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\QGroundControl.exe"
+            };
 
             foreach (var path in possiblePaths)
             {

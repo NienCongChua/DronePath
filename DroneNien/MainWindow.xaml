@@ -73,23 +73,23 @@
 
                     <StackPanel Grid.Column="0" Margin="5">
                         <TextBlock Text="Altitude:"/>
-                        <TextBlock x:Name="txtAltitude" Text="0.0 m"/>
+                        <TextBlock x:Name="txtAltitude" Text="{Binding Altitude}"/>
                         <TextBlock Text="Speed:"/>
-                        <TextBlock x:Name="txtSpeed" Text="0.0 m/s"/>
+                        <TextBlock x:Name="txtSpeed" Text="{Binding Speed}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="5">
                         <TextBlock Text="Battery:"/>
-                        <TextBlock x:Name="txtBattery" Text="0%"/>
+                        <TextBlock x:Name="txtBattery" Text="{Binding Battery}"/>
                         <TextBlock Text="GPS:"/>
-                        <TextBlock x:Name="txtGPS" Text="No Fix"/>
+                        <TextBlock x:Name="txtGPS" Text="{Binding GPS}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2" Margin="5">
                         <TextBlock Text="Status:"/>
-                        <TextBlock x:Name="txtStatus" Text="Disconnected"/>
+                        <TextBlock x:Name="txtStatus" Text="{Binding Status}"/>
                         <TextBlock Text="Mode:"/>
-                        <TextBlock x:Name="txtMode" Text="MANUAL"/>
+                        <TextBlock x:Name="txtMode" Text="{Binding Mode}"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>

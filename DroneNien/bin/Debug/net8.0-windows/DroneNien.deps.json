@@ -9,6 +9,7 @@
       "DroneNien/1.0.0": {
         "dependencies": {
           "Emgu.CV": "4.9.0.5494",
+          "InputSimulator": "1.0.4",
           "MAVLink": "1.0.8",
           "Newtonsoft.Json": "13.0.3",
           "System.Drawing.Common": "9.0.0"
@@ -28,6 +29,14 @@
           "lib/netstandard2.0/Emgu.CV.dll": {
             "assemblyVersion": "4.9.0.5494",
             "fileVersion": "4.9.0.5494"
+          }
+        }
+      },
+      "InputSimulator/1.0.4": {
+        "runtime": {
+          "lib/net20/WindowsInput.dll": {
+            "assemblyVersion": "1.0.4.0",
+            "fileVersion": "1.0.4.0"
           }
         }
       },
@@ -227,6 +236,13 @@
       "sha512": "sha512-arnHdpnI14Ov98BmiWOsijAO3qvs2Z5+nBD2uavJI24CRTRSvkCXKZoMmhJVA48QdCdWO8HkO4wMqEezL4Bz/A==",
       "path": "emgu.cv/4.9.0.5494",
       "hashPath": "emgu.cv.4.9.0.5494.nupkg.sha512"
+    },
+    "InputSimulator/1.0.4": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-D0LvRCPQMX6/FJHBjng+RO+wRDuHTJrfo7IAc7rmkPvRqchdVGJWg3y70peOtDy3OLNK+HSOwVkH4GiuLnkKgA==",
+      "path": "inputsimulator/1.0.4",
+      "hashPath": "inputsimulator.1.0.4.nupkg.sha512"
     },
     "MAVLink/1.0.8": {
       "type": "package",

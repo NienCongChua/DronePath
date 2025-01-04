@@ -55,6 +55,10 @@
               "target": "Package",
               "version": "[4.9.0.5494, )"
             },
+            "InputSimulator": {
+              "target": "Package",
+              "version": "[1.0.4, )"
+            },
             "MAVLink": {
               "target": "Package",
               "version": "[1.0.8, )"

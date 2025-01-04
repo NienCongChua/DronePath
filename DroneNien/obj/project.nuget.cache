@@ -1,10 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "5Tz7rKS1RDk=",
+  "dgSpecHash": "+8nXSEyD5DU=",
   "success": true,
   "projectFilePath": "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NienNguyen\\.nuget\\packages\\emgu.cv\\4.9.0.5494\\emgu.cv.4.9.0.5494.nupkg.sha512",
+    "C:\\Users\\NienNguyen\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",
     "C:\\Users\\NienNguyen\\.nuget\\packages\\mavlink\\1.0.8\\mavlink.1.0.8.nupkg.sha512",
     "C:\\Users\\NienNguyen\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.1\\microsoft.netcore.platforms.1.1.1.nupkg.sha512",
     "C:\\Users\\NienNguyen\\.nuget\\packages\\microsoft.netcore.targets\\1.1.3\\microsoft.netcore.targets.1.1.3.nupkg.sha512",
@@ -31,5 +32,16 @@
     "C:\\Users\\NienNguyen\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\NienNguyen\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'InputSimulator 1.0.4' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net8.0-windows7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "InputSimulator",
+      "targetGraphs": [
+        "net8.0-windows7.0"
+      ]
+    }
+  ]
 }
