@@ -23,14 +23,14 @@ namespace DroneNien
                     });
 
                     // Đợi Unreal Engine tải xong (thời gian chờ: 20 giây)
-                    Console.WriteLine("Waiting for Unreal Engine to load...");
-                    System.Threading.Thread.Sleep(5000); // Chờ 20 giây
+                    // Console.WriteLine("Waiting for Unreal Engine to load...");
+                    System.Threading.Thread.Sleep(20000); // Chờ 20 giây
 
                     // Gửi phím tắt Alt + P để Play
                     UnrealAutomation.TriggerPlayShortcut();
 
                     // Thông báo thành công
-                    MessageBox.Show("Unreal Engine started and Play mode activated!");
+                    // MessageBox.Show("Unreal Engine started and Play mode activated!");
                 }
                 catch (Exception ex)
                 {
@@ -127,8 +127,7 @@ namespace DroneNien
                 {
                     process.Kill();
                 }
-
-                MessageBox.Show("All applications stopped successfully!");
+                // MessageBox.Show("All applications stopped successfully!");
             }
             catch (Exception ex)
             {

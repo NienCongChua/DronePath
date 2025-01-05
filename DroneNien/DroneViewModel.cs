@@ -20,8 +20,9 @@ namespace DroneNien
             get => _altitude;
             set
             {
-                _altitude = value;
+                _altitude = Math.Round(value, 2);
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(AltitudeWithUnit));
             }
         }
 
@@ -30,8 +31,9 @@ namespace DroneNien
             get => _speed;
             set
             {
-                _speed = value;
+                _speed = Math.Round(value, 2);
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(SpeedWithUnit));
             }
         }
 
@@ -40,8 +42,9 @@ namespace DroneNien
             get => _battery;
             set
             {
-                _battery = value;
+                _battery = Math.Round(value, 2);
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(BatteryWithUnit));
             }
         }
 
@@ -52,9 +55,9 @@ namespace DroneNien
             {
                 _gps = value;
                 OnPropertyChanged();
+                OnPropertyChanged(nameof(GPSWithUnit));
             }
         }
-
 
         public string Status
         {
@@ -76,12 +79,17 @@ namespace DroneNien
             }
         }
 
-        public event PropertyChangedEventHandler ? PropertyChanged;
+        public string AltitudeWithUnit => $"{Altitude} m";
+        public string SpeedWithUnit => $"{Speed} m/s";
+        public string BatteryWithUnit => $"{Battery} %";
+        public string GPSWithUnit => $"{GPS}";
 
         protected void OnPropertyChanged([CallerMemberName] string name = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(name));
         }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
 
         public async Task StartReceivingData()
         {
@@ -92,35 +100,43 @@ namespace DroneNien
             {
                 while (true)
                 {
-                    var result = await client.ReceiveAsync();
-                    var packet = mavlink.ReadPacket(new MemoryStream(result.Buffer));
-
-                    if (packet != null)
+                    try
                     {
-                        switch (packet.msgid)
+                        var result = await client.ReceiveAsync();
+                        var packet = mavlink.ReadPacket(new MemoryStream(result.Buffer));
+
+                        if (packet != null)
                         {
-                            case 33: // MAVLINK_MSG_ID_GLOBAL_POSITION_INT
-                                var globalPosition = packet.ToStructure<mavlink_global_position_int_t>();
-                                Altitude = globalPosition.relative_alt / 1000.0;
-                                break;
-                            case 24: // MAVLINK_MSG_ID_GPS_RAW_INT
-                                var gpsRaw = packet.ToStructure<mavlink_gps_raw_int_t>();
-                                GPS = $"{gpsRaw.lat / 1E7}, {gpsRaw.lon / 1E7}";
-                                break;
-                            case 30: // MAVLINK_MSG_ID_ATTITUDE
-                                var attitude = packet.ToStructure<mavlink_attitude_t>();
-                                Speed = attitude.yawspeed;
-                                break;
-                            case 147: // MAVLINK_MSG_ID_BATTERY_STATUS
-                                var batteryStatus = packet.ToStructure<mavlink_battery_status_t>();
-                                Battery = batteryStatus.battery_remaining;
-                                break;
-                            case 0: // MAVLINK_MSG_ID_HEARTBEAT
-                                var heartbeat = packet.ToStructure<mavlink_heartbeat_t>();
-                                Mode = heartbeat.custom_mode.ToString();
-                                Status = heartbeat.system_status.ToString();
-                                break;
+                            switch (packet.msgid)
+                            {
+                                case 33: // MAVLINK_MSG_ID_GLOBAL_POSITION_INT
+                                    var globalPosition = packet.ToStructure<mavlink_global_position_int_t>();
+                                    Altitude = globalPosition.relative_alt / 1000.0;
+                                    break;
+                                case 24: // MAVLINK_MSG_ID_GPS_RAW_INT
+                                    var gpsRaw = packet.ToStructure<mavlink_gps_raw_int_t>();
+                                    GPS = $"{gpsRaw.lat / 1E7}, {gpsRaw.lon / 1E7}";
+                                    break;
+                                case 30: // MAVLINK_MSG_ID_ATTITUDE
+                                    var attitude = packet.ToStructure<mavlink_attitude_t>();
+                                    Speed = attitude.yawspeed;
+                                    break;
+                                case 147: // MAVLINK_MSG_ID_BATTERY_STATUS
+                                    var batteryStatus = packet.ToStructure<mavlink_battery_status_t>();
+                                    Battery = batteryStatus.battery_remaining;
+                                    break;
+                                case 0: // MAVLINK_MSG_ID_HEARTBEAT
+                                    var heartbeat = packet.ToStructure<mavlink_heartbeat_t>();
+                                    Mode = heartbeat.custom_mode.ToString();
+                                    Status = heartbeat.system_status.ToString();
+                                    break;
+                            }
                         }
+                    }
+                    catch (Exception ex)
+                    {
+                        // Log or handle the exception as needed
+                        Console.WriteLine($"Error receiving data: {ex.Message}");
                     }
                 }
             });

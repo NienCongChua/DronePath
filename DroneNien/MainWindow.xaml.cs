@@ -126,6 +126,8 @@ namespace DroneNien
 
         private void btnStopSim_Click(object sender, RoutedEventArgs e)
         {
+            // Ngắt kết nối và dừng các ứng dụng
+            connectAll.StopApplications();
             this.Close();
         }
 

@@ -73,16 +73,16 @@
 
                     <StackPanel Grid.Column="0" Margin="5">
                         <TextBlock Text="Altitude:"/>
-                        <TextBlock x:Name="txtAltitude" Text="{Binding Altitude}"/>
+                        <TextBlock x:Name="txtAltitude" Text="{Binding AltitudeWithUnit}"/>
                         <TextBlock Text="Speed:"/>
-                        <TextBlock x:Name="txtSpeed" Text="{Binding Speed}"/>
+                        <TextBlock x:Name="txtSpeed" Text="{Binding SpeedWithUnit}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="5">
                         <TextBlock Text="Battery:"/>
-                        <TextBlock x:Name="txtBattery" Text="{Binding Battery}"/>
+                        <TextBlock x:Name="txtBattery" Text="{Binding BatteryWithUnit}"/>
                         <TextBlock Text="GPS:"/>
-                        <TextBlock x:Name="txtGPS" Text="{Binding GPS}"/>
+                        <TextBlock x:Name="txtGPS" Text="{Binding GPSWithUnit}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2" Margin="5">
