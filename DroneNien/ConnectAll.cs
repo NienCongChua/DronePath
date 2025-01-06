@@ -16,8 +16,8 @@ namespace DroneNien
                     // Mở Unreal Engine Editor
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
                         // Thay đổi đường dẫn tùy theo máy của bạn
                         UseShellExecute = true
                     });

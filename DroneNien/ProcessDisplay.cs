@@ -21,7 +21,7 @@ namespace DroneNien
         public ProcessDisplay(Image slideshowImage) // Add this constructor to initialize SlideshowImage
         {
             SlideshowImage = slideshowImage;
-            CheckAndLoadImage();
+            // CheckAndLoadImage();
         }
 
         private void CheckAndLoadImage()

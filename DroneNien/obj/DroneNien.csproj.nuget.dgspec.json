@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "D:\\NCKH\\gg\\DronePath\\DroneNien\\DroneNien.csproj": {}
+    "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj": {}
   },
   "projects": {
-    "D:\\NCKH\\gg\\DronePath\\DroneNien\\DroneNien.csproj": {
+    "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\NCKH\\gg\\DronePath\\DroneNien\\DroneNien.csproj",
+        "projectUniqueName": "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
         "projectName": "DroneNien",
-        "projectPath": "D:\\NCKH\\gg\\DronePath\\DroneNien\\DroneNien.csproj",
-        "packagesPath": "C:\\Users\\vannha2004\\.nuget\\packages\\",
-        "outputPath": "D:\\NCKH\\gg\\DronePath\\DroneNien\\obj\\",
+        "projectPath": "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
+        "packagesPath": "C:\\Users\\NienNguyen\\.nuget\\packages\\",
+        "outputPath": "A:\\ScienceResearch\\DronePath\\DroneNien\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\vannha2004\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\NienNguyen\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -44,7 +44,8 @@
           "enableAudit": "true",
           "auditLevel": "low",
           "auditMode": "direct"
-        }
+        },
+        "SdkAnalysisLevel": "9.0.100"
       },
       "frameworks": {
         "net8.0-windows7.0": {
@@ -90,7 +91,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.303/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.101/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

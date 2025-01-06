@@ -3,9 +3,8 @@ Optimal overlay path planning and object detection application in UAV surveillan
 
 
 <h2 id="contrib">Contributors</h2>
-
 <a href="https://github.com/NienCongChua/DronePath/graphs/contributors">
-  <img src="https://opencollective.com/DronePath/contributors.svg?width=890&button=false" />
+  <img src="https://contrib.rocks/image?repo=NienCongChua/DronePath" />
 </a>
 
 ![Alt](https://repobeats.axiom.co/api/embed/f597c915603b3c80ab25f91ca765477d7503559f.svg "Repobeats analytics image")
