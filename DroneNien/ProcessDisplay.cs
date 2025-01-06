@@ -13,7 +13,7 @@ namespace DroneNien
     internal class ProcessDisplay
     {
         //Hiển thị ảnh
-        private string folderPath = @"A:\ScienceResearch\dataset";
+        private string folderPath = @"D:\NCKH\dataset\images";
         private string? latestImagePath = null;
         private FileSystemWatcher fileWatcher = new FileSystemWatcher();
         private Image SlideshowImage = new Image(); 

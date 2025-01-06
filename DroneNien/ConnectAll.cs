@@ -16,15 +16,15 @@ namespace DroneNien
                     // Mở Unreal Engine Editor
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        FileName = @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
                         // Thay đổi đường dẫn tùy theo máy của bạn
                         UseShellExecute = true
                     });
 
                     // Đợi Unreal Engine tải xong (thời gian chờ: 20 giây)
                     // Console.WriteLine("Waiting for Unreal Engine to load...");
-                    System.Threading.Thread.Sleep(20000); // Chờ 20 giây
+                    System.Threading.Thread.Sleep(5000); // Chờ 20 giây
 
                     // Gửi phím tắt Alt + P để Play
                     UnrealAutomation.TriggerPlayShortcut();
@@ -163,7 +163,9 @@ namespace DroneNien
             {   
                 @"C:\Program Files\QGroundControl\QGroundControl.exe",
                 @"C:\Program Files (x86)\QGroundControl\QGroundControl.exe",
-                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\QGroundControl.exe"
+                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\QGroundControl.exe",
+                @"D:\CSDL\QGroundControl\QGroundControl.exe"
+
             };
 
             foreach (var path in possiblePaths)
