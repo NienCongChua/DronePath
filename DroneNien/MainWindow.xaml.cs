@@ -84,7 +84,7 @@ namespace DroneNien
 
         private void btnStartSim_Click(object sender, RoutedEventArgs e)
         {
-           
+            
         }
 
         private void btnArm_Click(object sender, RoutedEventArgs e)

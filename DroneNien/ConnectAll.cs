@@ -23,8 +23,8 @@ namespace DroneNien
                     // Mở Unreal Engine Editor
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        FileName = @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
                         // Thay đổi đường dẫn tùy theo máy của bạn
                         UseShellExecute = true
                     });
@@ -55,53 +55,62 @@ namespace DroneNien
         public void StartNetMode(Border parentBorder)
         {
             var process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
-            if (process == null)
+            IntPtr ue4WindowHandle = FindUnrealEngineWindow();
+            if (ue4WindowHandle != IntPtr.Zero)
             {
-                try
-                {
-                    // Mở Unreal Engine Editor
-                    Process.Start(new ProcessStartInfo
-                    {
-                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                        UseShellExecute = true
-                    });
+                // Lưu offset và scale
+                int offsetX = 78;
+                int offsetY = 5;
+                double scaleFactor = 1.25;
 
-                    // Đợi Unreal Engine tải xong (thời gian chờ: 2 giây)
-                    Thread.Sleep(2000); // Chờ 2 giây
-                }
-                catch (Exception ex)
-                {
-                    MessageBox.Show($"Không thể khởi động Unreal Engine hoặc nhúng cửa sổ: {ex.Message}");
-                }
-            }
-            else
-            {
-                // Tìm cửa sổ Unreal Engine
-                IntPtr ue4WindowHandle = FindUnrealEngineWindow();
+                Window parentWindow = Window.GetWindow(parentBorder);
+                WindowInteropHelper helper = new WindowInteropHelper(parentWindow);
 
-                if (ue4WindowHandle != IntPtr.Zero)
-                {
-                    // Nhúng cửa sổ Unreal Engine vào Border
-                    WindowInteropHelper helper = new WindowInteropHelper(Window.GetWindow(parentBorder));
-                    SetParent(ue4WindowHandle, helper.Handle);
+                // Thiết lập parent
+                SetParent(ue4WindowHandle, helper.Handle);
 
-                    // Di chuyển và thay đổi kích thước cửa sổ Unreal Engine
-                    MoveWindow(ue4WindowHandle, 0, 0, (int)parentBorder.ActualWidth, (int)parentBorder.ActualHeight, true);
-
-                    // Đăng ký sự kiện thay đổi kích thước của Border
-                    parentBorder.SizeChanged += (s, e) =>
-                    {
-                        MoveWindow(ue4WindowHandle, 0, 0, (int)parentBorder.ActualWidth, (int)parentBorder.ActualHeight, true);
-                    };
-                }
-                else
+                void UpdateUnrealWindowPosition()
                 {
-                    MessageBox.Show("Không tìm thấy cửa sổ NetMode.");
+                    Point borderPos = parentBorder.PointToScreen(new Point(0, 0));
+                    borderPos = parentWindow.PointFromScreen(borderPos);
+
+                    SetWindowPos(
+                        ue4WindowHandle,
+                        IntPtr.Zero,
+                        (int)borderPos.X + offsetX,
+                        (int)borderPos.Y + offsetY,
+                        (int)(parentBorder.ActualWidth * scaleFactor),
+                        (int)(parentBorder.ActualHeight * scaleFactor),
+                        SWP_SHOWWINDOW
+                    );
                 }
+
+                // Thiết lập ban đầu
+                UpdateUnrealWindowPosition();
+                // Xử lý khi Border thay đổi kích thước hoặc vị trí
+                parentBorder.SizeChanged += (s, e) =>
+                {
+                    UpdateUnrealWindowPosition(); // Gọi hàm cập nhật
+                };
+
+
             }
         }
+        // Thêm constant
+        private const int SWP_SHOWWINDOW = 0x0040;
 
+        // Thêm P/Invoke
+        [DllImport("user32.dll")]
+        private static extern bool SetWindowPos(
+            IntPtr hWnd,
+            IntPtr hWndInsertAfter,
+            int X,
+            int Y,
+            int cx,
+            int cy,
+            uint uFlags
+        );
+        //-----------------------------------------------------------
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool EnumWindows(EnumWindowsProc lpEnumFunc, IntPtr lParam);
