@@ -8,12 +8,12 @@ namespace DroneNien
 {
     public class DroneViewModel : INotifyPropertyChanged
     {
-        private double _altitude;
-        private double _speed;
-        private double _battery;
-        private string? _gps;
-        private string? _status;
-        private string? _mode;
+        private double _altitude = 0;
+        private double _speed = 0;
+        private double _battery = 0;
+        private string? _gps = "None";
+        private string? _status = "Disconnected";
+        private string? _mode = "None";
 
         public double Altitude
         {

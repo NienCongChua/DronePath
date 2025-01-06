@@ -63,18 +63,6 @@ namespace DroneNien
 
                 // Khởi động tiến trình
                 Process? process = Process.Start(startInfo);
-
-                // Thông báo người dùng
-                if (process != null)
-                {
-                    MessageBox.Show("PX4 is running in a WSL terminal window. Please check the terminal for logs.",
-                                    "Information", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
-                else
-                {
-                    MessageBox.Show("Failed to start PX4. Could not create the process.",
-                                    "Error", MessageBoxButton.OK, MessageBoxImage.Error);
-                }
             }
             catch (Exception ex)
             {
