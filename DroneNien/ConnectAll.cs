@@ -1,6 +1,13 @@
-﻿using System.Diagnostics;
+﻿using System;
+using System.Diagnostics;
 using System.IO;
+using System.Linq;
+using System.Runtime.InteropServices;
+using System.Threading;
 using System.Windows;
+using System.Windows.Interop;
+using System.Text;
+using System.Windows.Controls;
 
 namespace DroneNien
 {
@@ -22,19 +29,11 @@ namespace DroneNien
                         UseShellExecute = true
                     });
 
-                    // Đợi Unreal Engine tải xong (thời gian chờ: 20 giây)
-                    // Console.WriteLine("Waiting for Unreal Engine to load...");
-                    System.Threading.Thread.Sleep(5000); // Chờ 20 giây
-
                     // Gửi phím tắt Alt + P để Play
                     UnrealAutomation.TriggerPlayShortcut();
-
-                    // Thông báo thành công
-                    // MessageBox.Show("Unreal Engine started and Play mode activated!");
                 }
                 catch (Exception ex)
                 {
-                    // Thông báo lỗi nếu không khởi chạy được Unreal hoặc không gửi phím tắt
                     MessageBox.Show($"Failed to start Unreal Engine or Play mode: {ex.Message}");
                 }
             }
@@ -42,6 +41,91 @@ namespace DroneNien
             {
                 MessageBox.Show("Unreal Engine is already running.");
             }
+        }
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+
+        public void StartNetMode(Border parentBorder)
+        {
+            var process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
+            if (process == null)
+            {
+                try
+                {
+                    // Mở Unreal Engine Editor
+                    Process.Start(new ProcessStartInfo
+                    {
+                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        UseShellExecute = true
+                    });
+
+                    // Đợi Unreal Engine tải xong (thời gian chờ: 2 giây)
+                    Thread.Sleep(2000); // Chờ 2 giây
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Không thể khởi động Unreal Engine hoặc nhúng cửa sổ: {ex.Message}");
+                }
+            }
+            else
+            {
+                // Tìm cửa sổ Unreal Engine
+                IntPtr ue4WindowHandle = FindUnrealEngineWindow();
+
+                if (ue4WindowHandle != IntPtr.Zero)
+                {
+                    // Nhúng cửa sổ Unreal Engine vào Border
+                    WindowInteropHelper helper = new WindowInteropHelper(Window.GetWindow(parentBorder));
+                    SetParent(ue4WindowHandle, helper.Handle);
+
+                    // Di chuyển và thay đổi kích thước cửa sổ Unreal Engine
+                    MoveWindow(ue4WindowHandle, 0, 0, (int)parentBorder.ActualWidth, (int)parentBorder.ActualHeight, true);
+
+                    // Đăng ký sự kiện thay đổi kích thước của Border
+                    parentBorder.SizeChanged += (s, e) =>
+                    {
+                        MoveWindow(ue4WindowHandle, 0, 0, (int)parentBorder.ActualWidth, (int)parentBorder.ActualHeight, true);
+                    };
+                }
+                else
+                {
+                    MessageBox.Show("Không tìm thấy cửa sổ NetMode.");
+                }
+            }
+        }
+
+
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool EnumWindows(EnumWindowsProc lpEnumFunc, IntPtr lParam);
+
+        private delegate bool EnumWindowsProc(IntPtr hWnd, IntPtr lParam);
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern int GetWindowText(IntPtr hWnd, StringBuilder lpString, int nMaxCount);
+
+        private IntPtr FindUnrealEngineWindow()
+        {
+            IntPtr foundWindow = IntPtr.Zero;
+            EnumWindows((hWnd, lParam) =>
+            {
+                StringBuilder windowText = new StringBuilder(256);
+                GetWindowText(hWnd, windowText, windowText.Capacity);
+                if (windowText.ToString().Contains("Blocks Environment"))
+                {
+                    foundWindow = hWnd;
+                    return false; // Stop enumeration
+                }
+                return true; // Continue enumeration
+            }, IntPtr.Zero);
+
+            return foundWindow;
         }
 
         // Px4 nè

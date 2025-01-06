@@ -12,13 +12,11 @@ namespace DroneNien
         private ConnectAll connectAll;
         private SendCommand sendCommand;
         private LoadPython loadPython;
-        private ProcessDisplay processDisplay;
         private Mission mission;
 
         public MainWindow()
         {
             InitializeComponent();
-            processDisplay = new ProcessDisplay(SlideshowImage); 
             connectAll = new ConnectAll();
             sendCommand = new SendCommand();
             loadPython = new LoadPython();
@@ -48,6 +46,7 @@ namespace DroneNien
                     connectAll.StartUnrealEngine();
                     connectAll.StartPX4();
                     connectAll.StartQGroundControl();
+                    connectAll.StartNetMode(Display);
 
                     // Cập nhật trạng thái giao diện
                     isDroneConnected = true;
