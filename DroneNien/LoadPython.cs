@@ -13,13 +13,17 @@ namespace DroneNien
         {
             try
             {
-                OpenFileDialog openFileDialog = new OpenFileDialog();
-                openFileDialog.Filter = "Python Files (*.py)|*.py";
-                if (openFileDialog.ShowDialog() != true)
-                {
-                    return;
-                }
-                string pythonFilePath = openFileDialog.FileName;
+                //OpenFileDialog openFileDialog = new OpenFileDialog();
+                //openFileDialog.Filter = "Python Files (*.py)|*.py";
+                //if (openFileDialog.ShowDialog() != true)
+                //{
+                //    return;
+                //}
+                //string pythonFilePath = openFileDialog.FileName;
+                // MessageBox.Show(pythonFilePath);
+
+                // thay đổi đường dẫn file python
+                string pythonFilePath = "C:\\Users\\nien\\source\\repos\\DroneNien\\DroneNien\\Python\\test.py";
 
                 // 1. Khởi tạo ProcessStartInfo
                 ProcessStartInfo start = new ProcessStartInfo();

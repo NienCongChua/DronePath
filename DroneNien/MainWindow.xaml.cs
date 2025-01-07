@@ -49,6 +49,8 @@ namespace DroneNien
                     connectAll.StartQGroundControl();
                     Thread.Sleep(1000); // Đợi 1 giây để các ứng dụng khởi động
                     connectAll.StartNetMode(Display);
+                    connectAll.HideUnrealEngine();
+                    connectAll.StartNetQGCMode(Display);
 
                     // Cập nhật trạng thái giao diện
                     isDroneConnected = true;
@@ -159,6 +161,18 @@ namespace DroneNien
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(() => loadPython.ProcessPythonFile());
+        }
+
+        private void btnAdvance_Click(object sender, RoutedEventArgs e)
+        {
+            if (AditionalFunction.Visibility == Visibility.Collapsed)
+            {
+                AditionalFunction.Visibility = Visibility.Visible;
+            }
+            else
+            {
+                AditionalFunction.Visibility = Visibility.Collapsed;
+            }
         }
     }
 }

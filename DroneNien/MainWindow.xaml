@@ -14,7 +14,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Background="LightCyan">
+    <Grid Background="WhiteSmoke">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
@@ -22,28 +22,19 @@
 
         <!-- Control Panel -->
         <StackPanel Grid.Column="0" Margin="10">
-            <GroupBox Header="Drone Control" Margin="0,0,0,10">
+            <GroupBox Header="Main Function" Margin="0,0,0,10">
                 <StackPanel Margin="5">
                     <Button x:Name="btnConnect" Content="Connect Drone" Margin="0,5" Click="btnConnect_Click"/>
-                    <Button x:Name="btnArm" Content="Arm" Margin="0,5" Click="btnArm_Click"/>
-                    <Button x:Name="btnTakeoff" Content="Takeoff" Margin="0,5" Click="btnTakeoff_Click"/>
-                    <Button x:Name="btnLand" Content="Land" Margin="0,5" Click="btnLand_Click"/>
-                    <Button x:Name="btnRTL" Content="Return to Launch" Margin="0,5" Click="btnRTL_Click"/>
-                </StackPanel>
-            </GroupBox>
-
-            <GroupBox Header="Process Control" Margin="0,0,0,10">
-                <StackPanel Margin="5">
-                    <Button x:Name="btnLoadMission" Content="Load Mission" Margin="0,5" Click="btnLoadMission_Click"/>
-                    <Button x:Name="btnLoadDetect" Content="Start Detection" Margin="0,5" Click="btnStartDetection_Click"/>
-                    <Button x:Name="btnLoadPython" Content="Load Python File" Margin="0,5" Click="btnLoadPythonFile_Click"/>
-                </StackPanel>
-            </GroupBox>
-
-            <GroupBox Header="Simulation" Margin="0,0,0,10">
-                <StackPanel Margin="5">
-                    <Button x:Name="btnStartSim" Content="Start Simulation" Margin="0,5" Click="btnStartSim_Click"/>
-                    <Button x:Name="btnStopSim" Content="Exit Simulation" Margin="0,5" Click="btnStopSim_Click"/>
+                    <Button x:Name="btnLoadPython" Content="Start Mission" Margin="0,5" Click="btnLoadPythonFile_Click"/>
+                    <Button x:Name="btnAdvance" Content="Advance" Margin="0, 5" Click="btnAdvance_Click"/>
+                    <StackPanel Name="AditionalFunction" Visibility="Collapsed" Margin="0, 5">
+                        <Button Content="Option 1" Background="Brown"  Margin="20, 5, 5, 5"/>
+                        <Button Content="Option 2" Background="Brown" Margin="20, 5, 5, 5"/>
+                        <Button Content="Option 3" Background="Brown" Margin="20, 5, 5, 5"/>
+                        <Button Content="Option 4" Background="Brown" Margin="20, 5, 5, 5"/>
+                        <Button Content="Option 5" Background="Brown" Margin="20, 5, 5, 5"/>
+                    </StackPanel>
+                    -->
                 </StackPanel>
             </GroupBox>
         </StackPanel>

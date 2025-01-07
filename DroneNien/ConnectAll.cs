@@ -13,21 +13,35 @@ namespace DroneNien
 {
     internal class ConnectAll
     {
+        [DllImport("user32.dll", SetLastError = true)]
+        private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+
+        private const int SW_HIDE = 0;
         public void StartUnrealEngine()
         {
-            var process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
-            if (process == null)
+            var ue4Process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
+            if (ue4Process == null)
             {
                 try
                 {
                     // Mở Unreal Engine Editor
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                        // Thay đổi đường dẫn tùy theo máy của bạn
-                        UseShellExecute = true
+                        FileName = GetUnrealPath(),
+                        Arguments = GetBlocksPath(),
+                        UseShellExecute = true,
+                        CreateNoWindow = true,
                     });
+
+                    if (ue4Process != null)
+                    {
+                        ue4Process.WaitForInputIdle(); // Wait for the process to be ready for input
+                        IntPtr hWnd = ue4Process.MainWindowHandle;
+                        if (hWnd != IntPtr.Zero)
+                        {
+                            ShowWindow(hWnd, SW_HIDE); // Hide the window
+                        }
+                    }
 
                     // Gửi phím tắt Alt + P để Play
                     UnrealAutomation.TriggerPlayShortcut();
@@ -42,6 +56,28 @@ namespace DroneNien
                 MessageBox.Show("Unreal Engine is already running.");
             }
         }
+
+        public void HideUnrealEngine()
+        {
+        var ue4Process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
+            try
+            {
+                if (ue4Process != null)
+                {
+                    ue4Process.WaitForInputIdle(); // Wait for the process to be ready for input
+                    IntPtr hWnd = ue4Process.MainWindowHandle;
+                    if (hWnd != IntPtr.Zero)
+                    {
+                        ShowWindow(hWnd, SW_HIDE); // Hide the window
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to hide Unreal Engine: {ex.Message}");
+            }
+        }
+
 
         [DllImport("user32.dll", SetLastError = true)]
         private static extern IntPtr SetParent(IntPtr hWndChild, IntPtr hWndNewParent);
@@ -92,8 +128,6 @@ namespace DroneNien
                 {
                     UpdateUnrealWindowPosition(); // Gọi hàm cập nhật
                 };
-
-
             }
         }
         // Thêm constant
@@ -150,8 +184,8 @@ namespace DroneNien
                 {
                     FileName = "wsl.exe", // Chạy WSL trực tiếp
                     Arguments = $"-e bash -c \"{fullCommand}\"", // Thực thi lệnh đầy đủ trong Bash
-                    UseShellExecute = true, // Hiển thị cửa sổ
-                    CreateNoWindow = false // Không ẩn cửa sổ
+                    UseShellExecute = false, // Hiển thị cửa sổ
+                    CreateNoWindow = true // Không ẩn cửa sổ
                 };
 
                 // Khởi động tiến trình
@@ -216,6 +250,66 @@ namespace DroneNien
             }
         }
 
+        public void StartNetQGCMode(Border parentBorder)
+        {
+            var process = Process.GetProcessesByName("QGroundControl").FirstOrDefault();
+            IntPtr qgcWindowHandle = FindQGroundControlWindow();
+            if (qgcWindowHandle != IntPtr.Zero)
+            {
+                // Lưu offset và scale
+                int offsetX = 0;
+                int offsetY = 0;
+                double scaleFactor = 1.25;
+
+                Window parentWindow = Window.GetWindow(parentBorder);
+                WindowInteropHelper helper = new WindowInteropHelper(parentWindow);
+
+                // Thiết lập parent
+                SetParent(qgcWindowHandle, helper.Handle);
+
+                void UpdateUnrealWindowPosition()
+                {
+                    Point borderPos = parentBorder.PointToScreen(new Point(0, 0));
+                    borderPos = parentWindow.PointFromScreen(borderPos);
+
+                    SetWindowPos(
+                        qgcWindowHandle,
+                        IntPtr.Zero,
+                        (int)borderPos.X + offsetX,
+                        (int)borderPos.Y + offsetY,
+                        (int)(parentBorder.ActualWidth * scaleFactor),
+                        (int)(parentBorder.ActualHeight * scaleFactor),
+                        SWP_SHOWWINDOW
+                    );
+                }
+
+                // Thiết lập ban đầu
+                UpdateUnrealWindowPosition();
+                // Xử lý khi Border thay đổi kích thước hoặc vị trí
+                parentBorder.SizeChanged += (s, e) =>
+                {
+                    UpdateUnrealWindowPosition(); // Gọi hàm cập nhật
+                };
+            }
+        }
+
+        private IntPtr FindQGroundControlWindow()
+        {
+            IntPtr foundWindow = IntPtr.Zero;
+            EnumWindows((hWnd, lParam) =>
+            {
+                StringBuilder windowText = new StringBuilder(256);
+                GetWindowText(hWnd, windowText, windowText.Capacity);
+                if (windowText.ToString().Contains("QGroundControl"))
+                {
+                    foundWindow = hWnd;
+                    return false; // Stop enumeration
+                }
+                return true; // Continue enumeration
+            }, IntPtr.Zero);
+
+            return foundWindow;
+        }
 
         private void _StartQGroundControl()
         {
@@ -246,6 +340,49 @@ namespace DroneNien
                 @"C:\Program Files (x86)\QGroundControl\QGroundControl.exe",
                 @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\QGroundControl.exe",
                 @"D:\CSDL\QGroundControl\QGroundControl.exe"
+
+            };
+
+            foreach (var path in possiblePaths)
+            {
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
+
+            return null;
+        }
+
+        private string? GetUnrealPath()
+        {
+            string[] possiblePaths =
+            {
+                @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\UE4Editor.exe",
+                @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe"
+
+            };
+
+            foreach (var path in possiblePaths)
+            {
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
+
+            return null;
+        }
+
+
+        private string? GetBlocksPath()
+        {
+            string[] possiblePaths =
+            {
+                @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                @"C:\Users\" + Environment.UserName + @"\Documents\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject"
 
             };
 
