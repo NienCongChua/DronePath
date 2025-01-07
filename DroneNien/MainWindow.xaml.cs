@@ -12,7 +12,7 @@ namespace DroneNien
         private ConnectAll connectAll;
         private SendCommand sendCommand;
         private LoadPython loadPython;
-        private Mission mission;
+        private ProcessControl processControl;
 
         public MainWindow()
         {
@@ -20,7 +20,7 @@ namespace DroneNien
             connectAll = new ConnectAll();
             sendCommand = new SendCommand();
             loadPython = new LoadPython();
-            mission = new Mission();
+            processControl = new ProcessControl();
 
             // Kết nối tới cổng UDP 14556 của PX4-Autopilot
             sendCommand.ConnectToUDPPort();
@@ -42,10 +42,12 @@ namespace DroneNien
             {
                 try
                 {
+                    txtStatus.Text = "Connecting";
                     // Khởi chạy các ứng dụng
                     connectAll.StartUnrealEngine();
                     connectAll.StartPX4();
                     connectAll.StartQGroundControl();
+                    Thread.Sleep(1000); // Đợi 1 giây để các ứng dụng khởi động
                     connectAll.StartNetMode(Display);
 
                     // Cập nhật trạng thái giao diện
@@ -134,7 +136,7 @@ namespace DroneNien
         {
             if (isDroneConnected)
             {
-                mission.LoadMission();
+                processControl.LoadMission();
             }
             else
             {
@@ -142,11 +144,11 @@ namespace DroneNien
             }
         }
 
-        private void btnStartMission_Click(object sender, RoutedEventArgs e)
+        private void btnStartDetection_Click(object sender, RoutedEventArgs e)
         {
             if (isDroneConnected)
             {
-                mission.StartMission();
+                processControl.LoadDetect();
             }
             else
             {

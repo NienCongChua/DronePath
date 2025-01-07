@@ -23,8 +23,8 @@ namespace DroneNien
                     // Mở Unreal Engine Editor
                     Process.Start(new ProcessStartInfo
                     {
-                        FileName = @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                        Arguments = @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                        FileName = @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                        Arguments = @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
                         // Thay đổi đường dẫn tùy theo máy của bạn
                         UseShellExecute = true
                     });
@@ -50,7 +50,7 @@ namespace DroneNien
         private static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
 
         [DllImport("user32.dll", SetLastError = true)]
-        private static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
+        public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
         public void StartNetMode(Border parentBorder)
         {

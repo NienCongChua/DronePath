@@ -32,17 +32,17 @@
                 </StackPanel>
             </GroupBox>
 
-            <GroupBox Header="Mission Control" Margin="0,0,0,10">
+            <GroupBox Header="Process Control" Margin="0,0,0,10">
                 <StackPanel Margin="5">
                     <Button x:Name="btnLoadMission" Content="Load Mission" Margin="0,5" Click="btnLoadMission_Click"/>
-                    <Button x:Name="btnStartMission" Content="Start Mission" Margin="0,5" Click="btnStartMission_Click"/>
+                    <Button x:Name="btnLoadDetect" Content="Start Detection" Margin="0,5" Click="btnStartDetection_Click"/>
                     <Button x:Name="btnLoadPython" Content="Load Python File" Margin="0,5" Click="btnLoadPythonFile_Click"/>
                 </StackPanel>
             </GroupBox>
 
             <GroupBox Header="Simulation" Margin="0,0,0,10">
                 <StackPanel Margin="5">
-                    <Button x:Name="btnStartSim" Content="はじめて" Margin="0,5" Click="btnStartSim_Click"/>
+                    <Button x:Name="btnStartSim" Content="Start Simulation" Margin="0,5" Click="btnStartSim_Click"/>
                     <Button x:Name="btnStopSim" Content="Exit Simulation" Margin="0,5" Click="btnStopSim_Click"/>
                 </StackPanel>
             </GroupBox>
