@@ -34,7 +34,6 @@
                         <Button Content="Option 4" Background="Brown" Margin="20, 5, 5, 5"/>
                         <Button Content="Option 5" Background="Brown" Margin="20, 5, 5, 5"/>
                     </StackPanel>
-                    -->
                 </StackPanel>
             </GroupBox>
         </StackPanel>
