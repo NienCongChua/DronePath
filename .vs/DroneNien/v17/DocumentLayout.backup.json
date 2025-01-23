@@ -3,12 +3,32 @@
   "WorkspaceRootPath": "A:\\ScienceResearch\\DronePath\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\selectobject.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\selectobject.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\selectobject.xaml||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\selectobject.xaml||{8B382828-6202-11D1-8870-0000F87579D2}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\selectobject.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\selectobject.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
       "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\mainwindow.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\processcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\processcontrol.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\assemblyinfo.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\mainwindow.xaml.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}",
+      "RelativeMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|solutionrelative:dronenien\\styles.xaml||{F11ACC28-31D1-4C80-A34B-F4E09D3D753C}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{DE553F38-ED46-4BA8-8CC4-BB2C102C03C8}|DroneNien\\DroneNien.csproj|a:\\scienceresearch\\dronepath\\dronenien\\connectall.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -28,7 +48,7 @@
       "VerticalTabListWidth": 256,
       "DocumentGroups": [
         {
-          "DockedWidth": 227,
+          "DockedWidth": 311,
           "SelectedChildIndex": 1,
           "Children": [
             {
@@ -38,11 +58,24 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
+              "Title": "SelectObject.xaml.cs",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml.cs",
+              "RelativeDocumentMoniker": "DroneNien\\SelectObject.xaml.cs",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml.cs*",
+              "RelativeToolTip": "DroneNien\\SelectObject.xaml.cs*",
+              "ViewState": "AgIAAB4AAAAAAAAAAAA4wDgAAAA5AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T17:13:43.463Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "MainWindow.xaml",
               "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\MainWindow.xaml",
               "RelativeDocumentMoniker": "DroneNien\\MainWindow.xaml",
-              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\MainWindow.xaml*",
-              "RelativeToolTip": "DroneNien\\MainWindow.xaml*",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\MainWindow.xaml",
+              "RelativeToolTip": "DroneNien\\MainWindow.xaml",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
               "WhenOpened": "2025-01-04T16:31:52.718Z",
               "EditorCaption": ""
@@ -50,6 +83,43 @@
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "SelectObject.xaml",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml",
+              "RelativeDocumentMoniker": "DroneNien\\SelectObject.xaml",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml",
+              "RelativeToolTip": "DroneNien\\SelectObject.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T16:32:30.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "MainWindow.xaml.cs",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\MainWindow.xaml.cs",
+              "RelativeDocumentMoniker": "DroneNien\\MainWindow.xaml.cs",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\MainWindow.xaml.cs",
+              "RelativeToolTip": "DroneNien\\MainWindow.xaml.cs",
+              "ViewState": "AgIAAG0AAAAAAAAAAAA7wIAAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-01-23T15:54:29.329Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "Styles.xaml",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\Styles.xaml",
+              "RelativeDocumentMoniker": "DroneNien\\Styles.xaml",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\Styles.xaml",
+              "RelativeToolTip": "DroneNien\\Styles.xaml",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T15:51:46.453Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "ConnectAll.cs",
               "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\ConnectAll.cs",
               "RelativeDocumentMoniker": "DroneNien\\ConnectAll.cs",
@@ -57,11 +127,12 @@
               "RelativeToolTip": "DroneNien\\ConnectAll.cs",
               "ViewState": "AgIAANcAAAAAAAAAAAAmwCAAAAAuAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-06T08:04:47.229Z"
+              "WhenOpened": "2025-01-06T08:04:47.229Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 9,
               "Title": "settings.json",
               "DocumentMoniker": "A:\\ScienceResearch\\Airsim_Yolov5_ODRT\\settings.json",
               "RelativeDocumentMoniker": "..\\Airsim_Yolov5_ODRT\\settings.json",
@@ -69,31 +140,53 @@
               "RelativeToolTip": "..\\Airsim_Yolov5_ODRT\\settings.json",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
-              "WhenOpened": "2025-01-07T12:29:45.706Z"
+              "WhenOpened": "2025-01-07T12:29:45.706Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 8,
               "Title": "LoadPython.cs",
               "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\LoadPython.cs",
               "RelativeDocumentMoniker": "DroneNien\\LoadPython.cs",
               "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\LoadPython.cs",
               "RelativeToolTip": "DroneNien\\LoadPython.cs",
-              "ViewState": "AgIAAAkAAAAAAAAAAAAAAAsAAAAJAAAAAAAAAA==",
+              "ViewState": "AgIAAAYAAAAAAAAAAIBJwAsAAAAJAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T16:27:57.121Z"
-            },
+              "WhenOpened": "2025-01-07T16:27:57.121Z",
+              "EditorCaption": ""
+            }
+          ]
+        },
+        {
+          "DockedWidth": 370,
+          "SelectedChildIndex": 0,
+          "Children": [
             {
               "$type": "Document",
               "DocumentIndex": 1,
-              "Title": "ProcessControl.cs",
-              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\ProcessControl.cs",
-              "RelativeDocumentMoniker": "DroneNien\\ProcessControl.cs",
-              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\ProcessControl.cs",
-              "RelativeToolTip": "DroneNien\\ProcessControl.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAACQAAAAnAAAAAAAAAA==",
+              "Title": "SelectObject.xaml",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml",
+              "RelativeDocumentMoniker": "DroneNien\\SelectObject.xaml",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\SelectObject.xaml",
+              "RelativeToolTip": "DroneNien\\SelectObject.xaml",
+              "ViewState": "AgIAAHcAAAAAAAAAAAAUwI4AAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.003549|",
+              "WhenOpened": "2025-01-23T17:23:00.219Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "AssemblyInfo.cs",
+              "DocumentMoniker": "A:\\ScienceResearch\\DronePath\\DroneNien\\AssemblyInfo.cs",
+              "RelativeDocumentMoniker": "DroneNien\\AssemblyInfo.cs",
+              "ToolTip": "A:\\ScienceResearch\\DronePath\\DroneNien\\AssemblyInfo.cs",
+              "RelativeToolTip": "DroneNien\\AssemblyInfo.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-01-07T12:56:05.225Z"
+              "WhenOpened": "2025-01-23T17:37:54.451Z",
+              "EditorCaption": ""
             }
           ]
         }

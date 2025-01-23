@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET8_0;NETCOREAPP
 A:\ScienceResearch\DronePath\DroneNien\App.xaml
-2787170672
+3-1969555283
 
-13-1180295176
+141805992829
 204963373823
-MainWindow.xaml;Styles.xaml;
+MainWindow.xaml;SelectObject.xaml;Styles.xaml;
 
-True
+False
 

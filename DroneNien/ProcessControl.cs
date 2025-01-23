@@ -22,11 +22,6 @@ namespace DroneNien
 
         private const int SW_RESTORE = 9;
 
-        public void LoadDetect()
-        {
-            
-        }
-
         public void LoadMission()
         {
             ActivateQGroundControl();

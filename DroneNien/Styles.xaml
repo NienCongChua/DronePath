@@ -5,13 +5,13 @@
     <Style TargetType="Window">
         <Setter Property="Background" Value="#F3F4F6"/>
         <Setter Property="FontFamily" Value="Segoe UI"/>
-        <Setter Property="FontSize" Value="14"/>
+        <Setter Property="FontSize" Value="18"/>
     </Style>
 
     <!-- Button Style with Triggers -->
     <Style TargetType="Button">
         <!-- Các thuộc tính cơ bản -->
-        <Setter Property="Background" Value="#0078D7"/>
+        <Setter Property="Background" Value="#0B3041"/>
         <Setter Property="Foreground" Value="White"/>
         <Setter Property="Padding" Value="10,5"/>
         <Setter Property="Margin" Value="5"/>
@@ -19,6 +19,7 @@
         <Setter Property="FontWeight" Value="Bold"/>
         <Setter Property="BorderThickness" Value="0"/>
         <Setter Property="Cursor" Value="Hand"/>
+        <Setter Property="Height" Value="30"/>
         <Setter Property="Effect">
             <Setter.Value>
                 <DropShadowEffect Color="Black" BlurRadius="5" Opacity="0.2"/>
@@ -33,7 +34,7 @@
                         <!-- Border chứa nội dung Button -->
                         <Border x:Name="ButtonBorder"
                             Background="{TemplateBinding Background}"
-                            CornerRadius="8"
+                            CornerRadius="3"
                             BorderThickness="0">
                             <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
                         </Border>

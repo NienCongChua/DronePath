@@ -5,8 +5,12 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DroneNien"
         mc:Ignorable="d"
-        Title="Drone Control System" Height="477" Width="800"
-        MinHeight="477" MinWidth="800">
+        Title="Drone Control System" 
+        WindowState="Maximized"
+        WindowStyle="None"
+        ResizeMode="NoResize"
+        Loaded="Window_Loaded"
+    >
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
@@ -24,19 +28,59 @@
         <StackPanel Grid.Column="0" Margin="10">
             <GroupBox Header="Main Function" Margin="0,0,0,10">
                 <StackPanel Margin="5">
-                    <Button x:Name="btnConnect" Content="Connect Drone" Margin="0,5" Click="btnConnect_Click"/>
-                    <Button x:Name="btnLoadPython" Content="Start Mission" Margin="0,5" Click="btnLoadPythonFile_Click"/>
-                    <Button x:Name="btnAdvance" Content="Advance" Margin="0, 5" Click="btnAdvance_Click"/>
+                    <Button x:Name="btnChonVungTuanTra" 
+                            Content="Chọn vùng tuần tra" 
+                            Margin="0,5" 
+                            Click="btnChonVungTuanTra_Click"/>
+                    
+                    <!-- Chức năng này chưa hoàn thiện
+                    <Button x:Name="btnHienThiDuongBay" 
+                            Content="Hiển thị đường bay"
+                            Margin="0, 5"
+                            Click="btnHienThiDuongBay_Click"/>
+                    -->
+                    
+                    <Button x:Name="btnLoadPython" 
+                            Content="Cất cánh" 
+                            Margin="0,5" 
+                            Click="btnLoadPythonFile_Click"/>
+                    <!-- Chức năng này không cần thiết nữa
+                    <Button x:Name="btnAdvance" 
+                            Content="Advance" 
+                            Margin="0, 5" 
+                            Click="btnAdvance_Click"/>
                     <StackPanel Name="AditionalFunction" Visibility="Collapsed" Margin="0, 5">
-                        <Button Content="Option 1" Background="Brown"  Margin="20, 5, 5, 5"/>
+                        <Button Content="Option 1" Background="Brown" Margin="20, 5, 5, 5"/>
                         <Button Content="Option 2" Background="Brown" Margin="20, 5, 5, 5"/>
                         <Button Content="Option 3" Background="Brown" Margin="20, 5, 5, 5"/>
                         <Button Content="Option 4" Background="Brown" Margin="20, 5, 5, 5"/>
                         <Button Content="Option 5" Background="Brown" Margin="20, 5, 5, 5"/>
                     </StackPanel>
+                    -->
+
+                    <Button x:Name="btnManHinhNhanDien" 
+                            Content="Nhận diện đối tượng" 
+                            Margin="0,5" 
+                            Click="btnManHinhNhanDien_Click"/>
+
+                    <Button x:Name="btnManHinhUnreal"
+                            Content="Hình ảnh Real-time"
+                            Margin="0, 5" 
+                            Click="btnManHinhUnreal_Click"/>
+
+                    <Button x:Name="btnChonDoiTuong"
+                            Content="Chọn đối tượng"
+                            Margin="0, 5" 
+                            Click="btnChonDoiTuong_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
+
+        <!-- Button exit -->
+        <Button Grid.Row="1" Content="Thoát" 
+                VerticalAlignment="Bottom" 
+                Margin="21, 10, 21, 10" 
+                Click="btnExit_Click"/>
 
         <!-- Map and Visualization Area -->
         <Grid Grid.Column="1">
@@ -52,6 +96,8 @@
                     BorderBrush="Gray" 
                     Margin="10, 20, 10, 5"
                     Name="Display">
+                <Frame Name="MainFrame" 
+                       NavigationUIVisibility="Hidden"/>
             </Border>
 
             <!-- Status and Telemetry -->
