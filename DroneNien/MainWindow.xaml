@@ -18,7 +18,14 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Background="WhiteSmoke">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+                <GradientStop Color="#1E1E2F " Offset="0.0"/>
+                <GradientStop Color="#73C269" Offset="0.5"/>
+                <GradientStop Color="#2E2E3E" Offset="1.0"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
@@ -80,6 +87,10 @@
         <Button Grid.Row="1" Content="Thoát" 
                 VerticalAlignment="Bottom" 
                 Margin="21, 10, 21, 10" 
+                HorizontalAlignment="Left"
+                
+                Width="80"
+                
                 Click="btnExit_Click"/>
 
         <!-- Map and Visualization Area -->

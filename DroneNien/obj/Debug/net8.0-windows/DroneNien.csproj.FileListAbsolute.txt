@@ -197,3 +197,5 @@ D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\DroneNien.genrun
 D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\ref\DroneNien.dll
 A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.g.cs
 A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.baml
+D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.g.cs
+D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.baml

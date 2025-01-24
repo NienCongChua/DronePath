@@ -15,6 +15,7 @@
             </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
     </Page.Resources>
+
     <Grid Margin="10, 5, 10, 5">
         <Grid Background="White">
             <Grid.RowDefinitions>
@@ -25,26 +26,26 @@
 
             <!-- Header with Search -->
             <Border Grid.Row="0" 
-                BorderBrush="#E5E5E5" 
-                BorderThickness="0,0,0,1" 
-                Background="White">
+                    BorderBrush="#E5E5E5" 
+                    BorderThickness="0,0,0,1" 
+                    Background="White">
                 <Grid>
                     <StackPanel Orientation="Horizontal" 
-                           HorizontalAlignment="Center" 
-                           VerticalAlignment="Center">
+                                HorizontalAlignment="Center" 
+                                VerticalAlignment="Center">
                         <!-- Search Box -->
                         <Border Width="540" 
-                            Height="40" 
-                            BorderBrush="#CCCCCC" 
-                            BorderThickness="1" 
-                            CornerRadius="20,0,0,20">
+                                Height="40" 
+                                BorderBrush="#CCCCCC" 
+                                BorderThickness="1" 
+                                CornerRadius="20,0,0,20">
                             <TextBox x:Name="SearchBox"
-                                 BorderThickness="0"
-                                 VerticalContentAlignment="Center"
-                                 Padding="15,0,0,0"
-                                 FontSize="16"
-                                 Background="Transparent"
-                                 TextChanged="SearchBox_TextChanged">
+                                     BorderThickness="0"
+                                     VerticalContentAlignment="Center"
+                                     Padding="15,0,0,0"
+                                     FontSize="16"
+                                     Background="Transparent"
+                                     TextChanged="SearchBox_TextChanged">
                                 <TextBox.Style>
                                     <Style TargetType="TextBox">
                                         <Style.Triggers>
@@ -54,8 +55,8 @@
                                                         <VisualBrush Stretch="None" AlignmentX="Left">
                                                             <VisualBrush.Visual>
                                                                 <TextBlock Text="Search" 
-                                                                       Foreground="Gray" 
-                                                                       Margin="5,0,0,0"/>
+                                                                           Foreground="Gray" 
+                                                                           Margin="5,0,0,0"/>
                                                             </VisualBrush.Visual>
                                                         </VisualBrush>
                                                     </Setter.Value>
@@ -69,24 +70,24 @@
 
                         <!-- Search Button -->
                         <Button Width="64" 
-                            Height="40" 
-                            BorderBrush="#CCCCCC"
-                            BorderThickness="0,1,1,1"
-                            Background="#F8F8F8">
+                                Height="40" 
+                                BorderBrush="#CCCCCC"
+                                BorderThickness="0,1,1,1"
+                                Background="#F8F8F8">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Template">
                                         <Setter.Value>
                                             <ControlTemplate TargetType="Button">
                                                 <Border Background="{TemplateBinding Background}"
-                                                    BorderBrush="{TemplateBinding BorderBrush}"
-                                                    BorderThickness="{TemplateBinding BorderThickness}"
-                                                    CornerRadius="0,20,20,0">
+                                                        BorderBrush="{TemplateBinding BorderBrush}"
+                                                        BorderThickness="{TemplateBinding BorderThickness}"
+                                                        CornerRadius="0,20,20,0">
                                                     <Path Data="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"
-                                                      Fill="#606060"
-                                                      Width="20"
-                                                      Height="20"
-                                                      Stretch="Uniform"/>
+                                                          Fill="#606060"
+                                                          Width="20"
+                                                          Height="20"
+                                                          Stretch="Uniform"/>
                                                 </Border>
                                                 <ControlTemplate.Triggers>
                                                     <Trigger Property="IsMouseOver" Value="True">
@@ -105,8 +106,8 @@
 
             <!-- Content Area -->
             <Grid Grid.Row="1" Margin="15, 15, 15, 15">
-                <ScrollViewer VerticalScrollBarVisibility="Auto">
-                    <ItemsControl x:Name="ObjectsList" Margin="0,10,0,0">
+                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
+                    <ItemsControl x:Name="ObjectsList" Margin="0,10,0,0" VerticalAlignment="Top">
                         <ItemsControl.ItemsPanel>
                             <ItemsPanelTemplate>
                                 <UniformGrid Columns="3"/>
@@ -114,10 +115,15 @@
                         </ItemsControl.ItemsPanel>
                         <ItemsControl.ItemTemplate>
                             <DataTemplate>
-                                <Border BorderBrush="#E5E5E5" BorderThickness="0,0,0,1" Padding="10">
+                                <Border BorderBrush="#E5E5E5" BorderThickness="0,0,0,1" Padding="10" Margin="5">
                                     <StackPanel Orientation="Horizontal" VerticalAlignment="Center">
-                                        <Image Source="pack://application:,,,/DroneNien;component/source/your-image.png" Width="30" Height="30" Margin="0,0,10,0"/>
-                                        <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}" FontSize="16" VerticalAlignment="Center"/>
+                                        <Image Source="pack://application:,,,/DroneNien;component/source/your-image.png" 
+                                               Width="30" Height="30" Margin="0,0,10,0"/>
+                                        <CheckBox Content="{Binding Name}" 
+                                                  IsChecked="{Binding IsChecked, Mode=TwoWay}" 
+                                                  FontSize="16" 
+                                                  VerticalAlignment="Center"
+                                                  VerticalContentAlignment="Center"/>
                                     </StackPanel>
                                 </Border>
                             </DataTemplate>
@@ -126,6 +132,7 @@
                 </ScrollViewer>
             </Grid>
 
+            <!-- Submit Button -->
             <Button Grid.Row="2"
                     x:Name="btnSubmit" 
                     Content="Xác nhận" 
@@ -134,9 +141,7 @@
                     HorizontalAlignment="Center"
                     FontSize="25"
                     Width="200"
-                    Height="45"
-                    />
+                    Height="45"/>
         </Grid>
     </Grid>
 </Page>
-

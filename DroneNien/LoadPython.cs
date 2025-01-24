@@ -23,7 +23,7 @@ namespace DroneNien
                 // MessageBox.Show(pythonFilePath);
 
                 // thay đổi đường dẫn file python
-                string pythonFilePath = "C:\\Users\\nien\\source\\repos\\DroneNien\\DroneNien\\Python\\test.py";
+                string pythonFilePath = "D:/NCKH/DRONE_HOANG/DRONE_HOANG/path.py";
 
                 // 1. Khởi tạo ProcessStartInfo
                 ProcessStartInfo start = new ProcessStartInfo();
