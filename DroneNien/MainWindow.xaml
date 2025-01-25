@@ -21,9 +21,9 @@
     <Grid>
         <Grid.Background>
             <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
-                <GradientStop Color="#1E1E2F " Offset="0.0"/>
-                <GradientStop Color="#73C269" Offset="0.5"/>
-                <GradientStop Color="#2E2E3E" Offset="1.0"/>
+                <GradientStop Color="#F5F5F5 " Offset="0.0"/>
+                <GradientStop Color="#4A90E2" Offset="0.5"/>
+                <GradientStop Color="#D9E6F3" Offset="1.0"/>
             </LinearGradientBrush>
         </Grid.Background>
         <Grid.ColumnDefinitions>
@@ -118,27 +118,54 @@
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
                         <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
+                        <ColumnDefinition Width="*"/>
                     </Grid.ColumnDefinitions>
 
                     <StackPanel Grid.Column="0" Margin="5">
-                        <TextBlock Text="Altitude:"/>
+                        <TextBlock Text="Altitude:" 
+                                   Foreground="Black"
+                                   FontSize="14"/>
                         <TextBlock x:Name="txtAltitude" Text="{Binding AltitudeWithUnit}"/>
-                        <TextBlock Text="Speed:"/>
+                        <TextBlock Text="Speed:"
+                                   Foreground="Black"
+                                    FontSize="14"/>
                         <TextBlock x:Name="txtSpeed" Text="{Binding SpeedWithUnit}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="1" Margin="5">
-                        <TextBlock Text="Battery:"/>
+                        <TextBlock Text="Battery:"
+                                   Foreground="Black"
+                                    FontSize="14"/>
                         <TextBlock x:Name="txtBattery" Text="{Binding BatteryWithUnit}"/>
-                        <TextBlock Text="GPS:"/>
+                        <TextBlock Text="GPS:"
+                                   Foreground="Black"
+                                    FontSize="14"/>
                         <TextBlock x:Name="txtGPS" Text="{Binding GPSWithUnit}"/>
                     </StackPanel>
 
                     <StackPanel Grid.Column="2" Margin="5">
-                        <TextBlock Text="Status:"/>
+                        <TextBlock Text="Status:"
+                                   Foreground="Black"
+                                    FontSize="14"/>
                         <TextBlock x:Name="txtStatus" Text="{Binding Status}"/>
-                        <TextBlock Text="Mode:"/>
+                        <TextBlock Text="Mode:"
+                                   Foreground="Black"
+                                    FontSize="14"/>
                         <TextBlock x:Name="txtMode" Text="{Binding Mode}"/>
+                    </StackPanel>
+                    <!-- Cột chứa Logo -->
+                    <StackPanel Grid.Column="3" Grid.ColumnSpan="2" Margin="3" 
+                                HorizontalAlignment="Right" VerticalAlignment="Center">
+                        <TextBlock Text="Trường CNTT và TT" 
+                       FontSize="13" 
+                       FontWeight="Bold" 
+                       FontFamily="Times New Roman"
+                       HorizontalAlignment="Center"/>
+                        <Image Source="D:/NCKH/GitHubNien/DronePath/Haui-logo.jpg" 
+                   Width="60" 
+                   Height="60" 
+                   HorizontalAlignment="Center"/>
                     </StackPanel>
                 </Grid>
             </GroupBox>

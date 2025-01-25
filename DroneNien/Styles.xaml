@@ -56,7 +56,7 @@
 
                         <!-- Pressed (Nhấn) -->
                         <Trigger Property="IsPressed" Value="True">
-                            <Setter TargetName="ButtonBorder" Property="Background" Value="#003C6B"/>
+                            <Setter TargetName="ButtonBorder" Property="Background" Value="#CFD8DC"/>
                             <Setter TargetName="ButtonBorder" Property="RenderTransform">
                                 <Setter.Value>
                                     <ScaleTransform ScaleX="0.95" ScaleY="0.95"/>

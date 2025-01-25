@@ -16,8 +16,8 @@
         </ResourceDictionary>
     </Page.Resources>
 
-    <Grid Margin="10, 5, 10, 5">
-        <Grid Background="White">
+    <Grid Margin="0">
+        <Grid Background="#D9E6F3   ">
             <Grid.RowDefinitions>
                 <RowDefinition Height="60"/>
                 <RowDefinition Height="*"/>
@@ -26,9 +26,9 @@
 
             <!-- Header with Search -->
             <Border Grid.Row="0" 
-                    BorderBrush="#E5E5E5" 
+                    BorderBrush="Black" 
                     BorderThickness="0,0,0,1" 
-                    Background="White">
+                    Background="#D9E6F3">
                 <Grid>
                     <StackPanel Orientation="Horizontal" 
                                 HorizontalAlignment="Center" 
@@ -36,7 +36,7 @@
                         <!-- Search Box -->
                         <Border Width="540" 
                                 Height="40" 
-                                BorderBrush="#CCCCCC" 
+                                BorderBrush="Black" 
                                 BorderThickness="1" 
                                 CornerRadius="20,0,0,20">
                             <TextBox x:Name="SearchBox"
@@ -71,9 +71,9 @@
                         <!-- Search Button -->
                         <Button Width="64" 
                                 Height="40" 
-                                BorderBrush="#CCCCCC"
+                                BorderBrush="Black"
                                 BorderThickness="0,1,1,1"
-                                Background="#F8F8F8">
+                                Background="#D9E6F3">
                             <Button.Style>
                                 <Style TargetType="Button">
                                     <Setter Property="Template">
@@ -140,8 +140,7 @@
                     Click="btnSubmit_Click"
                     HorizontalAlignment="Center"
                     FontSize="25"
-                    Width="200"
-                    Height="45"/>
+                    Width="150"  Height="45"/>
         </Grid>
     </Grid>
 </Page>
