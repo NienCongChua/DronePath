@@ -36,26 +36,26 @@ namespace DroneNien
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
             // Tạm ngừng để giảm thời gian khởi động ứng dụng
-            //try
-            //{
-            //    txtStatus.Text = "Connecting";
-            //    // Khởi chạy các ứng dụng
-            //    connectAll.StartUnrealEngine();
-            //    connectAll.StartPX4();
-            //    connectAll.StartQGroundControl();
-            //    Thread.Sleep(1000); // Đợi 1 giây để các ứng dụng khởi động
-            //    connectAll.StartNetMode(Display);
-            //    connectAll.HideUnrealEngine();
-            //    connectAll.StartNetQGCMode(Display);
+            try
+            {
+                txtStatus.Text = "Connecting";
+                // Khởi chạy các ứng dụng
+                connectAll.StartUnrealEngine();
+                connectAll.StartPX4();
+                connectAll.StartQGroundControl();
+                Thread.Sleep(1000); // Đợi 1 giây để các ứng dụng khởi động
+                connectAll.StartNetMode(Display);
+                connectAll.HideUnrealEngine();
+                connectAll.StartNetQGCMode(Display);
 
-            //    // Cập nhật trạng thái giao diện
-            //    isDroneConnected = true;
-            //    txtStatus.Text = "Connected";
-            //}
-            //catch (Exception ex)
-            //{
-            //    MessageBox.Show($"Something ERROR: {ex.Message}");
-            //}
+                // Cập nhật trạng thái giao diện
+                isDroneConnected = true;
+                txtStatus.Text = "Connected";
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Something ERROR: {ex.Message}");
+            }
         }
 
         private async void StartReceivingData()
@@ -75,24 +75,15 @@ namespace DroneNien
             }
         }
 
+        private void HidePage(object sender, RoutedEventArgs e)
+        {
+            MainFrame.Navigate(new BlankPage());
+        }
+
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)
         {
             await Task.Run(() => loadPython.ProcessPythonFile());
         }
-
-
-        //Chức năng này đã được thay thế bởi các chức năng khác
-        //private void btnAdvance_Click(object sender, RoutedEventArgs e)
-        //{
-        //    if (AditionalFunction.Visibility == Visibility.Collapsed)
-        //    {
-        //        AditionalFunction.Visibility = Visibility.Visible;
-        //    }
-        //    else
-        //    {
-        //        AditionalFunction.Visibility = Visibility.Collapsed;
-        //    }
-        //}
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
         {
@@ -122,6 +113,7 @@ namespace DroneNien
         private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
         {
             // Waiting for the next update
+            HidePage(sender, e);
             MainFrame.Navigate(new SelectObject());
             MainFrame.Visibility = Visibility.Visible;
         }

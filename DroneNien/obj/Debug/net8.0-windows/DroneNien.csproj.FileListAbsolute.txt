@@ -199,3 +199,5 @@ A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.g.c
 A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.baml
 D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.g.cs
 D:\NCKH\GitHubNien\DronePath\DroneNien\obj\Debug\net8.0-windows\SelectObject.baml
+A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\BlankPage.g.cs
+A:\ScienceResearch\DronePath\DroneNien\obj\Debug\net8.0-windows\BlankPage.baml
