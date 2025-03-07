@@ -10,6 +10,11 @@
 
   <ItemGroup>
     <None Remove="Logo_Haui.png" />
+    <None Remove="source\detect\best.pt" />
+    <None Remove="source\detect\phathien.txt" />
+    <None Remove="source\detect\VATesstAirsim.py" />
+    <None Remove="source\detect\warning1.mp3" />
+    <None Remove="source\images\app.ico" />
     <None Remove="source\images\Search.png" />
   </ItemGroup>
 
@@ -23,6 +28,21 @@
 
   <ItemGroup>
     <Resource Include="Logo_Haui.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="source\detect\best.pt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="source\detect\phathien.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="source\detect\VATesstAirsim.py">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="source\detect\warning1.mp3">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="source\images\app.ico">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="source\images\Search.png">

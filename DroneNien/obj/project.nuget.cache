@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "+8nXSEyD5DU=",
+  "dgSpecHash": "CCWj7hnfbgw=",
   "success": true,
-  "projectFilePath": "A:\\ScienceResearch\\DronePath\\DroneNien\\DroneNien.csproj",
+  "projectFilePath": "C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\DroneNien.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\NienNguyen\\.nuget\\packages\\emgu.cv\\4.9.0.5494\\emgu.cv.4.9.0.5494.nupkg.sha512",
     "C:\\Users\\NienNguyen\\.nuget\\packages\\inputsimulator\\1.0.4\\inputsimulator.1.0.4.nupkg.sha512",

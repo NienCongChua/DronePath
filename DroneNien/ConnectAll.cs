@@ -15,8 +15,11 @@ namespace DroneNien
     {
         [DllImport("user32.dll", SetLastError = true)]
         private static extern bool ShowWindow(IntPtr hWnd, int nCmdShow);
+        [DllImport("user32.dll")]
+        private static extern bool SetForegroundWindow(IntPtr hWnd);
 
         private const int SW_HIDE = 0;
+        private const int SW_RESTORE = 9;
         public void StartUnrealEngine()
         {
             var ue4Process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
@@ -53,7 +56,7 @@ namespace DroneNien
             }
             else
             {
-                MessageBox.Show("Unreal Engine is already running.");
+                // MessageBox.Show("Unreal Engine is already running.");
             }
         }
 
@@ -212,7 +215,7 @@ namespace DroneNien
                 }
                 else
                 {
-                    MessageBox.Show("QGroundControl is already running.");
+                    // MessageBox.Show("QGroundControl is already running.");
                 }
             }
             catch (Exception ex)
@@ -221,10 +224,77 @@ namespace DroneNien
             }
         }
 
+        public void StartQGroundControl(Border parentBorder)
+        {
+            var process = Process.GetProcessesByName("QGroundControl").FirstOrDefault();
+            if (process == null)
+            {
+                string? qgcPath = GetQGroundControlPath();
+                if (!string.IsNullOrEmpty(qgcPath))
+                {
+                    Process.Start(qgcPath);
+                    Thread.Sleep(3000); // Wait for QGC to open
+                    process = Process.GetProcessesByName("QGroundControl").FirstOrDefault();
+                }
+            }
+
+            if (process != null)
+            {
+                IntPtr qgcWindowHandle = FindWindow(null!, "QGroundControl");
+                if (qgcWindowHandle != IntPtr.Zero)
+                {
+                    // Define offset and scaling factors
+                    int offsetX = 78;
+                    int offsetY = 5;
+                    double scaleFactor = 1.25;
+
+                    Window parentWindow = Window.GetWindow(parentBorder);
+                    WindowInteropHelper helper = new WindowInteropHelper(parentWindow);
+
+                    // Set QGroundControl as child of the WPF window
+                    SetParent(qgcWindowHandle, helper.Handle);
+
+                    void UpdateQGCPosition()
+                    {
+                        Point borderPos = parentBorder.PointToScreen(new Point(0, 0));
+                        borderPos = parentWindow.PointFromScreen(borderPos);
+
+                        SetWindowPos(
+                            qgcWindowHandle,
+                            IntPtr.Zero,
+                            (int)borderPos.X + offsetX,
+                            (int)borderPos.Y + offsetY,
+                            (int)(parentBorder.ActualWidth * scaleFactor),
+                            (int)(parentBorder.ActualHeight * scaleFactor),
+                            SWP_SHOWWINDOW
+                        );
+                    }
+
+                    // Initial position update
+                    UpdateQGCPosition();
+
+                    // Update QGC position when the Border size changes
+                    parentBorder.SizeChanged += (s, e) => UpdateQGCPosition();
+                }
+            }
+            else
+            {
+                MessageBox.Show("Failed to start QGroundControl.");
+            }
+        }
+
+
         public void StopApplications()
         {
             try
             {
+                // Stop Python
+                foreach (var process in Process.GetProcessesByName("python3.10"))
+                {
+                    process.Kill();
+                    process.WaitForExit();
+                }
+
                 // Dừng Unreal Engine
                 foreach (var process in Process.GetProcessesByName("UE4Editor"))
                 {
@@ -242,73 +312,13 @@ namespace DroneNien
                 {
                     process.Kill();
                 }
+
                 // MessageBox.Show("All applications stopped successfully!");
             }
             catch (Exception ex)
             {
                 MessageBox.Show($"Failed to stop applications: {ex.Message}");
             }
-        }
-
-        public void StartNetQGCMode(Border parentBorder)
-        {
-            var process = Process.GetProcessesByName("QGroundControl").FirstOrDefault();
-            IntPtr qgcWindowHandle = FindQGroundControlWindow();
-            if (qgcWindowHandle != IntPtr.Zero)
-            {
-                // Lưu offset và scale
-                int offsetX = 0;
-                int offsetY = 0;
-                double scaleFactor = 1.25;
-
-                Window parentWindow = Window.GetWindow(parentBorder);
-                WindowInteropHelper helper = new WindowInteropHelper(parentWindow);
-
-                // Thiết lập parent
-                SetParent(qgcWindowHandle, helper.Handle);
-
-                void UpdateUnrealWindowPosition()
-                {
-                    Point borderPos = parentBorder.PointToScreen(new Point(0, 0));
-                    borderPos = parentWindow.PointFromScreen(borderPos);
-
-                    SetWindowPos(
-                        qgcWindowHandle,
-                        IntPtr.Zero,
-                        (int)borderPos.X + offsetX,
-                        (int)borderPos.Y + offsetY,
-                        (int)(parentBorder.ActualWidth * scaleFactor),
-                        (int)(parentBorder.ActualHeight * scaleFactor),
-                        SWP_SHOWWINDOW
-                    );
-                }
-
-                // Thiết lập ban đầu
-                UpdateUnrealWindowPosition();
-                // Xử lý khi Border thay đổi kích thước hoặc vị trí
-                parentBorder.SizeChanged += (s, e) =>
-                {
-                    UpdateUnrealWindowPosition(); // Gọi hàm cập nhật
-                };
-            }
-        }
-
-        private IntPtr FindQGroundControlWindow()
-        {
-            IntPtr foundWindow = IntPtr.Zero;
-            EnumWindows((hWnd, lParam) =>
-            {
-                StringBuilder windowText = new StringBuilder(256);
-                GetWindowText(hWnd, windowText, windowText.Capacity);
-                if (windowText.ToString().Contains("QGroundControl"))
-                {
-                    foundWindow = hWnd;
-                    return false; // Stop enumeration
-                }
-                return true; // Continue enumeration
-            }, IntPtr.Zero);
-
-            return foundWindow;
         }
 
         private void _StartQGroundControl()
@@ -331,8 +341,45 @@ namespace DroneNien
             }
         }
 
-
-        private string? GetQGroundControlPath()
+        public void showApplication(string nameApplication)
+        {
+            try
+            {
+                var process = Process.GetProcessesByName(nameApplication).FirstOrDefault();
+                if (process == null)
+                {
+                    try
+                    {
+                        string? applicationPath = GetQGroundControlPath();
+                        if (!string.IsNullOrEmpty(applicationPath))
+                        {
+                            Process.Start(applicationPath);
+                        }
+                        else
+                        {
+                            MessageBox.Show($"Application path is empty. ",
+                                "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"An error occurred while starting Application: {ex.Message}",
+                                "Error", MessageBoxButton.OK, MessageBoxImage.Error);
+                    }
+                }
+                else
+                {
+                    IntPtr hWnd = FindWindow(null!, nameApplication);
+                    ShowWindow(hWnd, SW_RESTORE);
+                    SetForegroundWindow(hWnd);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"Failed to start QGroundControl: {ex.Message}");
+            }
+        }
+        public string? GetQGroundControlPath()
         {
             string[] possiblePaths = 
             {   

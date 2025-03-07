@@ -10,6 +10,8 @@
         WindowStyle="None"
         ResizeMode="NoResize"
         Loaded="Window_Loaded"
+        Icon="source/images/app.ico"
+        Closing="Window_Closing"
     >
     <Window.Resources>
         <ResourceDictionary>
@@ -69,16 +71,21 @@
                             Content="Nhận diện đối tượng" 
                             Margin="0,5" 
                             Click="btnManHinhNhanDien_Click"/>
-
-                    <Button x:Name="btnManHinhUnreal"
-                            Content="Hình ảnh Real-time"
+                    
+                    <Button x:Name="btnManHinhDetect"
+                            Content="Màn hình detect"
                             Margin="0, 5" 
-                            Click="btnManHinhUnreal_Click"/>
+                            Click="btnManHinhDetect_Click"/>
 
                     <Button x:Name="btnChonDoiTuong"
                             Content="Chọn đối tượng"
                             Margin="0, 5" 
                             Click="btnChonDoiTuong_Click"/>
+
+                    <Button x:Name="btnUnreal"
+                            Content="Màn hình Unreal Engine"
+                            Margin="0, 5" 
+                            Click="btnUnreal_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
@@ -211,7 +218,6 @@
                     </Grid>
                 </GroupBox>
             </Grid>
-            
         </Grid>
     </Grid>
 </Window>

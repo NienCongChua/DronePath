@@ -9,21 +9,13 @@ namespace DroneNien
 {
     internal class LoadPython
     {
-        public async void ProcessPythonFile()
+        public async void ProcessPythonFile(string path)
         {
             try
             {
-                //OpenFileDialog openFileDialog = new OpenFileDialog();
-                //openFileDialog.Filter = "Python Files (*.py)|*.py";
-                //if (openFileDialog.ShowDialog() != true)
-                //{
-                //    return;
-                //}
-                //string pythonFilePath = openFileDialog.FileName;
-                // MessageBox.Show(pythonFilePath);
 
                 // thay đổi đường dẫn file python
-                string pythonFilePath = "D:/NCKH/DRONE_HOANG/DRONE_HOANG/path.py";
+                string pythonFilePath = path;
 
                 // 1. Khởi tạo ProcessStartInfo
                 ProcessStartInfo start = new ProcessStartInfo();

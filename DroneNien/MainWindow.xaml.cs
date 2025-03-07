@@ -1,7 +1,4 @@
-﻿using System.ComponentModel;
-using System.Runtime.CompilerServices;
-using System.Windows;
-using System.Windows.Controls;
+﻿using System.Windows;
 
 
 namespace DroneNien
@@ -43,14 +40,18 @@ namespace DroneNien
                 connectAll.StartUnrealEngine();
                 connectAll.StartPX4();
                 connectAll.StartQGroundControl();
-                Thread.Sleep(1000); // Đợi 1 giây để các ứng dụng khởi động
                 connectAll.StartNetMode(Display);
                 connectAll.HideUnrealEngine();
-                connectAll.StartNetQGCMode(Display);
+                
 
                 // Cập nhật trạng thái giao diện
                 isDroneConnected = true;
                 txtStatus.Text = "Connected";
+                runDetect();
+
+                Thread.Sleep(7000);
+                processControl.HideApp("QGroundControl");
+                processControl.HideApp("python3.10");
             }
             catch (Exception ex)
             {
@@ -63,18 +64,6 @@ namespace DroneNien
             await ViewModel.StartReceivingData();
         }
 
-        private void btnLoadMission_Click(object sender, RoutedEventArgs e)
-        {
-            if (isDroneConnected)
-            {
-                processControl.LoadMission();
-            }
-            else
-            {
-                MessageBox.Show("Please connect to the drone first.");
-            }
-        }
-
         private void HidePage(object sender, RoutedEventArgs e)
         {
             MainFrame.Navigate(new BlankPage());
@@ -82,7 +71,7 @@ namespace DroneNien
 
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)
         {
-            await Task.Run(() => loadPython.ProcessPythonFile());
+            await Task.Run(() => loadPython.ProcessPythonFile("D:/NCKH/DRONE_HOANG/DRONE_HOANG/path.py"));
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -94,20 +83,30 @@ namespace DroneNien
 
         private void btnChonVungTuanTra_Click(object sender, RoutedEventArgs e)
         {
-            // Waiting for the next update
+            //connectAll.showApplication("QGroundControl");
             MainFrame.Visibility = Visibility.Collapsed;
+            processControl.HideApp("python3.10");
+            processControl.HideApp("UE4Editor");
+            processControl.LoadApp("QGroundControl");
         }
 
         private void btnManHinhNhanDien_Click(object sender, RoutedEventArgs e)
         {
-            // Waiting for the next update
-            MainFrame.Visibility = Visibility.Collapsed;
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("UE4Editor");
+            processControl.LoadApp("python3.10");
         }
 
-        private void btnManHinhUnreal_Click(object sender, RoutedEventArgs e)
+        private async void runDetect()
         {
-            // Waiting for the next update
-            MainFrame.Visibility = Visibility.Collapsed;
+            await Task.Run(() => loadPython.ProcessPythonFile("C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\source\\detect\\VATesstAirsim.py"));
+        }
+        private void btnManHinhDetect_Click(object sender, RoutedEventArgs e)
+        {
+            // Man hinh detect
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("UE4Editor");
+            processControl.LoadApp("python3.10");
         }
 
         private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
@@ -116,6 +115,19 @@ namespace DroneNien
             HidePage(sender, e);
             MainFrame.Navigate(new SelectObject());
             MainFrame.Visibility = Visibility.Visible;
+        }
+
+        private void btnUnreal_Click(object sender, RoutedEventArgs e)
+        {
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("python3.10");
+            processControl.LoadApp("UE4Editor");
+        }
+
+        private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            // Ngắt kết nối và dừng các ứng dụng
+            connectAll.StopApplications();
         }
     }
 }
