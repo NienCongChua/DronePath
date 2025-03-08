@@ -32,7 +32,6 @@ namespace DroneNien
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
-            // Tạm ngừng để giảm thời gian khởi động ứng dụng
             try
             {
                 txtStatus.Text = "Connecting";
@@ -40,18 +39,16 @@ namespace DroneNien
                 connectAll.StartUnrealEngine();
                 connectAll.StartPX4();
                 connectAll.StartQGroundControl();
-                connectAll.StartNetMode(Display);
                 connectAll.HideUnrealEngine();
+                Thread.Sleep(20000);
+                connectAll.StartNetMode(Display);
                 
-
                 // Cập nhật trạng thái giao diện
                 isDroneConnected = true;
                 txtStatus.Text = "Connected";
                 runDetect();
 
-                Thread.Sleep(7000);
-                processControl.HideApp("QGroundControl");
-                processControl.HideApp("python3.10");
+                //Thread.Sleep(7000);
             }
             catch (Exception ex)
             {
@@ -66,7 +63,7 @@ namespace DroneNien
 
         private void HidePage(object sender, RoutedEventArgs e)
         {
-            MainFrame.Navigate(new BlankPage());
+            MainFrame.Navigate(new BlankPage());    
         }
 
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)
@@ -85,48 +82,85 @@ namespace DroneNien
         {
             //connectAll.showApplication("QGroundControl");
             MainFrame.Visibility = Visibility.Collapsed;
-            processControl.HideApp("python3.10");
+            processControl.HideApp("python");
             processControl.HideApp("UE4Editor");
             processControl.LoadApp("QGroundControl");
         }
 
-        private void btnManHinhNhanDien_Click(object sender, RoutedEventArgs e)
+        private void btnDetect_Click(object sender, RoutedEventArgs e)
         {
-            processControl.HideApp("QGroundControl");
-            processControl.HideApp("UE4Editor");
-            processControl.LoadApp("python3.10");
+            runDetect();
         }
 
         private async void runDetect()
         {
-            await Task.Run(() => loadPython.ProcessPythonFile("C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\source\\detect\\VATesstAirsim.py"));
+            await Task.Run(() => loadPython.ProcessPythonFile(@"D:\NCKH\GitHubNien\AirsimYolo\AirsimYolo\VATesstAirsim.py"));
         }
         private void btnManHinhDetect_Click(object sender, RoutedEventArgs e)
         {
-            // Man hinh detect
             processControl.HideApp("QGroundControl");
             processControl.HideApp("UE4Editor");
-            processControl.LoadApp("python3.10");
-        }
-
-        private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
-        {
-            // Waiting for the next update
-            HidePage(sender, e);
-            MainFrame.Navigate(new SelectObject());
-            MainFrame.Visibility = Visibility.Visible;
+            processControl.LoadApp("Object Detection");
         }
 
         private void btnUnreal_Click(object sender, RoutedEventArgs e)
         {
             processControl.HideApp("QGroundControl");
-            processControl.HideApp("python3.10");
+            processControl.HideApp("Object Detection");
             processControl.LoadApp("UE4Editor");
+
+            // Ẩn cửa sổ SelectObject nếu nó đang mở
+            if (selectObjectWindow != null)
+            {
+                selectObjectWindow.Close();
+                selectObjectWindow = null; // Giải phóng biến
+            }
         }
+
+
+        private Window selectObjectWindow; // Lưu cửa sổ SelectObject
+
+        private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
+        {
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("Object Detection");
+
+            // Nếu cửa sổ SelectObject đã mở, đóng nó trước khi mở lại
+            if (selectObjectWindow != null)
+            {
+                selectObjectWindow.Close();
+            }
+
+            // Lấy vị trí chính xác của MainFrame trên màn hình
+            Point relativePoint = MainFrame.TransformToAncestor(this).Transform(new Point(0, 0));
+            Point screenPoint = this.PointToScreen(relativePoint);
+
+            // Kích thước cố định
+            double width = 1220;
+            double height = 690;
+
+            // Tạo cửa sổ SelectObject
+            selectObjectWindow = new SelectObject();
+            selectObjectWindow.WindowStartupLocation = WindowStartupLocation.Manual;
+
+            // ✨ Tuỳ chỉnh vị trí nếu muốn dịch chuyển cửa sổ
+            selectObjectWindow.Left = screenPoint.X - 80;  // Dịch phải 50px (thay đổi giá trị này nếu muốn)
+            selectObjectWindow.Top = screenPoint.Y ;   // Dịch xuống 30px (thay đổi giá trị này nếu muốn)
+
+            selectObjectWindow.Width = width;
+            selectObjectWindow.Height = height;
+
+            // Loại bỏ viền và thanh tiêu đề
+            selectObjectWindow.WindowStyle = WindowStyle.None;
+            selectObjectWindow.ResizeMode = ResizeMode.NoResize;
+
+            selectObjectWindow.Topmost = true; // Hiển thị trên cùng
+            selectObjectWindow.Show();
+        }
+
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            // Ngắt kết nối và dừng các ứng dụng
             connectAll.StopApplications();
         }
     }

@@ -68,9 +68,9 @@
                     -->
 
                     <Button x:Name="btnManHinhNhanDien" 
-                            Content="Nhận diện đối tượng" 
+                            Content="Detect" 
                             Margin="0,5" 
-                            Click="btnManHinhNhanDien_Click"/>
+                            Click="btnDetect_Click"/>
                     
                     <Button x:Name="btnManHinhDetect"
                             Content="Màn hình detect"

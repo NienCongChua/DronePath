@@ -163,7 +163,7 @@ namespace DroneNien
             {
                 StringBuilder windowText = new StringBuilder(256);
                 GetWindowText(hWnd, windowText, windowText.Capacity);
-                if (windowText.ToString().Contains("Blocks Environment"))
+                if (windowText.ToString().Contains("Preview"))
                 {
                     foundWindow = hWnd;
                     return false; // Stop enumeration
@@ -313,7 +313,19 @@ namespace DroneNien
                     process.Kill();
                 }
 
-                // MessageBox.Show("All applications stopped successfully!");
+                // Dừng màn hình Detect
+                try
+                {
+                    foreach (var process in Process.GetProcessesByName("python"))
+                    {
+                        process.Kill();
+                    }
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("There is no window named Object Detection");
+                }
+                
             }
             catch (Exception ex)
             {
@@ -405,8 +417,8 @@ namespace DroneNien
         {
             string[] possiblePaths =
             {
-                @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\UE4Editor.exe",
+                //@"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                //@"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\UE4Editor.exe",
                 @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe"
 
             };
@@ -427,9 +439,9 @@ namespace DroneNien
         {
             string[] possiblePaths =
             {
-                @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                @"C:\Users\" + Environment.UserName + @"\Documents\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject"
+                @"D:\CityPark\CityParkEnvironment.uproject",
+                //@"C:\Users\" + Environment.UserName + @"\Documents\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                //@"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject"
 
             };
 
