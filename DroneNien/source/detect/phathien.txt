@@ -1,3 +1,3 @@
 human
-house
-car
+container
+bench

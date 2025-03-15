@@ -1,5 +1,6 @@
 ﻿using System.Windows;
-
+using System.IO;
+using System.Collections.ObjectModel;
 
 namespace DroneNien
 {
@@ -13,6 +14,8 @@ namespace DroneNien
         private LoadPython loadPython;
         private ProcessControl processControl;
 
+        public ObservableCollection<string> ObjectNames { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
@@ -20,6 +23,7 @@ namespace DroneNien
             sendCommand = new SendCommand();
             loadPython = new LoadPython();
             processControl = new ProcessControl();
+            ObjectNames = new ObservableCollection<string>();
 
             // Kết nối tới cổng UDP 14556 của PX4-Autopilot
             sendCommand.ConnectToUDPPort();
@@ -28,27 +32,34 @@ namespace DroneNien
             ViewModel = new DroneViewModel();
             DataContext = ViewModel;
             StartReceivingData();
+            DataContext = new MainViewModel();
         }
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            // Tạm ngừng để giảm thời gian khởi động ứng dụng
             try
             {
                 txtStatus.Text = "Connecting";
-                // Khởi chạy các ứng dụng
+                //// Khởi chạy các ứng dụng
                 connectAll.StartUnrealEngine();
                 connectAll.StartPX4();
                 connectAll.StartQGroundControl();
-                connectAll.HideUnrealEngine();
-                Thread.Sleep(20000);
+                Thread.Sleep(1000);
                 connectAll.StartNetMode(Display);
-                
+                Thread.Sleep(1000);
+                connectAll.HideUnrealEngine();
+
                 // Cập nhật trạng thái giao diện
                 isDroneConnected = true;
                 txtStatus.Text = "Connected";
                 runDetect();
 
-                //Thread.Sleep(7000);
+                Thread.Sleep(7000);
+                processControl.HideApp("QGroundControl");
+                processControl.HideApp("Object Detection");
+
+                // Gán nội dung count = 0
             }
             catch (Exception ex)
             {
@@ -56,19 +67,35 @@ namespace DroneNien
             }
         }
 
+
+
         private async void StartReceivingData()
         {
             await ViewModel.StartReceivingData();
         }
 
-        private void HidePage(object sender, RoutedEventArgs e)
+        private string GetPortablePathFilePath()
         {
-            MainFrame.Navigate(new BlankPage());    
+            string[] possiblePaths =
+            {
+                @"A:\ScienceResearch\path\path.py",
+                @"D:\NCKH\DRONE_HOANG\DRONE_HOANG\path.py"
+            };
+
+            foreach (var path in possiblePaths)
+            {
+                if (File.Exists(path))
+                {
+                    return path;
+                }
+            }
+
+            return null!;
         }
 
         private async void btnLoadPythonFile_Click(object sender, RoutedEventArgs e)
         {
-            await Task.Run(() => loadPython.ProcessPythonFile("D:/NCKH/DRONE_HOANG/DRONE_HOANG/path.py"));
+            await Task.Run(() => loadPython.ProcessPythonFile(GetPortablePathFilePath()));
         }
 
         private void btnExit_Click(object sender, RoutedEventArgs e)
@@ -82,25 +109,39 @@ namespace DroneNien
         {
             //connectAll.showApplication("QGroundControl");
             MainFrame.Visibility = Visibility.Collapsed;
-            processControl.HideApp("python");
+            processControl.HideApp("Object Detection");
             processControl.HideApp("UE4Editor");
             processControl.LoadApp("QGroundControl");
         }
 
-        private void btnDetect_Click(object sender, RoutedEventArgs e)
-        {
-            runDetect();
-        }
-
-        private async void runDetect()
-        {
-            await Task.Run(() => loadPython.ProcessPythonFile(@"D:\NCKH\GitHubNien\AirsimYolo\AirsimYolo\VATesstAirsim.py"));
-        }
-        private void btnManHinhDetect_Click(object sender, RoutedEventArgs e)
+        private void btnManHinhNhanDien_Click(object sender, RoutedEventArgs e)
         {
             processControl.HideApp("QGroundControl");
             processControl.HideApp("UE4Editor");
             processControl.LoadApp("Object Detection");
+        }
+
+        private async void runDetect()
+        {
+            await Task.Run(() => loadPython.ProcessPythonFile("C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\source\\detect\\VATesstAirsim.py"));
+        }
+
+        private void btnManHinhDetect_Click(object sender, RoutedEventArgs e)
+        {
+            // Man hinh detect
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("UE4Editor");
+            processControl.LoadApp("Object Detection");
+        }
+
+        private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
+        {
+            // Waiting for the next update
+            processControl.HideApp("QGroundControl");
+            processControl.HideApp("Object Detection");
+            processControl.LoadApp("UE4Editor");
+            Window selectObject = new SelectObject();
+            selectObject.Show();
         }
 
         private void btnUnreal_Click(object sender, RoutedEventArgs e)
@@ -108,59 +149,11 @@ namespace DroneNien
             processControl.HideApp("QGroundControl");
             processControl.HideApp("Object Detection");
             processControl.LoadApp("UE4Editor");
-
-            // Ẩn cửa sổ SelectObject nếu nó đang mở
-            if (selectObjectWindow != null)
-            {
-                selectObjectWindow.Close();
-                selectObjectWindow = null; // Giải phóng biến
-            }
         }
-
-
-        private Window selectObjectWindow; // Lưu cửa sổ SelectObject
-
-        private void btnChonDoiTuong_Click(object sender, RoutedEventArgs e)
-        {
-            processControl.HideApp("QGroundControl");
-            processControl.HideApp("Object Detection");
-
-            // Nếu cửa sổ SelectObject đã mở, đóng nó trước khi mở lại
-            if (selectObjectWindow != null)
-            {
-                selectObjectWindow.Close();
-            }
-
-            // Lấy vị trí chính xác của MainFrame trên màn hình
-            Point relativePoint = MainFrame.TransformToAncestor(this).Transform(new Point(0, 0));
-            Point screenPoint = this.PointToScreen(relativePoint);
-
-            // Kích thước cố định
-            double width = 1220;
-            double height = 690;
-
-            // Tạo cửa sổ SelectObject
-            selectObjectWindow = new SelectObject();
-            selectObjectWindow.WindowStartupLocation = WindowStartupLocation.Manual;
-
-            // ✨ Tuỳ chỉnh vị trí nếu muốn dịch chuyển cửa sổ
-            selectObjectWindow.Left = screenPoint.X - 80;  // Dịch phải 50px (thay đổi giá trị này nếu muốn)
-            selectObjectWindow.Top = screenPoint.Y ;   // Dịch xuống 30px (thay đổi giá trị này nếu muốn)
-
-            selectObjectWindow.Width = width;
-            selectObjectWindow.Height = height;
-
-            // Loại bỏ viền và thanh tiêu đề
-            selectObjectWindow.WindowStyle = WindowStyle.None;
-            selectObjectWindow.ResizeMode = ResizeMode.NoResize;
-
-            selectObjectWindow.Topmost = true; // Hiển thị trên cùng
-            selectObjectWindow.Show();
-        }
-
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
+            // Ngắt kết nối và dừng các ứng dụng
             connectAll.StopApplications();
         }
     }

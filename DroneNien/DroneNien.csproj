@@ -19,6 +19,12 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Resource Include="source\detect\detection_counts.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
     <PackageReference Include="Emgu.CV" Version="4.9.0.5494" />
     <PackageReference Include="InputSimulator" Version="1.0.4" />
     <PackageReference Include="MAVLink" Version="1.0.8" />
@@ -48,6 +54,10 @@
     <Resource Include="source\images\Search.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="source\detect\path\" />
   </ItemGroup>
 
 </Project>
