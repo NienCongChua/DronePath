@@ -19,7 +19,7 @@ namespace DroneNien
 
                 // 1. Khởi tạo ProcessStartInfo
                 ProcessStartInfo start = new ProcessStartInfo();
-                start.FileName = "python.exe";
+                start.FileName = "C:\\Users\\vannha2004\\PycharmProjects\\droneeee\\.venv\\Scripts\\python.exe";
                 start.Arguments = pythonFilePath;
 
                 // 2. Redirect output và error
@@ -69,10 +69,10 @@ namespace DroneNien
                 {
                     MessageBox.Show("Lỗi Python:\n" + error, "Lỗi", MessageBoxButton.OK, MessageBoxImage.Error);
                 }
-                else
+/*                else
                 {
                     MessageBox.Show("Kết quả:\n" + output, "Kết quả", MessageBoxButton.OK, MessageBoxImage.Information);
-                }
+                }*/
 
             }
             catch (Exception ex)

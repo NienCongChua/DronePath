@@ -32,47 +32,40 @@
             <ColumnDefinition Width="300"/>
             <ColumnDefinition Width="*"/>
         </Grid.ColumnDefinitions>
-       
 
         <!-- Control Panel -->
         <StackPanel Grid.Column="0" Margin="10">
             <GroupBox Header="Main Function" Margin="0,0,0,10">
                 <StackPanel Margin="5">
                     <Button x:Name="btnChonVungTuanTra" 
-                            Content="Chọn vùng tuần tra" 
+                            Content="Select Patrol Area" 
                             Margin="0,5" 
                             Click="btnChonVungTuanTra_Click"/>
 
                     <Button x:Name="btnLoadPython" 
-                            Content="Cất cánh" 
+                            Content="Take Off" 
                             Margin="0,5" 
                             Click="btnLoadPythonFile_Click"/>
 
-                    <Button x:Name="btnManHinhNhanDien" 
-                            Content="Nhận diện đối tượng" 
-                            Margin="0,5" 
-                            Click="btnManHinhNhanDien_Click"/>
-
                     <Button x:Name="btnManHinhDetect"
-                            Content="Màn hình detect"
+                            Content="Detection Screen"
                             Margin="0, 5" 
                             Click="btnManHinhDetect_Click"/>
 
-                    <Button x:Name="btnChonDoiTuong"
-                            Content="Chọn đối tượng"
-                            Margin="0, 5" 
-                            Click="btnChonDoiTuong_Click"/>
-
                     <Button x:Name="btnUnreal"
-                            Content="Màn hình Unreal Engine"
+                            Content="Realtime Screen"
                             Margin="0, 5" 
                             Click="btnUnreal_Click"/>
+                    <Button x:Name="btnChonDoiTuong"
+        Content="Select Object Detection"
+        Margin="0, 5" 
+        Click="btnChonDoiTuong_Click"/>
                 </StackPanel>
             </GroupBox>
         </StackPanel>
 
         <Grid Margin="10">
-            <StackPanel>
+            <StackPanel >
                 <GroupBox Header="Object Detection" Margin="0, 350, 0, 10">
                     <Grid>
                         <Grid.ColumnDefinitions>
@@ -81,24 +74,25 @@
                         </Grid.ColumnDefinitions>
                         <StackPanel Grid.Column="0" Margin="5">
                             <TextBlock Text="Object List" 
-                                       Foreground="Black"
-                                       FontSize="14"/>
+                                        Foreground="Black"
+                                        FontSize="15"/>
                             <ItemsControl ItemsSource="{Binding ObjectNames}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding}" Margin="0, 10, 5, 5" FontSize="13" FontFamily="Times New Roman"/>
+                                        <TextBlock Text="{Binding}" Margin="0, 10, 5, 5" 
+                                                   FontSize="14" FontFamily="Times New Roman"/>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
                         </StackPanel>
                         <StackPanel Grid.Column="1" Margin="5">
                             <TextBlock Text="Count" 
-                                       Foreground="Black"
-                                       FontSize="14"/>
+                                        Foreground="Black"
+                                        FontSize="15"/>
                             <ItemsControl ItemsSource="{Binding ObjectCount}">
                                 <ItemsControl.ItemTemplate>
                                     <DataTemplate>
-                                        <TextBlock Text="{Binding}" Margin="0, 10, 5, 5" FontSize="13" FontFamily="Times New Roman"/>
+                                        <TextBlock Text="{Binding}" Margin="0, 10, 5, 5" FontSize="14" FontFamily="Times New Roman"/>
                                     </DataTemplate>
                                 </ItemsControl.ItemTemplate>
                             </ItemsControl>
@@ -109,11 +103,11 @@
         </Grid>
 
         <!-- Button exit -->
-        <Button Grid.Row="1" Content="Thoát" 
+        <Button Grid.Row="1" Content="Exit" 
                 VerticalAlignment="Bottom" 
                 Margin="21, 10, 21, 10" 
                 HorizontalAlignment="Left"
-                
+                FontSize="22"
                 Width="80"
                 
                 Click="btnExit_Click"/>
@@ -152,37 +146,38 @@
                         </Grid.ColumnDefinitions>
 
                         <StackPanel Grid.Column="0" Margin="5">
-                            <TextBlock Text="Altitude:" 
+                            <TextBlock Text="Altitude" 
                        Foreground="Black"
                        FontSize="14"/>
-                            <TextBlock x:Name="txtAltitude" Text="{Binding AltitudeWithUnit}"/>
-                            <TextBlock Text="Speed:"
+                            <TextBlock x:Name="txtAltitude" Text="{Binding DroneVM.AltitudeWithUnit}"/>
+                            <TextBlock Text="Speed"
                                        Foreground="Black"
                                        FontSize="14"/>
-                            <TextBlock x:Name="txtSpeed" Text="{Binding SpeedWithUnit}"/>
+                            <TextBlock x:Name="txtSpeed" Text="{Binding DroneVM.SpeedWithUnit}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="1" Margin="5">
-                            <TextBlock Text="Battery:"
+                            <TextBlock Text="Battery"
                                        Foreground="Black"
                                        FontSize="14"/>
-                            <TextBlock x:Name="txtBattery" Text="{Binding BatteryWithUnit}"/>
-                            <TextBlock Text="GPS:"
+                            <TextBlock x:Name="txtBattery" Text="{Binding DroneVM.BatteryWithUnit}"/>
+                            <TextBlock Text="GPS"
                                        Foreground="Black"
                                        FontSize="14"/>
-                            <TextBlock x:Name="txtGPS" Text="{Binding GPSWithUnit}"/>
+                            <TextBlock x:Name="txtGPS" Text="{Binding DroneVM.GPSWithUnit}"/>
                         </StackPanel>
 
                         <StackPanel Grid.Column="2" Margin="5">
-                            <TextBlock Text="Status:"
+                            <TextBlock Text="Status"
                                        Foreground="Black"
                                        FontSize="14"/>
-                            <TextBlock x:Name="txtStatus" Text="{Binding Status}"/>
-                            <TextBlock Text="Mode:"
+                            <TextBlock x:Name="txtStatus" Text="{Binding DroneVM.Status}"/>
+                            <TextBlock Text="Mode"
                                        Foreground="Black"
                                        FontSize="14"/>
-                            <TextBlock x:Name="txtMode" Text="{Binding Mode}"/>
+                            <TextBlock x:Name="txtMode" Text="{Binding DroneVM.Mode}"/>
                         </StackPanel>
+                        
                     </Grid>
                 </GroupBox>
 
@@ -198,17 +193,17 @@
                                 <RowDefinition Height="*"/>
                                 <RowDefinition Height="*"/>
                             </Grid.RowDefinitions>
-                            <TextBlock Text="Trường Công Nghệ Thông Tin và Truyền Thông" 
+                            <TextBlock Text="School of Information and Communications Technology" 
                                        Grid.Row="0"
-                                       FontSize="13" 
+                                       FontSize="15" 
                                        FontWeight="Bold" 
                                        FontFamily="Times New Roman"
                                        HorizontalAlignment="Center"
                                        VerticalAlignment="Bottom"
                                        Margin="0, 0, 0, 5"/>
-                            <TextBlock Text="Đại học Công nghiệp Hà Nội" 
+                            <TextBlock Text="Hanoi University Of Industry" 
                                        Grid.Row="1"
-                                       FontSize="13" 
+                                       FontSize="15" 
                                        FontWeight="Bold" 
                                        FontFamily="Times New Roman"
                                        HorizontalAlignment="Center"

@@ -1,2 +1,4 @@
-human: 0
-container: 1
+umbrella: 116
+house: 165
+human: 5
+crosswalk: 58

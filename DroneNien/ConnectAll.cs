@@ -8,9 +8,11 @@ using System.Windows;
 using System.Windows.Interop;
 using System.Text;
 using System.Windows.Controls;
+using System.Windows.Threading;
 
 namespace DroneNien
 {
+
     internal class ConnectAll
     {
         [DllImport("user32.dll", SetLastError = true)]
@@ -20,6 +22,8 @@ namespace DroneNien
 
         private const int SW_HIDE = 0;
         private const int SW_RESTORE = 9;
+        private const int SW_SHOW = 10;
+        private const int SW_MINIMIZE = 6;
         public void StartUnrealEngine()
         {
             var ue4Process = Process.GetProcessesByName("UE4Editor").FirstOrDefault();
@@ -89,6 +93,8 @@ namespace DroneNien
         private static extern bool MoveWindow(IntPtr hWnd, int X, int Y, int nWidth, int nHeight, bool bRepaint);
 
         [DllImport("user32.dll", SetLastError = true)]
+
+        //----------------------------------------------------------------------
         public static extern IntPtr FindWindow(string lpClassName, string lpWindowName);
 
         public void StartNetMode(Border parentBorder)
@@ -133,6 +139,10 @@ namespace DroneNien
                 };
             }
         }
+
+
+        //-------------------------------------------------------------
+
         // Thêm constant
         private const int SWP_SHOWWINDOW = 0x0040;
 
@@ -163,7 +173,7 @@ namespace DroneNien
             {
                 StringBuilder windowText = new StringBuilder(256);
                 GetWindowText(hWnd, windowText, windowText.Capacity);
-                if (windowText.ToString().Contains("Blocks Environment"))
+                if (windowText.ToString().Contains("Preview"))
                 {
                     foundWindow = hWnd;
                     return false; // Stop enumeration
@@ -209,14 +219,15 @@ namespace DroneNien
             try
             {
                 var process = Process.GetProcessesByName("QGroundControl").FirstOrDefault();
+                
                 if (process == null)
                 {
                     _StartQGroundControl();
                 }
-                else
-                {
-                    // MessageBox.Show("QGroundControl is already running.");
-                }
+                //else
+                //{
+                //    MessageBox.Show("QGroundControl is already running.");
+                //}
             }
             catch (Exception ex)
             {
@@ -264,8 +275,9 @@ namespace DroneNien
                             IntPtr.Zero,
                             (int)borderPos.X + offsetX,
                             (int)borderPos.Y + offsetY,
-                            (int)(parentBorder.ActualWidth * scaleFactor),
-                            (int)(parentBorder.ActualHeight * scaleFactor),
+                            1220,690,
+                            //(int)(parentBorder.ActualWidth * scaleFactor),
+                            //(int)(parentBorder.ActualHeight * scaleFactor),
                             SWP_SHOWWINDOW
                         );
                     }
@@ -313,15 +325,27 @@ namespace DroneNien
                     process.Kill();
                 }
 
-                // MessageBox.Show("All applications stopped successfully!");
+                // Dừng màn hình Detect
+                try
+                {
+                    foreach (var process in Process.GetProcessesByName("python"))
+                    {
+                        process.Kill();
+                    }
+                }
+                catch(Exception)
+                {
+                    Console.Write("There is no window named Object Detection");
+                }
+                
             }
             catch (Exception ex)
             {
-                MessageBox.Show($"Failed to stop applications: {ex.Message}");
+                Console.Write($"Failed to stop applications: {ex.Message}");
             }
         }
 
-        private void _StartQGroundControl()
+        public void _StartQGroundControl()
         {
             try
             {
@@ -405,8 +429,8 @@ namespace DroneNien
         {
             string[] possiblePaths =
             {
-                @"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
-                @"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\UE4Editor.exe",
+                //@"C:\Program Files\Epic Games\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe",
+                //@"C:\Users\" + Environment.UserName + @"\AppData\Local\QGroundControl\UE4Editor.exe",
                 @"D:\UE_4.27\Engine\Binaries\Win64\UE4Editor.exe"
 
             };
@@ -427,9 +451,9 @@ namespace DroneNien
         {
             string[] possiblePaths =
             {
-                @"A:\ScienceResearch\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                @"C:\Users\" + Environment.UserName + @"\Documents\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
-                @"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject"
+                @"D:\CityPark\CityParkEnvironment.uproject",
+                //@"C:\Users\" + Environment.UserName + @"\Documents\AirSim\Unreal\Environments\Blocks\Blocks.uproject",
+                //@"C:\Users\vannha2004\source\repos\AirSim\Unreal\Environments\Blocks\Blocks.uproject"
 
             };
 
@@ -442,6 +466,66 @@ namespace DroneNien
             }
 
             return null;
+        }
+
+        //------------------------------------------Get Object Detection Screen------------------------------------------
+        private const int SWP_NOZORDER = 0x0004;
+        private const int SWP_NOSIZE = 0x0001;
+        private const int SWP_NOMOVE = 0x0002;
+        private const int SWP_NOSENDCHANGING = 0x0400;
+        private IntPtr detectionWindowHandle = IntPtr.Zero;
+        public void StartObjectDetection(Border parentBorder, bool hideWindow = false)
+        {
+            // Tìm cửa sổ hiện có với tiêu đề "Object Detection"
+            detectionWindowHandle = IntPtr.Zero;
+            for (int i = 0; i < 10; i++) // Thử tìm trong tối đa 5 giây
+            {
+                detectionWindowHandle = FindWindow(null!, "Object Detection");
+                if (detectionWindowHandle != IntPtr.Zero) break;
+                Thread.Sleep(500);
+            }
+
+            if (detectionWindowHandle != IntPtr.Zero)
+            {
+                if (hideWindow)
+                {
+                    ShowWindow(detectionWindowHandle, SW_HIDE); // Ẩn cửa sổ nếu cần
+                }
+                else
+                {
+                    ShowWindow(detectionWindowHandle, SW_RESTORE); // Hiển thị cửa sổ
+
+                    // Điều chỉnh vị trí tới parentBorder (nếu có)
+                    if (parentBorder != null)
+                    {
+                        int offsetX = -10;
+                        int offsetY = -2;
+                        double scaleFactor = 1.25;
+                        Point borderPos = parentBorder.PointToScreen(new Point(0, 0));
+                        SetWindowPos(
+                            detectionWindowHandle,
+                            IntPtr.Zero,
+                            (int)borderPos.X + offsetX,
+                            (int)borderPos.Y + offsetY,
+                            (int)(parentBorder.ActualWidth * scaleFactor),
+                            (int)(parentBorder.ActualHeight * scaleFactor),
+                            SWP_NOSIZE | SWP_SHOWWINDOW | SWP_NOZORDER);
+                    }
+                }
+            }
+            else
+            {
+                Console.WriteLine("Không tìm thấy cửa sổ với tiêu đề 'Object Detection'.");
+            }
+        }
+
+        // Phương thức để ẩn cửa sổ (nếu cần dùng ở btnUnreal_Click)
+        public void HideObjectDetectionWindow()
+        {
+            if (detectionWindowHandle != IntPtr.Zero)
+            {
+                ShowWindow(detectionWindowHandle, SW_HIDE);
+            }
         }
     }
 }

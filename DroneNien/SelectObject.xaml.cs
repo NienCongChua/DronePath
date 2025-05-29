@@ -1,9 +1,18 @@
-﻿using System.Globalization;
+﻿using System;
+using System.Collections.Generic;
+using System.Globalization;
+using System.Linq;
 using System.Text;
+using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
+using System.Windows.Data;
+using System.Windows.Documents;
+using System.Windows.Input;
+using System.Windows.Media;
+using System.Windows.Media.Imaging;
+using System.Windows.Shapes;
 using System.IO;
-
 namespace DroneNien
 {
     /// <summary>
@@ -12,9 +21,14 @@ namespace DroneNien
     public partial class SelectObject : Window
     {
         private List<SelectableObject> objects;
+        private LoadPython loadPython;
+
         public SelectObject()
         {
             InitializeComponent();
+
+            loadPython = new LoadPython();
+
             objects = new List<SelectableObject>();
             LoadObjects();
             ObjectsList.ItemsSource = objects;
@@ -22,9 +36,15 @@ namespace DroneNien
         private void btnSubmit_Click(object sender, RoutedEventArgs e)
         {
             var selectedObjects = objects.Where(obj => obj.IsChecked).Select(obj => TranslateToEnglish(obj.Name)).ToList();
-            string filePath = "C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\source\\detect\\phathien.txt";
+            string filePath = "D:/NCKH/GitHubNien/AirsimYolo/AirsimYolo/phathien.txt";
             File.WriteAllLines(filePath, selectedObjects);
+            updateFile();
             this.Close();
+        }
+
+        private void updateFile()
+        {
+            loadPython.ProcessPythonFile(@"D:\NCKH\GitHubNien\AirsimYolo\AirsimYolo\updateFile.py");
         }
 
         private string TranslateToEnglish(string vietnameseName)
@@ -38,6 +58,8 @@ namespace DroneNien
                 "Ghế dài" => "bench",
                 "Nhà" => "house",
                 "Cái ô" => "umbrella",
+                "Vạch kẻ đường" => "crosswalk",
+                "Đèn giao thông" => "traffic lights",
                 _ => vietnameseName
             };
         }
@@ -46,13 +68,14 @@ namespace DroneNien
         {
             objects = new List<SelectableObject>
             {
-                new SelectableObject { Name = "Người" },
-                new SelectableObject { Name = "Xe ôtô" },
-                new SelectableObject { Name = "Xe máy" },
+                new SelectableObject { Name = "Human" },
+                new SelectableObject { Name = "Car" },
+                new SelectableObject { Name = "Motorbike" },
                 new SelectableObject { Name = "Container" },
-                new SelectableObject { Name = "Ghế dài" },
-                new SelectableObject { Name = "Nhà" },
-                new SelectableObject { Name = "Cái ô" }
+                new SelectableObject { Name = "Bench" },
+                new SelectableObject { Name = "House" },
+                new SelectableObject { Name = "Umbrella" },
+                new SelectableObject { Name = "Crosswalk" }
             };
         }
         private void SearchBox_TextChanged(object sender, TextChangedEventArgs e)
@@ -89,3 +112,4 @@ namespace DroneNien
         public bool IsChecked { get; set; }
     }
 }
+

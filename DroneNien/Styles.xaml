@@ -1,6 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    
 
     <!-- Window Style -->
     <Style TargetType="Window">
@@ -105,4 +104,87 @@
             </EventTrigger>
         </Style.Triggers>
     </Style>
+
+    <Style x:Key="ModernTextBox" TargetType="TextBox">
+        <Setter Property="Background" Value="Transparent"/>
+        <Setter Property="BorderThickness" Value="0"/>
+        <Setter Property="Foreground" Value="#333333"/>
+        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="VerticalContentAlignment" Value="Center"/>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Border Background="{TemplateBinding Background}"
+                        BorderThickness="{TemplateBinding BorderThickness}"
+                        BorderBrush="{TemplateBinding BorderBrush}">
+                        <ScrollViewer x:Name="PART_ContentHost"/>
+                    </Border>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Placeholder Text Style -->
+    <Style x:Key="HintTextBoxStyle" TargetType="TextBox" BasedOn="{StaticResource ModernTextBox}">
+        <Style.Resources>
+            <VisualBrush x:Key="HintBrush" AlignmentX="Left" AlignmentY="Center" Stretch="None">
+                <VisualBrush.Visual>
+                    <TextBlock Text="Search objects..." 
+                           Foreground="#95A5A6"
+                           FontStyle="Italic"
+                           Margin="5,0,0,0"/>
+                </VisualBrush.Visual>
+            </VisualBrush>
+        </Style.Resources>
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="TextBox">
+                    <Grid>
+                        <Border Background="{TemplateBinding Background}"
+                            BorderThickness="{TemplateBinding BorderThickness}"
+                            BorderBrush="{TemplateBinding BorderBrush}"
+                            CornerRadius="5">
+                            <ScrollViewer x:Name="PART_ContentHost"/>
+                        </Border>
+                        <TextBlock Text="Search objects..." 
+                               Foreground="#95A5A6"
+                               FontStyle="Italic"
+                               Margin="15,0,0,0"
+                               VerticalAlignment="Center"
+                               Visibility="Collapsed"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <!--<Trigger Property="Text" Value="{x:Static sys:String.Empty}">
+                            <Setter Property="Background" Value="{StaticResource HintBrush}"/>
+                        </Trigger>-->
+                        <Trigger Property="Text" Value="{x:Null}">
+                            <Setter Property="Background" Value="{StaticResource HintBrush}"/>
+                        </Trigger>
+                        <Trigger Property="IsKeyboardFocused" Value="True">
+                            <Setter Property="Background" Value="Transparent"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <!-- Định nghĩa gradient cho tiêu đề -->
+    <LinearGradientBrush x:Key="TitleGradient" StartPoint="0,0" EndPoint="1,1">
+        <GradientStop Color="#2C3E50" Offset="0"/>
+        <GradientStop Color="#4A90E2" Offset="0.7"/>
+    </LinearGradientBrush>
+
+    <!-- Style cho TextBlock tiêu đề -->
+    <Style x:Key="MainTitleStyle" TargetType="TextBlock" BasedOn="{StaticResource {x:Type TextBlock}}">
+        <Setter Property="Text" Value="SELECT OBJECTS TO DETECT"/>
+        <Setter Property="FontSize" Value="32"/>
+        <Setter Property="FontWeight" Value="Black"/>
+        <Setter Property="Margin" Value="0,0,0,30"/>
+        <Setter Property="HorizontalAlignment" Value="Center"/>
+        <Setter Property="Foreground" Value="{StaticResource TitleGradient}"/>
+        <Setter Property="TextAlignment" Value="Center"/>
+        <Setter Property="TextBlock.TextDecorations" Value="Underline"/>
+    </Style>
+    
 </ResourceDictionary>

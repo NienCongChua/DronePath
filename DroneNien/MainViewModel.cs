@@ -9,8 +9,9 @@ namespace DroneNien
     {
         private ObservableCollection<string> _objectNames;
         private ObservableCollection<int> _objectCount;
+        public DroneViewModel DroneVM { get; set; } 
         private FileSystemWatcher _fileWatcher;
-        private string _filePath = "C:\\Users\\NienNguyen\\Desktop\\DronePath\\DroneNien\\source\\detect\\detection_counts.txt";
+        private string _filePath = "D:\\NCKH\\GitHubNien\\DronePath-main\\DronePath-main\\DroneNien\\source\\detect\\detection_counts.txt";
 
         public ObservableCollection<string> ObjectNames
         {
@@ -34,6 +35,7 @@ namespace DroneNien
 
         public MainViewModel()
         {
+            DroneVM = new DroneViewModel();
             ObjectNames = new ObservableCollection<string>();
             ObjectCount = new ObservableCollection<int>();
             UpdateObjectData();

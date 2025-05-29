@@ -14,6 +14,7 @@ with open("C:/Users/NienNguyen/Desktop/DronePath/DroneNien/source/detect/phathie
     allowed_objects = {line.strip().lower() for line in file}
 
 # Khởi tạo âm thanh
+
 pygame.mixer.init()
 sound = pygame.mixer.Sound("C:/Users/NienNguyen/Desktop/DronePath/DroneNien/source/detect/warning1.mp3")
 
@@ -54,21 +55,12 @@ scale_percent = 0.5  # Tỉ lệ hình ảnh hiển thị (50%)
 # Ngưỡng confidence để hiển thị bounding box
 CONFIDENCE_THRESHOLD = 0.6
 
-# Dictionary to keep track of detection counts
-detection_counts = {obj: 0 for obj in allowed_objects}
-
-def update_detection_file():
-    with open("C:/Users/NienNguyen/Desktop/DronePath/DroneNien/source/detect/detection_counts.txt", "w") as file:
-        for obj, count in detection_counts.items():
-            file.write(f"{obj}: {count}\n")
-
 while True:
     pitch_rate = yaw_rate = roll_rate = 0.0
     throttle = base_throttle
 
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
-            update_detection_file()
             pygame.quit()
             sys.exit()
 
@@ -96,7 +88,6 @@ while True:
     temp_image = AirSim_client.simGetImage('0', image_types["scene"])
     if temp_image is None:
         print("Warning: Failed to read a frame!")
-        update_detection_file()
         pygame.quit()
         sys.exit()
 
@@ -128,18 +119,18 @@ while True:
                 # Chỉ xử lý nếu object nằm trong danh sách được chọn
                 if label in allowed_objects:
                     detected_classes.add(class_id)
-                    detection_counts[label] += 1
-                    update_detection_file()  # Update file in real-time
                     cv2.rectangle(image, (x1, y1), (x2, y2), (0, 255, 0), 2)
                     cv2.putText(image, f"{label} {confidence:.2f}", (x1, y1 - 10),
                                 cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
 
     # Phát âm thanh nếu phát hiện đối tượng
+
     if detected_classes:
         if not pygame.mixer.get_busy():
             sound.play()
     else:
         sound.stop()
+  
 
     # Hiển thị ảnh
     img_rgb = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
@@ -149,6 +140,5 @@ while True:
     pygame.display.flip()
 
     if scan_wrapper[pygame.K_ESCAPE]:
-        update_detection_file()
         pygame.quit()
         sys.exit()

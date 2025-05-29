@@ -4,85 +4,266 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DroneNien"
+        xmlns:sys="clr-namespace:System;assembly=mscorlib"
         mc:Ignorable="d"
-        Title="Select Object" Height="450" Width="800">
+        Title="Select Detection Objects" Height="550" Width="900"
+        WindowStartupLocation="CenterScreen"
+        WindowStyle="SingleBorderWindow" ResizeMode="CanResize">
+    <Window.Background>
+        <LinearGradientBrush StartPoint="0,0" EndPoint="1,1">
+            <GradientStop Color="#E6F0FA" Offset="0"/>
+            <GradientStop Color="#D0E3FF" Offset="0.5"/>
+            <GradientStop Color="#B8D6FF" Offset="1"/>
+        </LinearGradientBrush>
+    </Window.Background>
+
     <Window.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
                 <ResourceDictionary Source="Styles.xaml"/>
             </ResourceDictionary.MergedDictionaries>
+
+            <!-- Modern Button Style -->
+            <Style TargetType="Button" x:Key="ModernButton">
+                <Setter Property="Background" Value="#4A90E2"/>
+                <Setter Property="Foreground" Value="White"/>
+                <Setter Property="BorderThickness" Value="0"/>
+                <Setter Property="FontSize" Value="18"/>
+                <Setter Property="FontWeight" Value="SemiBold"/>
+                <Setter Property="Padding" Value="15,8"/>
+                <Setter Property="Cursor" Value="Hand"/>
+                <Setter Property="Effect">
+                    <Setter.Value>
+                        <DropShadowEffect BlurRadius="8" ShadowDepth="2" Opacity="0.2" Color="#000000"/>
+                    </Setter.Value>
+                </Setter>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="Button">
+                            <Border x:Name="border" 
+                                    Background="{TemplateBinding Background}"
+                                    CornerRadius="8"
+                                    BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" 
+                                                  VerticalAlignment="Center"/>
+                            </Border>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#3A7BC8"/>
+                                    <Setter TargetName="border" Property="Effect">
+                                        <Setter.Value>
+                                            <DropShadowEffect BlurRadius="12" ShadowDepth="3" Opacity="0.3" Color="#000000"/>
+                                        </Setter.Value>
+                                    </Setter>
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="True">
+                                    <Setter Property="Background" Value="#2A6099"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- SelectableObject Item Template -->
+            <DataTemplate x:Key="ObjectItemTemplate">
+                <Border Background="#FFFFFF" CornerRadius="8" Margin="10" Padding="0"
+                        BorderThickness="1" BorderBrush="#E0E0E0"
+                        Effect="{StaticResource ItemShadow}">
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="Auto"/>
+                            <ColumnDefinition Width="*"/>
+                        </Grid.ColumnDefinitions>
+
+                        <!-- Checkbox with custom style -->
+                        <CheckBox x:Name="ItemCheckBox" 
+                                  IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                  VerticalAlignment="Center" HorizontalAlignment="Center"
+                                  Margin="20,0" Style="{StaticResource ModernCheckBox}"/>
+
+                        <!-- Object name with hover effect -->
+                        <Border Grid.Column="1" Background="Transparent" Padding="12,16">
+                            <TextBlock Text="{Binding Name}" 
+                                       FontSize="22"
+                                       VerticalAlignment="Center"
+                                       Margin="20,0"
+                                       Foreground="#333333"/>
+                        </Border>
+
+                        <!-- Hover overlay -->
+                        <Grid.Style>
+                            <Style TargetType="Grid">
+                                <Style.Triggers>
+                                    <Trigger Property="IsMouseOver" Value="True">
+                                        <Setter Property="Background" Value="#F0F7FF"/>
+                                    </Trigger>
+                                </Style.Triggers>
+                            </Style>
+                        </Grid.Style>
+                    </Grid>
+                </Border>
+            </DataTemplate>
+
+            <!-- Modern CheckBox Style -->
+            <Style x:Key="ModernCheckBox" TargetType="CheckBox">
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="CheckBox">
+                            <Grid>
+                                <Border x:Name="checkBoxBorder"
+                                        Width="26" Height="26"
+                                        CornerRadius="4"
+                                        BorderThickness="1.5"
+                                        BorderBrush="#4A90E2"
+                                        Background="White">
+                                    <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                </Border>
+                                <Path x:Name="checkMark"
+                                      Width="14" Height="14"
+                                      Data="M3.5,7 L7,10.5 L14.5,3"
+                                      Stroke="#FFFFFF"
+                                      StrokeThickness="2"
+                                      Visibility="Collapsed"/>
+                            </Grid>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Setter TargetName="checkBoxBorder" Property="Background" Value="#4A90E2"/>
+                                    <Setter TargetName="checkMark" Property="Visibility" Value="Visible"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter TargetName="checkBoxBorder" Property="BorderBrush" Value="#357ABD"/>
+                                    <Setter TargetName="checkBoxBorder" Property="Background" Value="#F5FAFF"/>
+                                </Trigger>
+                                <Trigger Property="IsChecked" Value="True">
+                                    <Trigger.EnterActions>
+                                        <BeginStoryboard>
+                                            <Storyboard>
+                                                <ColorAnimation Storyboard.TargetName="checkBoxBorder"
+                                                                Storyboard.TargetProperty="Background.Color"
+                                                                From="#F5FAFF" To="#4A90E2"
+                                                                Duration="0:0:0.2"/>
+                                            </Storyboard>
+                                        </BeginStoryboard>
+                                    </Trigger.EnterActions>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+
+            <!-- DropShadow for items -->
+            <DropShadowEffect x:Key="ItemShadow" BlurRadius="6" ShadowDepth="1" Opacity="0.15" Color="#000000"/>
         </ResourceDictionary>
     </Window.Resources>
-    <Grid Margin="0">
-        <Grid Background="#D9E6F3 ">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="60"/>
-                <RowDefinition Height="*"/>
-                <RowDefinition Height="60"/>
-            </Grid.RowDefinitions>
-            <!-- Header with Search -->
-            <Border Grid.Row="0" BorderBrush="Black" BorderThickness="0,0,0,1" Background="#D9E6F3">
-                <Grid>
-                    <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" VerticalAlignment="Center">
-                        <!-- Search Box -->
-                        <Border Width="540"
-                                Height="40"
-                                BorderBrush="Black"
-                                BorderThickness="1"
-                                CornerRadius="20,0,0,20">
-                            <Grid>
-                                <TextBox x:Name="SearchBox"
-                                         BorderThickness="0"
-                                         VerticalContentAlignment="Center"
-                                         Padding="15,0,30,0"
-                                         FontSize="16"
-                                         Background="Transparent"
-                                         TextChanged="SearchBox_TextChanged"/>
-                                <!-- Clear Button -->
-                                <Button x:Name="ClearButton"
-                                        Content="✖"
-                                        FontSize="16"
-                                        Width="25"
-                                        Height="25"
-                                        Background="Transparent"
-                                        BorderThickness="0"
-                                        Foreground="Gray"
-                                        VerticalAlignment="Center"
-                                        HorizontalAlignment="Right"
-                                        HorizontalContentAlignment="Center"
-                                        VerticalContentAlignment="Center"
-                                        Margin="0,0,5,0"
-                                        Click="ClearButton_Click"
-                                        Visibility="Visible"/>
-                            </Grid>
-                        </Border>
-                    </StackPanel>
 
+    <Grid Margin="15">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Header with title and search -->
+        <StackPanel Grid.Row="0" Margin="0,0,0,15">
+            <TextBlock Text="SELECT OBJECTS TO DETECT" 
+               FontSize="32"
+               FontWeight="Black"
+               Margin="0,0,0,30"
+               HorizontalAlignment="Center"
+               Foreground="{StaticResource TitleGradient}">
+                <TextBlock.Effect>
+                    <DropShadowEffect BlurRadius="8" ShadowDepth="3" Opacity="0.2"/>
+                </TextBlock.Effect>
+            </TextBlock>
+
+            <!-- Search Box -->
+            <Border Width="600" Height="45" Background="White" CornerRadius="22"
+                    BorderBrush="#A3CFFA" BorderThickness="1"
+                    HorizontalAlignment="Center">
+                <Grid>
+                    <TextBox x:Name="SearchBox"
+                     BorderThickness="0"
+                     VerticalContentAlignment="Center"
+                     Padding="20,0,40,0"
+                     FontSize="18" 
+                     Background="Transparent"
+                     TextChanged="SearchBox_TextChanged"
+                    Style="{StaticResource HintTextBoxStyle}"/>
+
+                    <Button x:Name="ClearButton"
+                            Content="✖"
+                            FontSize="16"
+                            Width="36"
+                            Height="36"
+                            Background="Transparent"
+                            BorderThickness="0"
+                            Foreground="#95A5A6"
+                            VerticalAlignment="Center"
+                            HorizontalAlignment="Right"
+                            Margin="0,0,10,0"
+                            Click="ClearButton_Click"
+                            Visibility="Collapsed"/>
                 </Grid>
             </Border>
-            <!-- Content Area -->
-            <Grid Grid.Row="1" Margin="15">
-                <ScrollViewer VerticalScrollBarVisibility="Auto" VerticalAlignment="Top">
-                    <ItemsControl x:Name="ObjectsList" Margin="0,10,0,0" VerticalAlignment="Top">
-                        <ItemsControl.ItemsPanel>
-                            <ItemsPanelTemplate>
-                                <UniformGrid Columns="3"/>
-                            </ItemsPanelTemplate>
-                        </ItemsControl.ItemsPanel>
-                        <ItemsControl.ItemTemplate>
-                            <DataTemplate>
-                                <StackPanel Orientation="Horizontal">
-                                    <Image Source="pack://application:,,,/DroneNien;component/source/your-image.png" Width="30" Height="30"/>
-                                    <CheckBox Content="{Binding Name}" IsChecked="{Binding IsChecked, Mode=TwoWay}" FontSize="16"/>
-                                </StackPanel>
-                            </DataTemplate>
-                        </ItemsControl.ItemTemplate>
-                    </ItemsControl>
-                </ScrollViewer>
-            </Grid>
-            <!-- Submit Button -->
-            <Button Grid.Row="2" x:Name="btnSubmit" Content="Xác nhận" Click="btnSubmit_Click"
-                    HorizontalAlignment="Center" FontSize="25" Width="150" Height="45"/>
-        </Grid>
+        </StackPanel>
+
+        <!-- Content Area -->
+        <Border Grid.Row="1" CornerRadius="8" Background="#F5FAFF" Padding="5">
+            <ScrollViewer VerticalScrollBarVisibility="Auto" Padding="5">
+                <ItemsControl x:Name="ObjectsList" ItemsSource="{Binding}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Columns="4" Rows="2" 
+                                         HorizontalAlignment="Center"
+                                         Margin="80,0"/>
+                        </ItemsPanelTemplate>
+
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate>
+                            <Border Width="200" Height="80" Margin="10"
+                            Background="White" CornerRadius="8"
+                            BorderThickness="1" BorderBrush="#E0E0E0"
+                            Effect="{StaticResource ItemShadow}">   
+
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="Auto"/>
+                                        <ColumnDefinition Width="*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox IsChecked="{Binding IsChecked, Mode=TwoWay}"
+                                              Style="{StaticResource ModernCheckBox}"
+                                              VerticalAlignment="Center" Margin="15,0"/>
+
+                                    <TextBlock Grid.Column="1" Text="{Binding Name}"
+                                               FontSize="18" VerticalAlignment="Center"
+                                               Margin="15,0" Foreground="#333333"/>
+
+                                    <Grid.Style>
+                                        <Style TargetType="Grid">
+                                            <Style.Triggers>
+                                                <Trigger Property="IsMouseOver" Value="True">
+                                                    <Setter Property="Background" Value="#F0F7FF"/>
+                                                </Trigger>
+                                            </Style.Triggers>
+                                        </Style>
+                                    </Grid.Style>
+                                </Grid>
+                            </Border>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </ScrollViewer>
+        </Border>
+
+        <!-- Submit Button -->
+        <Button Grid.Row="2" x:Name="btnSubmit" Content="CONFIRM SELECTION" 
+                Click="btnSubmit_Click" HorizontalAlignment="Center" 
+                VerticalAlignment="Center" Margin="0,15,0,0"
+                Width="280" Height="50" FontSize="23"
+                Style="{StaticResource ModernButton}"/>
     </Grid>
 </Window>

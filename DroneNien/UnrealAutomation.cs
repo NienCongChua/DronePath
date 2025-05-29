@@ -24,7 +24,7 @@ namespace DroneNien
         public static void TriggerPlayShortcut()
         {
             // Tên cửa sổ Unreal Editor (cần chính xác)
-            string windowName = "Blocks - Unreal Editor";
+            string windowName = "CityParkEnvironment - Unreal Editor";
 
             // Lặp kiểm tra cửa sổ xuất hiện
             IntPtr hWnd = IntPtr.Zero;
